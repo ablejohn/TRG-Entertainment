@@ -1,0 +1,142 @@
+/* Hero Section Styles */
+.hero-section {
+    position: relative;
+    height: 100vh; /* Full viewport height */
+    width: 100%;
+    overflow: hidden; /* Ensure content doesn't spill over */
+  }
+  
+  .hero-section video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1; /* Place video background behind content */
+  }
+  
+  .hero-content {
+    position: relative;
+    z-index: 1; /* Ensure content appears above the video */
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+  }
+  
+  .hero-content .text-center {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .hero-content h1 {
+    font-size: 3rem; /* Responsive font size */
+    font-weight: bold;
+    color: #e3342f; /* Red tone for headings */
+    margin-bottom: 1rem;
+    animation: fadeInUp 1s ease-in-out;
+  }
+  
+  .hero-content p {
+    font-size: 1.25rem;
+    color: white;
+    margin-bottom: 2rem;
+    animation: fadeInUp 1.2s ease-in-out;
+  }
+  
+  .hero-content button {
+    background: #e3342f; /* Match button to branding */
+    color: white;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: medium;
+    border: none;
+    border-radius: 0.5rem;
+    transition: background 0.3s ease-in-out;
+  }
+  
+  .hero-content button:hover {
+    background: #cc2b27; /* Darker red on hover */
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* What We Do Section */
+  section {
+    position: relative;
+    z-index: 0; /* Lower stacking context than Hero */
+    padding: 4rem 0;
+    background-color: white;
+    margin-top: 0; /* Prevent unnecessary gaps */
+  }
+  
+  /* General Styling */
+  body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+  
+  h2 {
+    font-size: 2rem;
+    color: #e3342f; /* Match to branding */
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .card {
+    background: #1a1a1a;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    overflow: hidden;
+  }
+  
+  .card h5 {
+    color: #e3342f; /* Red tone for titles */
+  }
+  
+  .card p {
+    color: #ccc; /* Light gray for text */
+  }
+  .hero-content p {
+    font-size: 1.5rem; /* Larger text for visibility */
+    color: rgba(255, 255, 255, 0.9); /* Bright white with slight transparency */
+    margin-bottom: 2rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Shadow for contrast */
+    line-height: 1.6; /* Improved line spacing */
+    animation: fadeInUp 1.5s ease-in-out; /* Smooth fade-in effect */
+  }
+  .hero-subtitle {
+    font-size: 3rem; /* Make the subtitle larger */
+    color: black; /* Use red for visibility (change to black or white as needed) */
+    margin-bottom: 2rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Optional shadow for contrast */
+    line-height: 3.0; /* Increase line height for better readability */
+  }
+  
+  
+  
+  /* Optional: Add a responsive adjustment for smaller screens */
+  @media (max-width: 768px) {
+    .hero-content p {
+      font-size: 1.2rem; /* Slightly reduce font size on smaller screens */
+    }
+  }
+  
