@@ -1,94 +1,71 @@
+/* General Styling */
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #f8f9fa; /* Light gray background for sections */
+  color: #333; /* Dark text for readability */
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
 /* Hero Section Styles */
 .hero-section {
-    position: relative;
-    height: 100vh; /* Full viewport height */
-    width: 100%;
-    overflow: hidden; /* Ensure content doesn't spill over */
-  }
-  
-  .hero-section video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -1; /* Place video background behind content */
-  }
-  
-  .hero-content {
-    position: relative;
-    z-index: 1; /* Ensure content appears above the video */
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
-  }
-  
-  .hero-content .text-center {
-    position: relative;
-    overflow: hidden;
-  }
-  
-  .hero-content h1 {
-    font-size: 3rem; /* Responsive font size */
-    font-weight: bold;
-    color: #e3342f; /* Red tone for headings */
-    margin-bottom: 1rem;
-    animation: fadeInUp 1s ease-in-out;
-  }
-  
-  .hero-content p {
-    font-size: 1.25rem;
-    color: white;
-    margin-bottom: 2rem;
-    animation: fadeInUp 1.2s ease-in-out;
-  }
-  
-  .hero-content button {
-    background: #e3342f; /* Match button to branding */
-    color: white;
-    padding: 0.75rem 1.5rem;
-    font-size: 1rem;
-    font-weight: medium;
-    border: none;
-    border-radius: 0.5rem;
-    transition: background 0.3s ease-in-out;
-  }
-  
-  .hero-content button:hover {
-    background: #cc2b27; /* Darker red on hover */
-  }
-  
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  /* Add these styles to your Home.css */
-
-.text-container {
+  position: relative;
+  height: 100vh;
   width: 100%;
   overflow: hidden;
-  position: relative;
+}
+
+.hero-section video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.hero-content {
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transform: translateY(-65px); /* instead of using - margins */
+}
+
+
+
+/* Sliding Text Container */
+.sliding-text-container {
+  position: absolute;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .sliding-text {
-  display: inline-block;
+  text-align: center;
   white-space: nowrap;
-  animation: slideText 20s linear infinite;
+  font-size: 4rem;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-.script-font {
-  font-family: 'Dancing Script', cursive; /* You'll need to import this font */
-  font-style: italic;
-  color: white;
+.sliding-text span.script {
+  font-family: 'Dancing Script', cursive;
+  margin: 0 1rem;
 }
 
 @keyframes slideText {
@@ -100,98 +77,110 @@
   }
 }
 
-/* Adjust video overlay */
-.video-overlay {
-  background: rgba(0, 0, 0, 0.5);
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+/* Keep your existing responsive styles */
+@media (max-width: 768px) {
+  .sliding-text {
+    font-size: 2.5rem;
+  }
 }
 
-/* Ensure video covers full viewport */
-video {
-  min-width: 100%;
-  min-height: 100%;
-  width: auto;
-  height: auto;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+/* Keep all your existing styles for other sections below this */
+
+/* What We Do Section */
+section {
+  padding: 4rem 0;
+  background-color: #ffffff;
 }
 
-/* Make text more visible */
-.hero-text {
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+h2 {
+  font-size: 2.5rem;
+  color: #e3342f; /* Match to branding */
+  text-align: center;
+  margin-bottom: 2rem;
+  font-weight: bold;
 }
-  
-  /* What We Do Section */
-  section {
-    position: relative;
-    z-index: 0; /* Lower stacking context than Hero */
-    padding: 4rem 0;
-    background-color: white;
-    margin-top: 0; /* Prevent unnecessary gaps */
+
+.card {
+  background: #1a1a1a;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.card h5 {
+  color: #e3342f; /* Red tone for titles */
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.card p {
+  color: #ccc; /* Light gray for text */
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Spotify Playlist & Contact Section */
+.py-16 {
+  padding: 4rem 0;
+}
+
+.bg-black {
+  background-color: #000000;
+}
+
+.text-white {
+  color: #ffffff;
+}
+
+.text-danger {
+  color: #e3342f;
+}
+
+.form-control {
+  border: 1px solid #ccc;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: #e3342f;
+  box-shadow: 0 0 5px rgba(227, 52, 47, 0.5);
+}
+
+.btn-danger {
+  background: #e3342f;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  transition: background 0.3s ease-in-out;
+}
+
+.btn-danger:hover {
+  background: #cc2b27;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 2.5rem; /* Adjust for smaller screens */
   }
-  
-  /* General Styling */
-  body {
-    margin: 0;
-    font-family: 'Arial', sans-serif;
-  }
-  
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1rem;
-  }
-  
-  h2 {
-    font-size: 2rem;
-    color: #e3342f; /* Match to branding */
-    text-align: center;
-    margin-bottom: 2rem;
-  }
-  
-  .card {
-    background: #1a1a1a;
-    color: white;
-    border: none;
-    border-radius: 0.5rem;
-    overflow: hidden;
-  }
-  
-  .card h5 {
-    color: #e3342f; /* Red tone for titles */
-  }
-  
-  .card p {
-    color: #ccc; /* Light gray for text */
-  }
+
   .hero-content p {
-    font-size: 1.5rem; /* Larger text for visibility */
-    color: rgba(255, 255, 255, 0.9); /* Bright white with slight transparency */
-    margin-bottom: 2rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Shadow for contrast */
-    line-height: 1.6; /* Improved line spacing */
-    animation: fadeInUp 1.5s ease-in-out; /* Smooth fade-in effect */
+    font-size: 1.2rem;
   }
-  .hero-subtitle {
-    font-size: 3rem; /* Make the subtitle larger */
-    color: black; /* Use red for visibility (change to black or white as needed) */
-    margin-bottom: 2rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Optional shadow for contrast */
-    line-height: 3.0; /* Increase line height for better readability */
+
+  .card {
+    margin-bottom: 1.5rem;
   }
-  
-  
-  
-  /* Optional: Add a responsive adjustment for smaller screens */
-  @media (max-width: 768px) {
-    .hero-content p {
-      font-size: 1.2rem; /* Slightly reduce font size on smaller screens */
-    }
-  }
-  
+}

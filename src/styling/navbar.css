@@ -16,10 +16,15 @@
   }
   
   .brand-text {
-    font-size: 1.0rem; /* Adjust the size as needed */
-    color: white;
-    margin-top: 0.1rem; /* Reduced space between logo and text */
+    font-size: 1.0rem; 
+    color: #FF5733; /* Brand's 3rd color */
+    margin-top: 0.1rem;
+    text-align: center;
+    transform: translateX(10px);
+    font-weight: bold; 
+    text-shadow: 1px  white; /
   }
+  
   
   
   .overlay {

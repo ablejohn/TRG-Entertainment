@@ -29,7 +29,7 @@ function Navbar() {
           height="90"
           className="d-inline-block align-top"
         />
-        <div className="brand-text">TRG Entertainment</div>
+        <div className="brand-text">TRG-ENT</div>
       </div>
       {/* Overlay Menu */}
       <div
