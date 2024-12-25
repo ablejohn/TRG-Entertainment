@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from "react";
 import videoBg from "../assets/video.mp4";
-
+import "../styling/Hero.css";
 const Hero = () => {
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
 
   const texts = [
     "Where <span class='script'>Entertainment</span> Connects",
-    "Your Gateway to <span class='script'>Music</span> & <span class='script'>Talent</span>",
-    "Bringing <span class='script'>Artists</span> & <span class='script'>Audiences</span> Together",
-    "Empowering <span class='script'>Creativity</span>, Amplifying <span class='script'>Success</span>",
+    "The Gateway to <span class='script'>Music</span> & <span class='script'>Talent</span>",
+    "Bringing <span class='script'>Artists</span>&<span class='script'>Audiences</span>Together",
   ];
 
   useEffect(() => {

@@ -7,11 +7,13 @@ function Navbar() {
   const [isActive, setIsActive] = useState(false);
 
   const menuItems = [
-    { id: 1, link: "/", text: "Home", bgColor: "#626059" },
-    { id: 2, link: "/about", text: "About", bgColor: "#9d5543" },
-    { id: 3, link: "/skills", text: "Skills", bgColor: "#3d405b" },
-    { id: 4, link: "/projects", text: "Projects", bgColor: "#5a7d6c" },
-    { id: 5, link: "/contact", text: "Contact", bgColor: "#917a56" },
+    { id: 1, link: "/", text: "Home", bgColor: "black" }, // Home background color
+    { id: 2, link: "/about", text: "About Us", bgColor: "#FF5733" }, // 3rd secondary color
+    { id: 3, link: "/skills", text: "Talent", bgColor: "#3d405b" }, // Dark Slate Blue
+    { id: 4, link: "/projects", text: "Our Services", bgColor: "#FFD700" }, // Dark Orange
+    { id: 5, link: "/contact", text: "Contact us", bgColor: "#32CD32" }, // Lime Green
+    { id: 6, link: "/booking", text: "Book a Session", bgColor: "#1E90FF" }, // Dodger Blue
+    { id: 7, link: "/blog", text: "Blog", bgColor: "#800080" }, //PURPLE
   ];
 
   const toggleNav = () => {
