@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
 import videoBg from "../assets/video.mp4";
 import "../styling/Hero.css";
+
 const Hero = () => {
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
 
   const texts = [
     "Where <span class='script'>Entertainment</span> Connects",
     "The Gateway to <span class='script'>Music</span> & <span class='script'>Talent</span>",
-    "Bringing <span class='script'>Artists</span>&<span class='script'>Audiences</span>Together",
+    "Bringing <span class='script'>Artists</span>&<span class='script'>Audiences</span> Together",
   ];
 
   useEffect(() => {
@@ -28,6 +29,14 @@ const Hero = () => {
             className="sliding-text"
             dangerouslySetInnerHTML={{ __html: texts[currentTextIndex] }}
           />
+        </div>
+        <div className="hero-buttons">
+          <a href="/trg-music" className="hero-button">
+            TRG Music Production
+          </a>
+          <a href="/trg-agency" className="hero-button hero-button-secondary">
+            TRG Agency
+          </a>
         </div>
       </div>
     </section>

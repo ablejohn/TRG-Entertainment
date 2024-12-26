@@ -1,12 +1,11 @@
-/* hero-section*/
+/* hero-section */
 .hero-section {
     position: relative;
     height: 100vh;
     overflow: hidden;
-    
-  }
-  
-  .hero-section video {
+}
+
+.hero-section video {
     position: absolute;
     top: 0;
     left: 0;
@@ -14,66 +13,139 @@
     height: 100%;
     object-fit: cover;
     z-index: 1;
-  }
-  
-  .hero-content {
+}
+
+.hero-content {
     position: absolute;
     z-index: 2;
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.5);
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     overflow: hidden;
     transform: translateY(-65px);
-  }
-  
-  .sliding-text-container {
+}
+
+.sliding-text-container {
     position: absolute;
     width: 100%;
     white-space: nowrap;
     overflow: hidden;
-  }
-  
-  .sliding-text {
+}
+
+.sliding-text {
     text-align: center;
     white-space: nowrap;
     font-size: 4rem;
     color: white;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  }
-  
-  .sliding-text span.script {
+}
+
+.sliding-text span.script {
     font-family: 'Dancing Script', cursive;
     margin: 0 1rem;
     color: #FF5733; /* Brand's 3rd color */
-  }
-  
-  /* Media Query for Smaller Screens */
-  @media (max-width: 768px) {
+}
+
+/* Hero Buttons */
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 5px;
+}
+
+.hero-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    color: white;
+    background-color: #FF5733; /* Matches brand's 3rd color */
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-family: 'Lucida Sans', sans-serif;
+    margin-top: 20rem;
+}
+
+.hero-button:hover {
+    background-color: #C13C1E; /* Darker shade for hover effect */
+    transform: scale(1.05);
+}
+
+.hero-button-secondary {
+    background-color: black;
+    border: 1px solid #FF5733; /* Matches brand's 3rd color */
+}
+
+.hero-button-secondary:hover {
+    background-color: #FF5733;
+    color: white;
+}
+
+/* Media Query for Smaller Screens */
+@media (max-width: 768px) {
     .sliding-text-container {
-      white-space: normal; 
-      
+        white-space: normal; 
     }
     .sliding-text {
-      font-size: 2rem; 
-      text-align: center;
-      
-      
+        font-size: 2rem; 
+        text-align: center;
     }
-  }
-  
-  @media (max-width: 480px) {
+    .hero-buttons {
+        display: flex; 
+        flex-direction: row; 
+        align-items: center; /* Center align buttons */
+        justify-content: center; /* Center buttons vertically in the container */
+        gap: 10px; /* Add spacing between buttons */
+        
+        width: 100%; /* Ensure buttons fit within the container */
+        overflow: visible; /* Prevent buttons from being cut off */
+    }
+
+    .hero-buttons button {
+        width: auto; /* Ensure buttons don't shrink too much */
+        max-width: 90%; /* Optional: Constrain button width */
+        text-align: center; /* Center text inside buttons */
+    }
+    .hero-button {
+        font-size: 0.9rem; /* Slightly smaller font for very small screens */
+        padding: 8px 16px; /* Adjust padding for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
     .sliding-text-container {
-      white-space: normal; 
-      
+        white-space: normal; 
     }
     .sliding-text {
-      font-size: 1.3rem; 
-      text-align: center;
-      
+        font-size: 1.3rem; 
+        text-align: center;
     }
-  }
-  
+    .hero-buttons {
+        display: flex; /* Ensure flexbox is applied */
+        flex-direction: row; /* Stack buttons vertically */
+        align-items: center; /* Center align buttons */
+        justify-content: center; /* Center buttons vertically in the container */
+        gap: 10px; /* Add spacing between buttons */
+     
+        width: 100%; /* Ensure buttons fit within the container */
+        overflow: visible; /* Prevent buttons from being cut off */
+    }
+
+    .hero-buttons button {
+        width: auto; /* Ensure buttons don't shrink too much */
+        max-width: 90%; /* Optional: Constrain button width */
+        text-align: center; /* Center text inside buttons */
+    }
+    .hero-button {
+        font-size: 0.9rem; /* Slightly smaller font for very small screens */
+        padding: 8px 16px; /* Adjust padding for smaller screens */
+    }
+}
+
