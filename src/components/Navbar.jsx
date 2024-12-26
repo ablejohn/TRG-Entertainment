@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "../styling/navbar.css";
-import logo from "../assets/logo.png"; // Adjust the path as needed
+import logo from "../assets/logo.jpg"; // Adjust the path as needed
 
 function Navbar() {
   const [isActive, setIsActive] = useState(false);
@@ -24,15 +24,16 @@ function Navbar() {
     <div className="navbar-container">
       {/* Logo and Brand */}
       <div className="navbar-brand">
-        <img
-          src={logo}
-          alt="Logo"
-          width="90"
-          height="90"
-          className="d-inline-block align-top"
-          style={{ mixBlendMode: "multiply", marginTop: "20px" }}
-        />
-
+        <Link to="/">
+          <img
+            src={logo}
+            alt="Logo"
+            width="90"
+            height="90"
+            className="d-inline-block align-top"
+            style={{ mixBlendMode: "multiply", marginTop: "20px" }}
+          />
+        </Link>
         <div className="brand-text">TRG-ENT</div>
       </div>
       {/* Overlay Menu */}
