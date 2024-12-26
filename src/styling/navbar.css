@@ -1,10 +1,13 @@
 /* navbar.css */
 .navbar-container {
-  background-color: black;
+ 
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 1rem;
+  position: fixed; /* Make navbar fixed */
+  width: 100%; /* Full width */
+  z-index: 10; /* Higher z-index to appear above Hero */
 }
 
 .navbar-brand {
@@ -116,33 +119,6 @@ nav li a:hover {
   cursor: pointer;
 }
 
-@media (max-width: 52em) {
-  .hamburger-menu {
-    margin-left: -60px; /* Reduced right margin */
-  }
-  .menu-bar1,
-  .menu-bar2,
-  .menu-bar3 {
-    width: 1.5rem; /* Reduced width */
-    height: 0.15rem; /* Reduced height */
-    margin: 0.6rem 0; /* Reduced margin */
-  }
-}
-
-@media (max-width: 37em) {
-  .hamburger-menu {
-    margin-left: -60px; /* Further reduced right margin */
-  }
-  .menu-bar1,
-  .menu-bar2,
-  .menu-bar3 {
-    width: 1.5rem; /* Further reduced width */
-    height: 0.1rem; /* Further reduced height */
-    margin: 0.4rem 0; /* Further reduced margin */
-  }
-}
-
-
 .menu-bar1,
 .menu-bar2,
 .menu-bar3 {
@@ -170,9 +146,23 @@ nav li a:hover {
   transform: rotate(45deg) translate(-0.6rem, -0.8rem);
 }
 
+/* Media Query for Smaller Screens */
 @media (max-width: 52em) {
+  .navbar-container {
+    padding: 0 0.5rem; /* Reduced padding */
+  }
+  .navbar-brand img {
+    width: 70px; /* Reduced logo size */
+    height: 70px;
+  }
+  .brand-text {
+    font-size: 0.8rem; /* Reduced font size */
+  }
+  nav ul li {
+    height: 12.5%; /* Adjusted height */
+  }
   nav li a {
-    font-size: 1.6rem; /* Further reduced font size for smaller screens */
+    font-size: 1.4rem; /* Further reduced font size */
   }
 }
 
@@ -181,7 +171,20 @@ nav li a:hover {
     top: 0.5rem;
     right: 1rem;
   }
+  .navbar-container {
+    padding: 0 0.25rem; /* Further reduced padding */
+  }
+  .navbar-brand img {
+    width: 50px; /* Further reduced logo size */
+    height: 50px;
+  }
+  .brand-text {
+    font-size: 0.6rem; /* Further reduced font size */
+  }
+  nav ul li {
+    height: 10%; /* Further adjusted height */
+  }
   nav li a {
-    font-size: 1.4rem; /* Further reduced font size for smaller screens */
+    font-size: 1.2rem; /* Further reduced font size */
   }
 }
