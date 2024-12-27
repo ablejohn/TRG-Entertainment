@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "../styling/navbar.css";
-import logo from "../assets/logo.jpg"; // Adjust the path as needed
+import logo from "../assets/logo.png"; // Adjust the path as needed
 
 function Navbar() {
   const [isActive, setIsActive] = useState(false);

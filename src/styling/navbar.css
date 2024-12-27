@@ -25,6 +25,7 @@
   transform: translateX(10px);
   font-weight: bold; 
   text-shadow: 1px  white; 
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
 }
 
 .overlay {
@@ -117,6 +118,8 @@ nav li a:hover {
   right: 2rem;
   z-index: 10;
   cursor: pointer;
+  color:#FF5733 !important;
+  
 }
 
 .menu-bar1,
@@ -157,6 +160,7 @@ nav li a:hover {
   }
   .brand-text {
     font-size: 0.8rem; /* Reduced font size */
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   }
   nav ul li {
     height: 12.5%; /* Adjusted height */

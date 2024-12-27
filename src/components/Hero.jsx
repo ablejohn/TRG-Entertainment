@@ -32,7 +32,7 @@ const Hero = () => {
         </div>
         <div className="hero-buttons">
           <a href="/trg-music" className="hero-button">
-            TRG Music Production
+            TRG Productions
           </a>
           <a href="/trg-agency" className="hero-button hero-button-secondary">
             TRG Agency

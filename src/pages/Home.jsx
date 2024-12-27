@@ -2,11 +2,15 @@ import React from "react";
 import Footer from "../components/Footer";
 import "../styling/Home.css";
 import Hero from "../components/Hero";
+import Welcome from "../components/Welcome";
 
 const Home = () => {
   return (
     <div>
       <Hero />
+
+      {/* Welcome Section */}
+      <Welcome />
 
       {/* Core Services Section */}
       <section className="py-16 bg-white text-black">
@@ -38,7 +42,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Rest of the code remains the same */}
       {/* Spotify Playlist & Contact Section */}
       <section className="py-16 bg-black text-white">
         <div className="container">
