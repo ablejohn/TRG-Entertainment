@@ -155,8 +155,8 @@ nav li a:hover {
     padding: 0 0.5rem; /* Reduced padding */
   }
   .navbar-brand img {
-    width: 70px; /* Reduced logo size */
-    height: 70px;
+    width: 90px; /* Reduced logo size */
+    height: 90px;
   }
   .brand-text {
     font-size: 0.8rem; /* Reduced font size */
@@ -191,4 +191,20 @@ nav li a:hover {
   nav li a {
     font-size: 1.2rem; /* Further reduced font size */
   }
+}
+@media screen and (max-width: 600px) {
+  .navbar-brand img {
+    width: 60px;
+    height: 60px;
+  }
+  .brand-text {
+    font-size: 0.8rem;
+  }
+  nav ul li {
+    height: 12.5%;
+  }
+  nav li a {
+    font-size: 1.4rem;
+  }
+  
 }

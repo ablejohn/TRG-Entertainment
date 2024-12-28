@@ -30,6 +30,7 @@ const Hero = () => {
             dangerouslySetInnerHTML={{ __html: texts[currentTextIndex] }}
           />
         </div>
+
         <div className="hero-buttons">
           <a href="/trg-music" className="hero-button">
             TRG Productions

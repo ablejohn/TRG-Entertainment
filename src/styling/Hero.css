@@ -47,7 +47,7 @@
 
 .sliding-text span.script {
     font-family: 'Dancing Script', cursive;
-    margin: 0 1rem;
+    margin: 0 0.5rem;
     color: #FF5733; /* Brand's 3rd color */
 }
 
@@ -102,6 +102,10 @@
         font-size: 2.5rem; 
         text-align: center;
     }
+    .sliding-text span.script {
+        font-size: 2.0rem;
+        margin: 0 0.2rem;
+    }
     .hero-buttons {
         display: flex; 
         flex-direction: row; 
@@ -133,12 +137,17 @@
         font-size: 1.3rem; 
         text-align: center;
     }
+    .sliding-text span.script {
+        font-size: 1.7rem;
+        margin: 0 0.5rem;
+    }
     .hero-buttons {
         display: flex; /* Ensure flexbox is applied */
         flex-direction: row; /* Stack buttons vertically */
         align-items: center; /* Center align buttons */
         justify-content: center; /* Center buttons vertically in the container */
         gap: 10px; /* Add spacing between buttons */
+        margin-top:-5rem;
      
         width: 100%; /* Ensure buttons fit within the container */
         overflow: visible; /* Prevent buttons from being cut off */
