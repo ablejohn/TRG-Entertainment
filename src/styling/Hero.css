@@ -48,7 +48,7 @@
 .sliding-text span.script {
     font-family: 'Dancing Script', cursive;
     margin: 0 0.5rem;
-    color: #FF5733; /* Brand's 3rd color */
+    color: #ff0055; /* Brand's 3rd color */
 }
 
 /* Hero Buttons */
@@ -59,6 +59,8 @@
     margin-top: 5px;
     animation: fadeInDown 3s ease-out;
     
+
+    
 }
 
 .hero-button {
@@ -66,7 +68,7 @@
     padding: 10px 20px;
     font-size: 1.2rem;
     color: white;
-    background-color: #FF5733; /* Matches brand's 3rd color */
+    background-color: #ff0055; /* Matches brand's 3rd color */
     border: none;
     border-radius: 5px;
     text-decoration: none;

@@ -19,11 +19,11 @@
 
 .brand-text {
   font-size: 1.0rem;
-  color: #FF5733; /* 3rd brand color */
+  color: #ff0055; /* 3rd brand color */
   margin-top: 0.1rem;
   text-align: center;
   transform: translateX(10px);
-  font-weight: bold; 
+  font-weight: bold;  
   text-shadow: 1px  white; 
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
 }
