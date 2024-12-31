@@ -36,7 +36,7 @@ const WWD = () => {
       title: "Management",
       description:
         "Expert artist management services to guide and develop your career in the music industry.",
-      icon: "🎭",
+      icon: "🤝",
     },
     {
       title: "Music Publishing",
