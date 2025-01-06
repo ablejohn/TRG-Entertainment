@@ -5,9 +5,9 @@ const CombinedSection = () => {
     "card bg-dark bg-opacity-90 border-0 shadow-lg h-100 overflow-hidden";
   const gradientOverlay =
     "position-absolute top-0 start-0 w-100 h-100 bg-gradient-primary opacity-10";
-  const floatingInputStyles =
-    "form-control form-control-lg bg-dark bg-opacity-75 border-light border-opacity-25 text-white";
-  const floatingLabelStyles = "form-label text-white-50";
+  const inputStyles =
+    "form-control bg-dark bg-opacity-75 border-light border-opacity-25 text-white py-3";
+  const labelStyles = "form-label text-white-50 fw-bold";
 
   return (
     <section
@@ -26,6 +26,7 @@ const CombinedSection = () => {
             </p>
           </div>
         </div>
+
         <div className="row g-4">
           {/* Playlist Card */}
           <div className="col-lg-4">
@@ -42,6 +43,7 @@ const CombinedSection = () => {
                     height="380"
                     frameBorder="0"
                     allow="encrypted-media"
+                    title="Spotify Playlist"
                   ></iframe>
                 </div>
               </div>
@@ -57,49 +59,40 @@ const CombinedSection = () => {
                   <span className="text-primary me-2">⬤</span> Get in Touch
                 </h3>
                 <form>
-                  <div className="form-floating mb-4">
-                    <input
-                      type="text"
-                      className={floatingInputStyles}
-                      id="contactName"
-                      placeholder="Your Name"
-                    />
-                    <label
-                      htmlFor="contactName"
-                      className={floatingLabelStyles}
-                    >
+                  <div className="mb-3">
+                    <label htmlFor="contactName" className={labelStyles}>
                       Your Name
                     </label>
-                  </div>
-                  <div className="form-floating mb-4">
                     <input
-                      type="email"
-                      className={floatingInputStyles}
-                      id="contactEmail"
-                      placeholder="Email Address"
+                      type="text"
+                      className={inputStyles}
+                      id="contactName"
+                      placeholder="Enter your name"
                     />
-                    <label
-                      htmlFor="contactEmail"
-                      className={floatingLabelStyles}
-                    >
+                  </div>
+                  <div className="mb-3">
+                    <label htmlFor="contactEmail" className={labelStyles}>
                       Email Address
                     </label>
+                    <input
+                      type="email"
+                      className={inputStyles}
+                      id="contactEmail"
+                      placeholder="Enter your email"
+                    />
                   </div>
-                  <div className="form-floating mb-4">
-                    <textarea
-                      className={floatingInputStyles}
-                      id="contactMessage"
-                      placeholder="Your Message"
-                      style={{ height: "120px" }}
-                    ></textarea>
-                    <label
-                      htmlFor="contactMessage"
-                      className={floatingLabelStyles}
-                    >
+                  <div className="mb-3">
+                    <label htmlFor="contactMessage" className={labelStyles}>
                       Your Message
                     </label>
+                    <textarea
+                      className={inputStyles}
+                      id="contactMessage"
+                      placeholder="Write your message"
+                      rows="4"
+                    ></textarea>
                   </div>
-                  <button className="btn btn-primary btn-lg w-100 text-uppercase fw-bold">
+                  <button className="btn btn-primary btn-lg w-100">
                     Send Message
                   </button>
                 </form>
@@ -116,81 +109,58 @@ const CombinedSection = () => {
                   <span className="text-success me-2">⬤</span> Book Your Session
                 </h3>
                 <form>
-                  <div className="form-floating mb-4">
-                    <input
-                      type="text"
-                      className={floatingInputStyles}
-                      id="bookingName"
-                      placeholder="Full Name"
-                    />
-                    <label
-                      htmlFor="bookingName"
-                      className={floatingLabelStyles}
-                    >
+                  <div className="mb-3">
+                    <label htmlFor="bookingName" className={labelStyles}>
                       Full Name
                     </label>
-                  </div>
-                  <div className="form-floating mb-4">
                     <input
-                      type="email"
-                      className={floatingInputStyles}
-                      id="bookingEmail"
-                      placeholder="Email Address"
+                      type="text"
+                      className={inputStyles}
+                      id="bookingName"
+                      placeholder="Enter your full name"
                     />
-                    <label
-                      htmlFor="bookingEmail"
-                      className={floatingLabelStyles}
-                    >
+                  </div>
+                  <div className="mb-3">
+                    <label htmlFor="bookingEmail" className={labelStyles}>
                       Email Address
                     </label>
+                    <input
+                      type="email"
+                      className={inputStyles}
+                      id="bookingEmail"
+                      placeholder="Enter your email"
+                    />
                   </div>
-                  <div className="form-floating mb-4">
-                    <select
-                      className={`${floatingInputStyles} form-select`}
-                      id="bookingService"
-                      placeholder="Service Type"
-                    >
-                      <option value="">Service Type</option>
-                      <option value="consultation" className="bg-dark">
-                        Music Consultation
-                      </option>
-                      <option value="coaching" className="bg-dark">
-                        Private Coaching
-                      </option>
-                      <option value="custom" className="bg-dark">
-                        Custom Session
-                      </option>
-                    </select>
-                    <label
-                      htmlFor="bookingService"
-                      className={floatingLabelStyles}
-                    >
+                  <div className="mb-3">
+                    <label htmlFor="bookingService" className={labelStyles}>
                       Service Type
                     </label>
+                    <select className={inputStyles} id="bookingService">
+                      <option value="">Select a service</option>
+                      <option value="consultation">Music Consultation</option>
+                      <option value="coaching">Private Coaching</option>
+                      <option value="custom">Custom Session</option>
+                    </select>
                   </div>
-                  <div className="form-floating mb-4">
-                    <input
-                      type="date"
-                      className={floatingInputStyles}
-                      id="bookingDate"
-                      placeholder="Select Date"
-                    />
-                    <label
-                      htmlFor="bookingDate"
-                      className={floatingLabelStyles}
-                    >
+                  <div className="mb-3">
+                    <label htmlFor="bookingDate" className={labelStyles}>
                       Select Date
                     </label>
+                    <input
+                      type="date"
+                      className={inputStyles}
+                      id="bookingDate"
+                    />
                   </div>
-                  <button className="btn btn-success btn-lg w-100 text-uppercase fw-bold">
+                  <button className="btn btn-success btn-lg w-100">
                     Book Session
                   </button>
                 </form>
               </div>
             </div>
           </div>
-        </div>{" "}
-        {/* Closing div for row g-4 */}
+        </div>
+
         {/* Footer Note */}
         <div className="row mt-5">
           <div className="col text-center">
