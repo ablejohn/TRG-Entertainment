@@ -1,28 +1,42 @@
 import React from "react";
 
 const CombinedSection = () => {
-  const cardStyles =
-    "card bg-dark bg-opacity-90 border-0 shadow-lg h-100 overflow-hidden";
-  const gradientOverlay =
-    "position-absolute top-0 start-0 w-100 h-100 bg-gradient-primary opacity-10";
-  const inputStyles =
-    "form-control bg-dark bg-opacity-75 border-light border-opacity-25 text-white py-3";
-  const labelStyles = "form-label text-white-50 fw-bold";
+  // Define the gradient overlay style
+  const gradientOverlay = {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    width: "100%",
+    height: "100%",
+    background:
+      "linear-gradient(90deg, rgba(255,0,85,0.5), rgba(255,0,162,0.5))",
+    borderRadius: "inherit",
+  };
 
   return (
     <section
       className="py-5"
-      style={{ background: "linear-gradient(145deg, #000 0%, #1a1a1a 100%)" }}
+      style={{
+        background:
+          "linear-gradient(135deg, black 0%, rgb(17, 8, 8) 60%, black 100%)",
+        borderRadius: "25px",
+        overflow: "hidden",
+      }}
+      id="booking"
     >
       <div className="container py-5">
         {/* Header Section */}
         <div className="row mb-5 text-center">
           <div className="col-lg-8 mx-auto">
-            <h2 className="display-4 text-white fw-bold mb-4">
-              Experience the Music
+            <h2
+              className="display-6 fw-bolder mb-4"
+              style={{ color: "#ff0055" }}
+            >
+              Elevate Your Music Career
             </h2>
+            <div className="title-underline"></div>
             <p className="lead text-white-50">
-              Connect with us and discover your musical journey
+              Join us to explore and elevate your musical talents
             </p>
           </div>
         </div>
@@ -30,8 +44,8 @@ const CombinedSection = () => {
         <div className="row g-4">
           {/* Playlist Card */}
           <div className="col-lg-4">
-            <div className={cardStyles}>
-              <div className={gradientOverlay}></div>
+            <div className="card h-100 bg-transparent border-0 shadow-lg position-relative">
+              <div style={gradientOverlay}></div>
               <div className="card-body p-4 position-relative">
                 <h3 className="text-white fw-bold h4 mb-4">
                   <span className="text-danger me-2">⬤</span> Featured Playlist
@@ -52,47 +66,59 @@ const CombinedSection = () => {
 
           {/* Contact Form Card */}
           <div className="col-lg-4">
-            <div className={cardStyles}>
-              <div className={gradientOverlay}></div>
+            <div className="card h-100 bg-transparent border-0 shadow-lg position-relative">
+              <div style={gradientOverlay}></div>
               <div className="card-body p-4 position-relative">
                 <h3 className="text-white fw-bold h4 mb-4">
                   <span className="text-primary me-2">⬤</span> Get in Touch
                 </h3>
                 <form>
                   <div className="mb-3">
-                    <label htmlFor="contactName" className={labelStyles}>
+                    <label
+                      htmlFor="contactName"
+                      className="form-label text-white-50 fw-bold"
+                    >
                       Your Name
                     </label>
                     <input
                       type="text"
-                      className={inputStyles}
+                      className="form-control bg-dark bg-opacity-75 border-light border-opacity-25 text-white py-3"
                       id="contactName"
                       placeholder="Enter your name"
                     />
                   </div>
                   <div className="mb-3">
-                    <label htmlFor="contactEmail" className={labelStyles}>
+                    <label
+                      htmlFor="contactEmail"
+                      className="form-label text-white-50 fw-bold"
+                    >
                       Email Address
                     </label>
                     <input
                       type="email"
-                      className={inputStyles}
+                      className="form-control bg-dark bg-opacity-75 border-light border-opacity-25 text-white py-3"
                       id="contactEmail"
                       placeholder="Enter your email"
                     />
                   </div>
                   <div className="mb-3">
-                    <label htmlFor="contactMessage" className={labelStyles}>
+                    <label
+                      htmlFor="contactMessage"
+                      className="form-label text-white-50 fw-bold"
+                    >
                       Your Message
                     </label>
                     <textarea
-                      className={inputStyles}
+                      className="form-control bg-dark bg-opacity-75 border-light border-opacity-25 text-white py-3"
                       id="contactMessage"
                       placeholder="Write your message"
                       rows="4"
                     ></textarea>
                   </div>
-                  <button className="btn btn-primary btn-lg w-100">
+                  <button
+                    className="btn btn-lg w-100"
+                    style={{ backgroundColor: "#ff0055", color: "#fff" }}
+                  >
                     Send Message
                   </button>
                 </form>
@@ -102,40 +128,52 @@ const CombinedSection = () => {
 
           {/* Booking Card */}
           <div className="col-lg-4">
-            <div className={cardStyles}>
-              <div className={gradientOverlay}></div>
+            <div className="card h-100 bg-transparent border-0 shadow-lg position-relative">
+              <div style={gradientOverlay}></div>
               <div className="card-body p-4 position-relative">
                 <h3 className="text-white fw-bold h4 mb-4">
                   <span className="text-success me-2">⬤</span> Book Your Session
                 </h3>
                 <form>
                   <div className="mb-3">
-                    <label htmlFor="bookingName" className={labelStyles}>
+                    <label
+                      htmlFor="bookingName"
+                      className="form-label text-white-50 fw-bold"
+                    >
                       Full Name
                     </label>
                     <input
                       type="text"
-                      className={inputStyles}
+                      className="form-control bg-dark bg-opacity-75 border-light border-opacity-25 text-white py-3"
                       id="bookingName"
                       placeholder="Enter your full name"
                     />
                   </div>
                   <div className="mb-3">
-                    <label htmlFor="bookingEmail" className={labelStyles}>
+                    <label
+                      htmlFor="bookingEmail"
+                      className="form-label text-white-50 fw-bold"
+                    >
                       Email Address
                     </label>
                     <input
                       type="email"
-                      className={inputStyles}
+                      className="form-control bg-dark bg-opacity-75 border-light border-opacity-25 text-white py-3"
                       id="bookingEmail"
                       placeholder="Enter your email"
                     />
                   </div>
                   <div className="mb-3">
-                    <label htmlFor="bookingService" className={labelStyles}>
+                    <label
+                      htmlFor="bookingService"
+                      className="form-label text-white-50 fw-bold"
+                    >
                       Service Type
                     </label>
-                    <select className={inputStyles} id="bookingService">
+                    <select
+                      className="form-select bg-dark bg-opacity-75 border-light border-opacity-25 text-white py-3"
+                      id="bookingService"
+                    >
                       <option value="">Select a service</option>
                       <option value="consultation">Music Consultation</option>
                       <option value="coaching">Private Coaching</option>
@@ -143,12 +181,15 @@ const CombinedSection = () => {
                     </select>
                   </div>
                   <div className="mb-3">
-                    <label htmlFor="bookingDate" className={labelStyles}>
+                    <label
+                      htmlFor="bookingDate"
+                      className="form-label text-white-50 fw-bold"
+                    >
                       Select Date
                     </label>
                     <input
                       type="date"
-                      className={inputStyles}
+                      className="form-control bg-dark bg-opacity-75 border-light border-opacity-25 text-white py-3"
                       id="bookingDate"
                     />
                   </div>

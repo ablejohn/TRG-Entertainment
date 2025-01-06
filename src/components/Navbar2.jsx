@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { Link as ScrollLink } from "react-scroll";
 import Logo from "../assets/logo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -35,12 +37,12 @@ const Navbar = () => {
       }`}
     >
       <div className="container-fluid px-4 px-lg-5">
-        <a className="navbar-brand d-flex align-items-center" href="#home">
+        <Link className="navbar-brand d-flex align-items-center" to="/">
           <img src={Logo} alt="Logo" className="logo" />
           <div className="brand-text">
             TRG - <span className="brand-accent">ENT</span>
           </div>
-        </a>
+        </Link>
 
         <button
           className={`navbar-toggler d-lg-none ${isOpen ? "open" : ""}`}
@@ -58,45 +60,44 @@ const Navbar = () => {
         <div className={`collapse navbar-collapse ${isOpen ? "show" : ""}`}>
           <ul className="navbar-nav mx-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <a className="nav-link" href="#home">
+              <Link className="nav-link" to="/">
                 <span className="nav-link-content">
                   <span className="nav-link-text">Home</span>
                   <span className="nav-link-line"></span>
                 </span>
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#portfolio">
+              <Link className="nav-link" to="/aboutus">
                 <span className="nav-link-content">
                   <span className="nav-link-text">About</span>
                   <span className="nav-link-line"></span>
                 </span>
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#talent">
+              <Link className="nav-link" to="/talents">
                 <span className="nav-link-content">
                   <span className="nav-link-text">Talent</span>
                   <span className="nav-link-line"></span>
                 </span>
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#services">
+              <Link className="nav-link" to="/services">
                 <span className="nav-link-content">
                   <span className="nav-link-text">Services</span>
                   <span className="nav-link-line"></span>
                 </span>
-              </a>
+              </Link>
             </li>
-
             <li className="nav-item">
-              <a className="nav-link" href="#about">
+              <Link className="nav-link" to="/blog">
                 <span className="nav-link-content">
                   <span className="nav-link-text">Blog</span>
                   <span className="nav-link-line"></span>
                 </span>
-              </a>
+              </Link>
             </li>
           </ul>
 
@@ -111,9 +112,14 @@ const Navbar = () => {
                 contact@trgentertainment.com
               </span>
             </a>
-            <a href="#book" className="btn btn-custom">
+            <ScrollLink
+              to="booking"
+              className="btn btn-custom"
+              smooth={true}
+              duration={500}
+            >
               Book Session
-            </a>
+            </ScrollLink>
           </div>
         </div>
       </div>

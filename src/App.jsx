@@ -2,6 +2,10 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar2";
 import Home from "./pages/Home";
+import Aboutus from "./pages/Aboutus";
+import Services from "./pages/Services";
+import Talents from "./pages/Talents";
+import Footer from "./components/Footer";
 
 const App = () => {
   return (
@@ -12,8 +16,14 @@ const App = () => {
         <Routes>
           {/* Home Page */}
           <Route path="/" element={<Home />} />
-          {/* Add other pages here in the future */}
+          {/* About Page */}
+          <Route path="/aboutus" element={<Aboutus />} />
+          {/* Talent Page */}
+          <Route path="/services" element={<Services />} />
+          {/* Services Page */}
+          <Route path="/talents" element={<Talents />} />
         </Routes>
+        <Footer /> {/* Add the Footer component here */}
       </div>
     </Router>
   );

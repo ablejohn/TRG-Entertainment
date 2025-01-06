@@ -95,8 +95,8 @@ const BlogCarousel = () => {
           <div
             className="rounded-circle bg-white d-flex align-items-center justify-content-center"
             style={{
-              width: "40px",
-              height: "40px",
+              width: "30px",
+              height: "30px",
               flexShrink: 0,
             }}
           >

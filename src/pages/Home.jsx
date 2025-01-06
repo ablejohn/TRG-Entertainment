@@ -1,5 +1,4 @@
 import React from "react";
-import Footer from "../components/Footer";
 import "../styling/Home.css";
 import Hero from "../components/Hero";
 import Welcome from "../components/Welcome2";
@@ -15,8 +14,6 @@ const Home = () => {
       <WWD />
       <Blog />
       <CombinedSection />
-
-      <Footer />
     </div>
   );
 };
