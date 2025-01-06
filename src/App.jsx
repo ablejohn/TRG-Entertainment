@@ -6,7 +6,7 @@ import Home from "./pages/Home";
 const App = () => {
   return (
     <Router>
-      <div className="font-sans">
+      <div className="Poppins,sans-serif">
         <Navbar />
         {/* Define routes for the app */}
         <Routes>

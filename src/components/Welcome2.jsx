@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import { ArrowRightCircle } from "lucide-react";
+import { ArrowRightCircle, Bold } from "lucide-react";
 
 const Welcome = () => {
   const sectionRef = useRef(null);
@@ -140,6 +140,7 @@ const Welcome = () => {
                               fontSize: "2.5rem",
                               color: "#ff0055",
                               marginBottom: "1rem",
+                              fontWeight: "bold",
                             }}
                           ></i>
                           <span style={{ color: "#fff" }}>PUBLISHING</span>
@@ -153,6 +154,7 @@ const Welcome = () => {
                               fontSize: "2.5rem",
                               color: "#ff0055",
                               marginBottom: "1rem",
+                              fontWeight: "bold",
                             }}
                           ></i>
                           <span style={{ color: "#fff" }}>DISTRIBUTION</span>
@@ -166,6 +168,7 @@ const Welcome = () => {
                               fontSize: "2.5rem",
                               color: "#ff0055",
                               marginBottom: "1rem",
+                              fontWeight: "bold",
                             }}
                           ></i>
                           <span style={{ color: "#fff" }}>MANAGEMENT</span>

@@ -1,5 +1,18 @@
 import React, { useState, useEffect } from "react";
 import Logo from "../assets/logo.png";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faPhone,
+  faEnvelope,
+  faMapMarkerAlt,
+  faArrowRight,
+} from "@fortawesome/free-solid-svg-icons";
+import {
+  faFacebookF,
+  faTwitter,
+  faInstagram,
+  faYoutube,
+} from "@fortawesome/free-brands-svg-icons";
 import "../styling/navbar2.css";
 
 const Navbar = () => {
@@ -89,9 +102,11 @@ const Navbar = () => {
 
           <div className="nav-actions d-flex align-items-center">
             <a href="tel:+1234567890" className="contact-link">
+              <FontAwesomeIcon icon={faPhone} className="me-2" />
               <span className="d-none d-xl-inline ms-2">+123 456 7890</span>
             </a>
             <a href="mailto:contact@rhythmlab.com" className="contact-link">
+              <FontAwesomeIcon icon={faEnvelope} className="me-2" />
               <span className="d-none d-xl-inline ms-2">
                 contact@trgentertainment.com
               </span>

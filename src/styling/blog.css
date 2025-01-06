@@ -1,0 +1,21 @@
+.title-underlines {
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(90deg, #e7b4b4, #fff);
+    margin: 0 auto;
+    position: relative;
+    border-radius: 2px;
+    top: -10px; /* Move the underline up */
+  }
+
+  .title-underlines::after {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 4px;
+    background: linear-gradient(90deg, #32CD32, #00ffff);
+    left: 50%;
+    transform: translateX(-50%);
+    animation: underlineSlide 2s infinite;
+    border-radius: 2px;
+  }
