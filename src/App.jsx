@@ -5,6 +5,8 @@ import Home from "./pages/Home";
 import Aboutus from "./pages/Aboutus";
 import Services from "./pages/Services";
 import Talents from "./pages/Talents";
+import TrgProductions from "./pages/TrgProductions";
+import TrgAgency from "./pages/TrgAgency";
 import Footer from "./components/Footer";
 
 const App = () => {
@@ -22,6 +24,8 @@ const App = () => {
           <Route path="/services" element={<Services />} />
           {/* Services Page */}
           <Route path="/talents" element={<Talents />} />
+          <Route path="/trg-productions" element={<TrgProductions />} />
+          <Route path="/trg-agency" element={<TrgAgency />} />
         </Routes>
         <Footer /> {/* Add the Footer component here */}
       </div>

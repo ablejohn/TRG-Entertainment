@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import videoBg from "../assets/video.mp4";
 import "../styling/Hero.css";
 
@@ -32,12 +33,12 @@ const Hero = () => {
         </div>
 
         <div className="hero-buttons">
-          <a href="/trg-music" className="hero-button">
+          <Link to="/trg-productions" className="hero-button">
             TRG Productions
-          </a>
-          <a href="/trg-agency" className="hero-button hero-button-secondary">
+          </Link>
+          <Link to="/trg-agency" className="hero-button hero-button-secondary">
             TRG Agency
-          </a>
+          </Link>
         </div>
       </div>
     </section>
