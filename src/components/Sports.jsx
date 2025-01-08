@@ -1,91 +1,51 @@
 import React, { useState, useRef, useEffect } from "react";
-import Sport from "../components/Sports";
 
-const TalentShowcase = () => {
+const SportsShowcase = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
   const scrollContainerRef = useRef(null);
   const autoScrollRef = useRef(null);
 
-  const talents = [
+  const athletes = [
     {
       id: 1,
-      name: "Raebel",
+      name: "Henry Onyekuru",
       image: "/api/placeholder/400/500",
-      bgColor: "rgb(0, 32, 76)",
+      bgColor: "rgb(255, 87, 34)", // Orange background
     },
     {
       id: 2,
-      name: "King Promise",
+      name: "Asisat Oshoala",
       image: "/api/placeholder/400/500",
-      bgColor: "rgb(255, 98, 41)",
+      bgColor: "rgb(33, 33, 33)", // Dark background
     },
     {
       id: 3,
-      name: "SmallztheDj",
+      name: "Tobi Amusan",
       image: "/api/placeholder/400/500",
-      bgColor: "rgb(237, 222, 197)",
+      bgColor: "rgb(46, 125, 50)", // Green background
     },
     {
       id: 4,
-      name: "Titanium",
+      name: "Uchenna Kanu",
       image: "/api/placeholder/400/500",
-      bgColor: "rgb(0, 32, 76)",
-    },
-    {
-      id: 5,
-      name: "Lagos Olori",
-      image: "/api/placeholder/400/500",
-      bgColor: "rgb(255, 98, 41)",
-    },
-    {
-      id: 6,
-      name: "Boj",
-      image: "/api/placeholder/400/500",
-      bgColor: "rgb(237, 222, 197)",
-    },
-    {
-      id: 7,
-      name: "MazexMxtreme",
-      image: "/api/placeholder/400/500",
-      bgColor: "rgb(0, 32, 76)",
-    },
-    {
-      id: 8,
-      name: "Bella Shmurda",
-      image: "/api/placeholder/400/500",
-      bgColor: "rgb(255, 98, 41)",
-    },
-    {
-      id: 9,
-      name: "Davido",
-      image: "/api/placeholder/400/500",
-      bgColor: "rgb(237, 222, 197)",
-    },
-    {
-      id: 10,
-      name: "Victony",
-      image: "/api/placeholder/400/500",
-      bgColor: "rgb(0, 32, 76)",
+      bgColor: "rgb(13, 71, 161)", // Blue background
     },
   ];
 
-  // Handle window resize
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768);
     };
-
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   const startAutoScroll = () => {
     if (autoScrollRef.current) return;
-
     autoScrollRef.current = setInterval(() => {
       setActiveIndex((prev) => {
-        const nextIndex = (prev + 1) % talents.length;
+        const nextIndex = (prev + 1) % athletes.length;
         scrollToIndex(nextIndex);
         return nextIndex;
       });
@@ -101,7 +61,7 @@ const TalentShowcase = () => {
 
   const scrollToIndex = (index) => {
     if (scrollContainerRef.current) {
-      const cardWidth = isMobile ? 280 : 400; // Smaller width for mobile
+      const cardWidth = isMobile ? 280 : 400;
       scrollContainerRef.current.scrollTo({
         left: index * cardWidth,
         behavior: "smooth",
@@ -119,18 +79,15 @@ const TalentShowcase = () => {
     const newIndex =
       direction === "left"
         ? Math.max(0, activeIndex - 1)
-        : Math.min(talents.length - 1, activeIndex + 1);
-
+        : Math.min(athletes.length - 1, activeIndex + 1);
     setActiveIndex(newIndex);
     scrollToIndex(newIndex);
     startAutoScroll();
   };
 
   return (
-    <div className="container-fluid bg-black" style={{ marginTop: "80px" }}>
-      {" "}
-      {/* Added margin-top */}
-      <div className="container py-5">
+    <div className="container-fluid bg-black py-5">
+      <div className="container">
         {/* Header */}
         <div className="d-flex align-items-center mb-4">
           <div className="rounded-circle bg-warning p-2 me-3">
@@ -142,20 +99,19 @@ const TalentShowcase = () => {
               stroke="currentColor"
               strokeWidth="2"
             >
-              <path d="M9 18V5l12-2v13" />
-              <circle cx="6" cy="18" r="3" />
-              <circle cx="18" cy="16" r="3" />
+              <circle cx="12" cy="12" r="10" />
+              <path d="M12 2v20M2 12h20" />
             </svg>
           </div>
-          <h1 className="text-white h3 mb-0">MUSIC</h1>
+          <h1 className="text-white h3 mb-0">SPORT</h1>
         </div>
 
         {/* Main title */}
         <h2 className="text-white display-5 fw-bold mb-5">
-          We Manage Africa's Leading Talents.
+          We Manage Africa's Leading Athletes.
         </h2>
 
-        {/* Scrolling Talent Cards */}
+        {/* Scrolling Athlete Cards */}
         <div className="position-relative mb-5">
           <div
             ref={scrollContainerRef}
@@ -164,9 +120,9 @@ const TalentShowcase = () => {
             onMouseLeave={startAutoScroll}
             style={{ scrollBehavior: "smooth" }}
           >
-            {talents.map((talent, index) => (
+            {athletes.map((athlete, index) => (
               <div
-                key={talent.id}
+                key={athlete.id}
                 className="flex-shrink-0"
                 style={{
                   width: isMobile ? "280px" : "350px",
@@ -177,7 +133,7 @@ const TalentShowcase = () => {
                   className="position-relative overflow-hidden"
                   style={{
                     height: isMobile ? "350px" : "450px",
-                    backgroundColor: talent.bgColor,
+                    backgroundColor: athlete.bgColor,
                     borderRadius: "20px",
                     transition: "all 0.3s ease",
                     transform:
@@ -185,16 +141,22 @@ const TalentShowcase = () => {
                   }}
                 >
                   <img
-                    src={talent.image}
-                    alt={talent.name}
+                    src={athlete.image}
+                    alt={athlete.name}
                     className="w-100 h-100"
                     style={{
                       objectFit: "cover",
                       opacity: "0.9",
                     }}
                   />
-                  <div className="position-absolute bottom-0 start-0 p-4">
-                    <h3 className="text-white h4 mb-0">{talent.name}</h3>
+                  <div
+                    className="position-absolute bottom-0 start-0 p-4 w-100"
+                    style={{
+                      background:
+                        "linear-gradient(transparent, rgba(0,0,0,0.7))",
+                    }}
+                  >
+                    <h3 className="text-white h4 mb-0">{athlete.name}</h3>
                   </div>
                 </div>
               </div>
@@ -248,11 +210,11 @@ const TalentShowcase = () => {
           </button>
         </div>
 
-        {/* Artist Navigation */}
+        {/* Athlete Navigation */}
         <div className="d-flex flex-wrap gap-2 gap-md-3 justify-content-center justify-content-md-start">
-          {talents.map((talent, index) => (
+          {athletes.map((athlete, index) => (
             <button
-              key={talent.id}
+              key={athlete.id}
               className={`btn border-1 rounded-pill px-3 px-md-4 py-2 ${
                 activeIndex === index
                   ? "btn-warning text-dark"
@@ -266,7 +228,7 @@ const TalentShowcase = () => {
                 startAutoScroll();
               }}
             >
-              {talent.name}
+              {athlete.name}
               <svg
                 className="ms-2"
                 width={isMobile ? "12" : "16"}
@@ -282,9 +244,8 @@ const TalentShowcase = () => {
           ))}
         </div>
       </div>
-      <Sport />
     </div>
   );
 };
 
-export default TalentShowcase;
+export default SportsShowcase;

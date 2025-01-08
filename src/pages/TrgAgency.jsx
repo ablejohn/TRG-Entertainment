@@ -342,7 +342,9 @@ const TRGAgencyLanding = () => {
                   <div className="card service-card h-100 border-0 p-4">
                     <div className="card-body text-center">
                       <div className="pink-text">{service.icon}</div>
-                      <h3 className="h4 mb-3">{service.title}</h3>
+                      <h3 className="h4 mb-3" style={{ color: "black" }}>
+                        {service.title}
+                      </h3>
                       <p className="text-muted">{service.description}</p>
                       <button className="btn btn-link text-decoration-none pink-text d-inline-flex align-items-center gap-2">
                         Learn More <ArrowRight size={16} />
