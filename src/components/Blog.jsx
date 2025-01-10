@@ -5,7 +5,7 @@ import Shine from "../assets/Shine.jpeg";
 import Victony from "../assets/Victony.jpeg";
 import Burna from "../assets/Burna.jpeg";
 import Wizkid from "../assets/Wizkid.jpeg";
-import Davido from "../assets/Davido.jpeg";
+import Davido from "../assets/davido.jpeg";
 
 const BlogCarousel = () => {
   const [activeSlide, setActiveSlide] = useState(0);

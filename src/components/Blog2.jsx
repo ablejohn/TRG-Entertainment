@@ -12,7 +12,7 @@ import Banky from "../assets/Banky.jpeg"
 import Ajebutter from "../assets/Ajebutter.jpeg";
 import Israel from "../assets/isreal.jpg";
 import Alozie from "../assets/alozie.jpeg";
-import Davido from "../assets/Davido.jpeg";
+import Davido from "../assets/davido.jpeg";
 import Tiwa from "../assets/Tiwa.jpeg";
 
 
