@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 import { ArrowRightCircle, Bold } from "lucide-react";
 
 const Welcome = () => {
@@ -179,7 +180,8 @@ const Welcome = () => {
 
                   {/* Read More Button */}
                   <div className="text-start button-animate">
-                    <button
+                    <Link
+                      to="/about-us" 
                       className="btn hover-effect"
                       style={{
                         background: "#ff0055",
@@ -189,11 +191,13 @@ const Welcome = () => {
                         fontSize: "1rem",
                         fontWeight: "600",
                         transition: "all 0.3s ease",
+                        textDecoration: "none",
+                        display: "inline-block",
                       }}
                     >
                       Read More
                       <i className="bi bi-arrow-right ms-2"></i>
-                    </button>
+                    </Link>
                   </div>
                 </div>
               </div>

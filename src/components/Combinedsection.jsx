@@ -22,7 +22,6 @@ const CombinedSection = () => {
         borderRadius: "25px",
         overflow: "hidden",
       }}
-      id="booking"
     >
       <div className="container py-5">
         {/* Header Section */}
@@ -127,7 +126,7 @@ const CombinedSection = () => {
           </div>
 
           {/* Booking Card */}
-          <div className="col-lg-4">
+          <div className="col-lg-4" id="booking">
             <div className="card h-100 bg-transparent border-0 shadow-lg position-relative">
               <div style={gradientOverlay}></div>
               <div className="card-body p-4 position-relative">
@@ -177,6 +176,8 @@ const CombinedSection = () => {
                       <option value="">Select a service</option>
                       <option value="consultation">Music Consultation</option>
                       <option value="coaching">Private Coaching</option>
+                      <option value="coaching">Recording Services</option>
+                      <option value="coaching">Video Recording</option>
                       <option value="custom">Custom Session</option>
                     </select>
                   </div>

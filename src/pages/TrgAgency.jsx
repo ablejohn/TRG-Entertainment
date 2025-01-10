@@ -13,7 +13,8 @@ import {
   Users,
 } from "lucide-react";
 import agencyImage from "../assets/agency.jpeg";
-import "bootstrap/dist/css/bootstrap.min.css"; // Ensure Bootstrap is imported
+import "bootstrap/dist/css/bootstrap.min.css";
+
 
 const TRGAgencyLanding = () => {
   const capabilities = [
@@ -21,37 +22,37 @@ const TRGAgencyLanding = () => {
       icon: <Target size={32} />,
       title: "Strategic Planning",
       description:
-        "Developing comprehensive strategies that align with your business objectives and market position.",
+        "Crafting detailed roadmaps that harmonize with your company's goals and industry positioning.",
     },
     {
       icon: <TrendingUp size={32} />,
       title: "Brand Growth",
       description:
-        "Accelerating brand growth through innovative marketing solutions and market analysis.",
+        "Propelling brand expansion through cutting-edge marketing approaches and industry insights.",
     },
     {
       icon: <Users size={32} />,
       title: "Audience Engagement",
       description:
-        "Creating meaningful connections with your target audience through compelling storytelling.",
+        "Establishing genuine connections with your desired demographic through powerful narratives.",
     },
     {
       icon: <CheckCircle size={32} />,
       title: "Quality Assurance",
       description:
-        "Ensuring excellence in every project through rigorous quality control and attention to detail.",
+        "Maintaining superior standards in every initiative through meticulous oversight and precision.",
     },
     {
       icon: <Camera size={32} />,
       title: "Content Production",
       description:
-        "Creating high-impact visual and digital content that captures attention and drives engagement.",
+        "Developing compelling visual and digital assets that command attention and foster interaction.",
     },
     {
       icon: <Briefcase size={32} />,
       title: "Professional Management",
       description:
-        "Providing comprehensive management solutions to help brands reach their full potential.",
+        "Delivering end-to-end management solutions to maximize brand achievement.",
     },
   ];
   const services = [
@@ -59,25 +60,25 @@ const TRGAgencyLanding = () => {
       title: "Sports Marketing",
       icon: <Briefcase size={32} className="mb-3" />,
       description:
-        "Working with recognizable names in sports, we create revenue-driving opportunities that build distinguished brand portfolios.",
+        "Collaborating with prominent sports figures to generate profitable ventures that enhance brand recognition.",
     },
     {
       title: "Entertainment",
       icon: <Tv size={32} className="mb-3" />,
       description:
-        "Whatever kind of spotlight shines on you, we're here to make it brighter, with a team of specialized professionals.",
+        "Our expert team is dedicated to amplifying your presence, regardless of your entertainment sector.",
     },
     {
       title: "Brand Development",
       icon: <Palette size={32} className="mb-3" />,
       description:
-        "We look at the big picture, ensuring every brand has a memorable voice and image through strategic development.",
+        "We examine the complete landscape to ensure each brand maintains a distinctive identity through calculated growth.",
     },
     {
       title: "Digital Media",
       icon: <Camera size={32} className="mb-3" />,
       description:
-        "Our in-house studio turns visions into reality with a well-equipped production team ready for all digital media needs.",
+        "Our state-of-the-art studio transforms concepts into reality with a fully-equipped team ready for any digital challenge.",
     },
   ];
 
@@ -87,7 +88,7 @@ const TRGAgencyLanding = () => {
       position: relative;
       min-height: 100vh;
       color: white;
-      margin-top: 190px;
+      margin-top: 150px;
       overflow: hidden;
     }
 
@@ -151,7 +152,7 @@ const TRGAgencyLanding = () => {
       left: 0;
       right: 0;
       z-index: 2;
-      margin-top:140px;
+      margin-top:110px;
     }
 
     .story-card {
@@ -196,7 +197,6 @@ const TRGAgencyLanding = () => {
       color: white;
     }
 
-
     @media (max-width: 768px) {
       .hero-section {
         margin-top: 190px;
@@ -234,20 +234,19 @@ const TRGAgencyLanding = () => {
             <div className="row align-items-center">
               <div className="col-lg-6 mb-5 mb-lg-0">
                 <h1 className="display-4 fw-bold mb-4">
-                  BRANDS ARE CREATED IN THE STREETS
+                  SUCCESS EMERGES FROM REAL WORLD EXPERIENCE
                   <span className="d-block" style={{ color: "#ff0055" }}>
-                    NOT IN THE BOARD ROOM.
+                    NOT CORPORATE MEETINGS.
                   </span>
                 </h1>
                 <p className="lead mb-4">
-                  An industry-leading management and marketing agency delivering
-                  results through innovative strategies.
+                  A cutting-edge management and marketing firm delivering excellence through groundbreaking strategies.
                 </p>
                 <button
                   className="btn btn-lg d-inline-flex align-items-center gap-2"
                   style={{ background: "#ff0055", color: "white" }}
                 >
-                  See Our Services <MoveRight />
+                  Explore Our Solutions <MoveRight />
                 </button>
               </div>
               <div className="col-lg-6">
@@ -272,12 +271,10 @@ const TRGAgencyLanding = () => {
                   className="display-5 fw-bold mb-4"
                   style={{ color: "#ff0055" }}
                 >
-                  Our Story
+                  Our Journey
                 </h2>
                 <p className="lead text-muted mb-5">
-                  From humble beginnings to industry leadership, our journey has
-                  been driven by a singular vision: creating emotional
-                  connections through powerful storytelling.
+                  From modest origins to market leadership, our evolution has been guided by one core principle: fostering authentic connections through impactful storytelling.
                 </p>
               </div>
             </div>
@@ -286,40 +283,27 @@ const TRGAgencyLanding = () => {
               <div className="col-md-6">
                 <div className="story-card p-4 h-100">
                   <div className="story-year mb-3">2001</div>
-                  <h3 className="h4 mb-3">The Foundation</h3>
+                  <h3 className="h4 mb-3">The Beginning</h3>
                   <p className="text-muted">
-                    Brian Stretch founded TRG Agency with a revolutionary
-                    vision: to build brands through authentic storytelling and
-                    emotional connections. What started in a small office has
-                    grown into an industry-leading force.
+                    Brian Stretch established TRG Agency with an innovative mission: crafting brand identities through genuine storytelling and meaningful relationships. A small startup evolved into an industry powerhouse.
                   </p>
                 </div>
               </div>
 
               <div className="col-md-6">
                 <div className="story-card p-4 h-100">
-                  <h3 className="h4 mb-3">The Brand Whisperer</h3>
+                  <h3 className="h4 mb-3">The Vision Master</h3>
                   <p className="text-muted">
-                    Quickly recognized for our unique approach, Mr. Stretch
-                    became known as the "Brand Whisperer" behind many corporate
-                    success stories. Our methodology focuses on understanding
-                    the heart of each brand and translating it into compelling
-                    narratives that resonate with audiences.
+                    Distinguished for our distinctive methodology, Mr. Stretch earned recognition as the "Vision Master" behind numerous business transformations. Our philosophy centers on capturing each brand's essence and transforming it into captivating stories that connect with audiences.
                   </p>
                 </div>
               </div>
 
               <div className="col-12">
                 <div className="story-card p-4">
-                  <h3 className="h4 mb-3">Our Approach</h3>
+                  <h3 className="h4 mb-3">Our Philosophy</h3>
                   <p className="text-muted mb-0">
-                    Today, we continue to push boundaries with our vast network
-                    of resources and cross-functional team approach. We're never
-                    lost when taking the road less traveled, because we believe
-                    that's where the most compelling stories are found. Our
-                    commitment to innovation and authentic storytelling has made
-                    us the trusted partner for brands seeking to make a lasting
-                    impact.
+                    In the present day, we continue to challenge conventions through our extensive resource network and collaborative team strategy. We embrace unconventional paths, believing they lead to the most authentic narratives. Our dedication to innovation and genuine storytelling has established us as the preferred partner for brands seeking enduring impact.
                   </p>
                 </div>
               </div>
@@ -334,7 +318,7 @@ const TRGAgencyLanding = () => {
               className="display-5 fw-bold text-center mb-5"
               style={{ color: "#ff0055" }}
             >
-              What We Do
+              Our Expertise
             </h2>
             <div className="row g-4">
               {services.map((service, index) => (
@@ -347,7 +331,7 @@ const TRGAgencyLanding = () => {
                       </h3>
                       <p className="text-muted">{service.description}</p>
                       <button className="btn btn-link text-decoration-none pink-text d-inline-flex align-items-center gap-2">
-                        Learn More <ArrowRight size={16} />
+                        Discover More <ArrowRight size={16} />
                       </button>
                     </div>
                   </div>
@@ -366,11 +350,10 @@ const TRGAgencyLanding = () => {
                   className="display-5 fw-bold mb-4"
                   style={{ color: "#ff0055" }}
                 >
-                  Capabilities
+                  Core Strengths
                 </h2>
                 <p className="lead mb-4 text-light">
-                  We specialize in recognizing brand potential and turning it
-                  into market success.
+                  We excel at identifying untapped potential and transforming it into measurable success.
                 </p>
               </div>
             </div>
@@ -397,25 +380,25 @@ const TRGAgencyLanding = () => {
                   <h3 className="h2 mb-2" style={{ color: "#ff0055" }}>
                     20+
                   </h3>
-                  <p className="mb-0">Years Experience</p>
+                  <p className="mb-0">Years of Excellence</p>
                 </div>
                 <div className="col-md-3 stat-item">
                   <h3 className="h2 mb-2" style={{ color: "#ff0055" }}>
                     500+
                   </h3>
-                  <p className="mb-0">Projects Completed</p>
+                  <p className="mb-0">Successful Ventures</p>
                 </div>
                 <div className="col-md-3 stat-item">
                   <h3 className="h2 mb-2" style={{ color: "#ff0055" }}>
                     300+
                   </h3>
-                  <p className="mb-0">Happy Clients</p>
+                  <p className="mb-0">Satisfied Partners</p>
                 </div>
                 <div className="col-md-3 stat-item">
                   <h3 className="h2 mb-2" style={{ color: "#ff0055" }}>
                     50+
                   </h3>
-                  <p className="mb-0">Team Members</p>
+                  <p className="mb-0">Expert Professionals</p>
                 </div>
               </div>
             </div>
@@ -426,14 +409,13 @@ const TRGAgencyLanding = () => {
         <section className="py-5 bg-white">
           <div className="container py-5 text-center">
             <h2 className="display-5 fw-bold mb-4" style={{ color: "#ff0055" }}>
-              Ready to Stand Out?
+              Ready to Make Your Mark?
             </h2>
             <p className="lead text-black mb-4">
-              Let us maximize your results through our cross-functional team
-              approach.
+              Experience exceptional outcomes through our integrated team approach.
             </p>
             <button className="btn btn-dark btn-lg d-inline-flex align-items-center gap-2">
-              Contact Us <MoveRight />
+              Get in Touch <MoveRight />
             </button>
           </div>
         </section>

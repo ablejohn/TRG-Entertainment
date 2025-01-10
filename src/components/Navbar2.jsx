@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Link as ScrollLink } from "react-scroll";
 import Logo from "../assets/logo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -20,6 +20,7 @@ import "../styling/navbar2.css";
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -29,6 +30,11 @@ const Navbar = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Close mobile menu when route changes
+  useEffect(() => {
+    setIsOpen(false);
+  }, [location.pathname]);
 
   return (
     <nav
@@ -60,7 +66,7 @@ const Navbar = () => {
         <div className={`collapse navbar-collapse ${isOpen ? "show" : ""}`}>
           <ul className="navbar-nav mx-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <Link className="nav-link" to="/">
+              <Link className="nav-link" to="/" onClick={() => setIsOpen(false)}>
                 <span className="nav-link-content">
                   <span className="nav-link-text">Home</span>
                   <span className="nav-link-line"></span>
@@ -68,7 +74,7 @@ const Navbar = () => {
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/aboutus">
+              <Link className="nav-link" to="/about-us" onClick={() => setIsOpen(false)}>
                 <span className="nav-link-content">
                   <span className="nav-link-text">About</span>
                   <span className="nav-link-line"></span>
@@ -76,15 +82,15 @@ const Navbar = () => {
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/talents">
+              <Link className="nav-link" to="/talents" onClick={() => setIsOpen(false)}>
                 <span className="nav-link-content">
-                  <span className="nav-link-text">Talent</span>
+                  <span className="nav-link-text">Talents</span>
                   <span className="nav-link-line"></span>
                 </span>
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/services">
+              <Link className="nav-link" to="/services" onClick={() => setIsOpen(false)}>
                 <span className="nav-link-content">
                   <span className="nav-link-text">Services</span>
                   <span className="nav-link-line"></span>
@@ -92,9 +98,9 @@ const Navbar = () => {
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/blog">
+              <Link className="nav-link" to="/news" onClick={() => setIsOpen(false)}>
                 <span className="nav-link-content">
-                  <span className="nav-link-text">Blog</span>
+                  <span className="nav-link-text">News</span>
                   <span className="nav-link-line"></span>
                 </span>
               </Link>
@@ -117,6 +123,7 @@ const Navbar = () => {
               className="btn btn-custom"
               smooth={true}
               duration={500}
+              onClick={() => setIsOpen(false)}
             >
               Book Session
             </ScrollLink>

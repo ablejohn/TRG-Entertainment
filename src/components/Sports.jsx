@@ -1,4 +1,8 @@
 import React, { useState, useRef, useEffect } from "react";
+import Henry from "../assets/Henry.png";
+import Asisat from "../assets/Asisat.jpg";
+import Tobi  from "../assets/Tobi.jpg";
+import Uche from "../assets/Uche.jpeg";
 
 const SportsShowcase = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -10,25 +14,25 @@ const SportsShowcase = () => {
     {
       id: 1,
       name: "Henry Onyekuru",
-      image: "/api/placeholder/400/500",
+      image: Henry,
       bgColor: "rgb(255, 87, 34)", // Orange background
     },
     {
       id: 2,
       name: "Asisat Oshoala",
-      image: "/api/placeholder/400/500",
+      image: Asisat,
       bgColor: "rgb(33, 33, 33)", // Dark background
     },
     {
       id: 3,
       name: "Tobi Amusan",
-      image: "/api/placeholder/400/500",
+      image: Tobi,
       bgColor: "rgb(46, 125, 50)", // Green background
     },
     {
       id: 4,
       name: "Uchenna Kanu",
-      image: "/api/placeholder/400/500",
+      image: Uche,
       bgColor: "rgb(13, 71, 161)", // Blue background
     },
   ];
@@ -90,7 +94,7 @@ const SportsShowcase = () => {
       <div className="container">
         {/* Header */}
         <div className="d-flex align-items-center mb-4">
-          <div className="rounded-circle bg-warning p-2 me-3">
+          <div className="rounded-circle p-2 me-3" style ={{background:"#ff0055", color:"white"}}>
             <svg
               width="24"
               height="24"

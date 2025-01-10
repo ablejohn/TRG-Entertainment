@@ -11,7 +11,7 @@ const BlogCarousel = () => {
   const [activeSlide, setActiveSlide] = useState(0);
   const THEME_COLOR = "#ff0055";
   const DEFAULT_FONT = "'Poppins', sans-serif";
-  const circleWidth = 200; // Set the width of the circles
+  const circleWidth = 150; // Set the width of the circles
   const circleHeight = 150; // Set the height of the circles
 
   const announcements = [
@@ -95,8 +95,8 @@ const BlogCarousel = () => {
           <div
             className="rounded-circle bg-white d-flex align-items-center justify-content-center"
             style={{
-              width: "30px",
-              height: "30px",
+              width: "25px",
+              height: "25px",
               flexShrink: 0,
             }}
           >
@@ -131,10 +131,10 @@ const BlogCarousel = () => {
                   style={{ width: `${slideWidth}%` }}
                   className="px-3 flex-shrink-0"
                 >
-                  <div className="card h-100 shadow-sm hover-shadow-lg transition-all duration-300">
+                  <div className="card h-100 shadow-sm hover-shadow-lg transition-all duration-300 rounded-4">
                     <div
                       className="card-body"
-                      style={{ fontFamily: DEFAULT_FONT }}
+                      style={{ fontFamily: DEFAULT_FONT, background: "white" }}
                     >
                       <div
                         className="d-flex flex-column align-items-center gap-4"
@@ -174,6 +174,7 @@ const BlogCarousel = () => {
                               overflow: "hidden",
                               fontFamily: DEFAULT_FONT,
                               fontSize: "1.25rem",
+                              color: "black",
                             }}
                           >
                             {post.title}
@@ -185,6 +186,7 @@ const BlogCarousel = () => {
                               opacity: 0.9,
                               fontFamily: DEFAULT_FONT,
                               fontSize: "0.875rem",
+                              color: "black",
                             }}
                           >
                             {post.date}
@@ -234,7 +236,7 @@ const BlogCarousel = () => {
 
           <button
             onClick={prevSlide}
-            className="btn btn-light rounded-circle position-absolute start-0 top-50 translate-middle-y shadow-sm d-none d-md-block"
+            className="btn btn-dark rounded-circle position-absolute start-0 top-50 translate-middle-y shadow-sm d-none d-md-block"
             style={{
               marginLeft: "-1rem",
               zIndex: 2,
@@ -242,12 +244,12 @@ const BlogCarousel = () => {
               fontSize: "1.5rem",
             }}
           >
-            <ChevronLeft className="w-6 h-6" />
+            <ChevronLeft className="w-6 h-6" style={{ color: "white" }} />
           </button>
 
           <button
             onClick={nextSlide}
-            className="btn btn-light rounded-circle position-absolute end-0 top-50 translate-middle-y shadow-sm d-none d-md-block"
+            className="btn btn-dark rounded-circle position-absolute end-0 top-50 translate-middle-y shadow-sm d-none d-md-block"
             style={{
               marginRight: "-1rem",
               zIndex: 2,
@@ -255,7 +257,7 @@ const BlogCarousel = () => {
               fontSize: "1.5rem",
             }}
           >
-            <ChevronRight className="w-6 h-6" />
+            <ChevronRight className="w-6 h-6" style={{ color: "white" }} />
           </button>
 
           <div className="d-flex justify-content-center gap-2 mt-4">

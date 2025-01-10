@@ -1,18 +1,14 @@
-import React from 'react';
+import React from "react";
+import WWD from "../components/WWD";
+import CombinedSection from "../components/Combinedsection";
 
 const Services = () => {
-    return (
-        <div>
-            <h1>Our Services</h1>
-            <p>We offer a wide range of services to meet your needs, including:</p>
-            <ul>
-                <li>Consulting</li>
-                <li>Project Management</li>
-                <li>Software Development</li>
-                <li>Technical Support</li>
-            </ul>
-        </div>
-    );
+  return (
+    <div>
+      <WWD />
+      <CombinedSection />
+    </div>
+  );
 };
 
 export default Services;

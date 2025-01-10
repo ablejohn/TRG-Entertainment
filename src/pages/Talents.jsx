@@ -1,5 +1,16 @@
 import React, { useState, useRef, useEffect } from "react";
 import Sport from "../components/Sports";
+import CombinedSection from "../components/Combinedsection";
+import Raebel from "../assets/Raebel.jpeg";
+import KingPromise from "../assets/King Promise.jpeg";
+import SmallztheDj from "../assets/Smallz.jpeg";
+import Wizkid from "../assets/Wizkid.jpeg";
+import LogosOlori from "../assets/Logos Olori.jpeg";
+import Boj from "../assets/BOj.jpeg";
+import Banky from "../assets/Banky.jpeg";
+import Bella from "../assets/Bella.jpeg";
+import Davido from "../assets/Davido.jpeg";
+import Victony from "../assets/Victony.jpeg";
 
 const TalentShowcase = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -11,61 +22,61 @@ const TalentShowcase = () => {
     {
       id: 1,
       name: "Raebel",
-      image: "/api/placeholder/400/500",
+      image: Raebel,
       bgColor: "rgb(0, 32, 76)",
     },
     {
       id: 2,
       name: "King Promise",
-      image: "/api/placeholder/400/500",
+      image: KingPromise,
       bgColor: "rgb(255, 98, 41)",
     },
     {
       id: 3,
       name: "SmallztheDj",
-      image: "/api/placeholder/400/500",
+      image: SmallztheDj,
       bgColor: "rgb(237, 222, 197)",
     },
     {
       id: 4,
-      name: "Titanium",
-      image: "/api/placeholder/400/500",
+      name: "Wizkid",
+      image: Wizkid,
       bgColor: "rgb(0, 32, 76)",
     },
     {
       id: 5,
       name: "Lagos Olori",
-      image: "/api/placeholder/400/500",
+      image: LogosOlori,
       bgColor: "rgb(255, 98, 41)",
     },
     {
       id: 6,
       name: "Boj",
-      image: "/api/placeholder/400/500",
+      image: Boj,
       bgColor: "rgb(237, 222, 197)",
     },
     {
       id: 7,
-      name: "MazexMxtreme",
-      image: "/api/placeholder/400/500",
+      name: "Banky",
+      image: Banky,
       bgColor: "rgb(0, 32, 76)",
     },
     {
       id: 8,
       name: "Bella Shmurda",
-      image: "/api/placeholder/400/500",
+      image: Bella,
       bgColor: "rgb(255, 98, 41)",
     },
     {
       id: 9,
       name: "Davido",
-      image: "/api/placeholder/400/500",
+      image: Davido,
       bgColor: "rgb(237, 222, 197)",
     },
     {
       id: 10,
       name: "Victony",
-      image: "/api/placeholder/400/500",
+      image: Victony,
       bgColor: "rgb(0, 32, 76)",
     },
   ];
@@ -133,7 +144,7 @@ const TalentShowcase = () => {
       <div className="container py-5">
         {/* Header */}
         <div className="d-flex align-items-center mb-4">
-          <div className="rounded-circle bg-warning p-2 me-3">
+          <div className="rounded-circle  p-2 me-3" style ={{background:"#ff0055", color:"white"}}>
             <svg
               width="24"
               height="24"
@@ -283,6 +294,7 @@ const TalentShowcase = () => {
         </div>
       </div>
       <Sport />
+      <CombinedSection />
     </div>
   );
 };
