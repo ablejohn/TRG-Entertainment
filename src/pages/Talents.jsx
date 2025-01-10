@@ -9,7 +9,7 @@ import LogosOlori from "../assets/Logos Olori.jpeg";
 import Boj from "../assets/BOj.jpeg";
 import Banky from "../assets/Banky.jpeg";
 import Bella from "../assets/Bella.jpeg";
-import Davido from "../assets/Davido.jpeg";
+import Davido from "../assets/davido.jpeg";
 import Victony from "../assets/Victony.jpeg";
 
 const TalentShowcase = () => {
