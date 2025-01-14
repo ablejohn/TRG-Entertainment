@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import videoBg from "../assets/video.mp4";
+import videoBg from "../assets/Video.mp4";
 import "../styling/Hero.css";
 
 const Hero = () => {
@@ -30,11 +30,11 @@ const Hero = () => {
       <video autoPlay loop muted playsInline>
         <source src={videoBg} type="video/mp4" />
       </video>
-      
+
       <div className="hero-content">
         <div className="sliding-text-container">
           <div
-            className={`sliding-text ${isAnimating ? 'fade-out' : 'fade-in'}`}
+            className={`sliding-text ${isAnimating ? "fade-out" : "fade-in"}`}
             dangerouslySetInnerHTML={{ __html: texts[currentTextIndex] }}
           />
         </div>

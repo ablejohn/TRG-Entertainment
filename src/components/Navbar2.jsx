@@ -110,7 +110,7 @@ const Navbar = () => {
           <div className="nav-actions d-flex align-items-center">
             <a href="tel:+1234567890" className="contact-link">
               <FontAwesomeIcon icon={faPhone} className="me-2" />
-              <span className="d-none d-xl-inline ms-2">+123 456 7890</span>
+              <span className="d-none d-xl-inline ms-2">+234 703 087 1668</span>
             </a>
             <a href="mailto:contact@rhythmlab.com" className="contact-link">
               <FontAwesomeIcon icon={faEnvelope} className="me-2" />

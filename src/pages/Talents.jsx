@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
+import { Link } from "react-router-dom";
 import Sport from "../components/Sports";
 import CombinedSection from "../components/Combinedsection";
 import Raebel from "../assets/Raebel.jpeg";
@@ -81,7 +82,6 @@ const TalentShowcase = () => {
     },
   ];
 
-  // Handle window resize
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768);
@@ -112,7 +112,7 @@ const TalentShowcase = () => {
 
   const scrollToIndex = (index) => {
     if (scrollContainerRef.current) {
-      const cardWidth = isMobile ? 280 : 400; // Smaller width for mobile
+      const cardWidth = isMobile ? 280 : 400;
       scrollContainerRef.current.scrollTo({
         left: index * cardWidth,
         behavior: "smooth",
@@ -139,12 +139,12 @@ const TalentShowcase = () => {
 
   return (
     <div className="container-fluid bg-black" style={{ marginTop: "80px" }}>
-      {" "}
-      {/* Added margin-top */}
       <div className="container py-5">
-        {/* Header */}
         <div className="d-flex align-items-center mb-4">
-          <div className="rounded-circle  p-2 me-3" style ={{background:"#ff0055", color:"white"}}>
+          <div
+            className="rounded-circle p-2 me-3"
+            style={{ background: "#ff0055", color: "white" }}
+          >
             <svg
               width="24"
               height="24"
@@ -161,12 +161,10 @@ const TalentShowcase = () => {
           <h1 className="text-white h3 mb-0">MUSIC</h1>
         </div>
 
-        {/* Main title */}
         <h2 className="text-white display-5 fw-bold mb-5">
           We Manage Africa's Leading Talents.
         </h2>
 
-        {/* Scrolling Talent Cards */}
         <div className="position-relative mb-5">
           <div
             ref={scrollContainerRef}
@@ -176,17 +174,16 @@ const TalentShowcase = () => {
             style={{ scrollBehavior: "smooth" }}
           >
             {talents.map((talent, index) => (
-              <div
+              <Link
+                to={`/artist/${talent.id}`}
                 key={talent.id}
-                className="flex-shrink-0"
-                style={{
-                  width: isMobile ? "280px" : "350px",
-                  transition: "all 0.3s ease",
-                }}
+                className="flex-shrink-0 text-decoration-none"
+                onClick={() => stopAutoScroll()}
               >
                 <div
                   className="position-relative overflow-hidden"
                   style={{
+                    width: isMobile ? "280px" : "350px",
                     height: isMobile ? "350px" : "450px",
                     backgroundColor: talent.bgColor,
                     borderRadius: "20px",
@@ -208,11 +205,10 @@ const TalentShowcase = () => {
                     <h3 className="text-white h4 mb-0">{talent.name}</h3>
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
 
-          {/* Arrow Navigation */}
           <button
             className="btn position-absolute start-0 top-50 translate-middle-y d-none d-md-block"
             onClick={() => handleScroll("left")}
@@ -259,7 +255,6 @@ const TalentShowcase = () => {
           </button>
         </div>
 
-        {/* Artist Navigation */}
         <div className="d-flex flex-wrap gap-2 gap-md-3 justify-content-center justify-content-md-start">
           {talents.map((talent, index) => (
             <button

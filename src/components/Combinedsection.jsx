@@ -1,6 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
+import emailjs from "@emailjs/browser";
 
 const CombinedSection = () => {
+  const [loading, setLoading] = useState({
+    contact: false,
+    booking: false,
+  });
+
+  const [status, setStatus] = useState({
+    contact: "",
+    booking: "",
+  });
+
   // Define the gradient overlay style
   const gradientOverlay = {
     position: "absolute",
@@ -11,6 +22,66 @@ const CombinedSection = () => {
     background:
       "linear-gradient(90deg, rgba(255,0,85,0.5), rgba(255,0,162,0.5))",
     borderRadius: "inherit",
+  };
+
+  const handleContactSubmit = async (e) => {
+    e.preventDefault();
+    setLoading((prev) => ({ ...prev, contact: true }));
+    setStatus((prev) => ({ ...prev, contact: "" }));
+
+    try {
+      const result = await emailjs.sendForm(
+        "service_2zt8y7o", // EmailJS service ID
+        "template_4u9r2ig", // Contact Form EmailJS template ID
+        e.target,
+        "fCQlkppx01UJzEfkY" // EmailJS public key
+      ); //For Contact Form
+
+      if (result.text === "OK") {
+        setStatus((prev) => ({
+          ...prev,
+          contact: "Message sent successfully!",
+        }));
+        e.target.reset();
+      }
+    } catch (error) {
+      setStatus((prev) => ({
+        ...prev,
+        contact: "Failed to send message. Please try again.",
+      }));
+    } finally {
+      setLoading((prev) => ({ ...prev, contact: false }));
+    }
+  };
+
+  const handleBookingSubmit = async (e) => {
+    e.preventDefault();
+    setLoading((prev) => ({ ...prev, booking: true }));
+    setStatus((prev) => ({ ...prev, booking: "" }));
+
+    try {
+      const result = await emailjs.sendForm(
+        "service_2zt8y7o", // EmailJS service ID
+        "template_kk7vjwu", //  Booking Session EmailJS template ID
+        e.target,
+        "fCQlkppx01UJzEfkY" // EmailJS public key
+      ); //For BOoking Session
+
+      if (result.text === "OK") {
+        setStatus((prev) => ({
+          ...prev,
+          booking: "Booking request sent successfully!",
+        }));
+        e.target.reset();
+      }
+    } catch (error) {
+      setStatus((prev) => ({
+        ...prev,
+        booking: "Failed to send booking request. Please try again.",
+      }));
+    } finally {
+      setLoading((prev) => ({ ...prev, booking: false }));
+    }
   };
 
   return (
@@ -71,7 +142,7 @@ const CombinedSection = () => {
                 <h3 className="text-white fw-bold h4 mb-4">
                   <span className="text-primary me-2">⬤</span> Get in Touch
                 </h3>
-                <form>
+                <form onSubmit={handleContactSubmit}>
                   <div className="mb-3">
                     <label
                       htmlFor="contactName"
@@ -83,7 +154,9 @@ const CombinedSection = () => {
                       type="text"
                       className="form-control bg-dark bg-opacity-75 border-light border-opacity-25 text-white py-3"
                       id="contactName"
+                      name="from_name"
                       placeholder="Enter your name"
+                      required
                     />
                   </div>
                   <div className="mb-3">
@@ -97,7 +170,9 @@ const CombinedSection = () => {
                       type="email"
                       className="form-control bg-dark bg-opacity-75 border-light border-opacity-25 text-white py-3"
                       id="contactEmail"
+                      name="from_email"
                       placeholder="Enter your email"
+                      required
                     />
                   </div>
                   <div className="mb-3">
@@ -110,16 +185,31 @@ const CombinedSection = () => {
                     <textarea
                       className="form-control bg-dark bg-opacity-75 border-light border-opacity-25 text-white py-3"
                       id="contactMessage"
+                      name="message"
                       placeholder="Write your message"
                       rows="4"
+                      required
                     ></textarea>
                   </div>
                   <button
                     className="btn btn-lg w-100"
                     style={{ backgroundColor: "#ff0055", color: "#fff" }}
+                    type="submit"
+                    disabled={loading.contact}
                   >
-                    Send Message
+                    {loading.contact ? "Sending..." : "Send Message"}
                   </button>
+                  {status.contact && (
+                    <div
+                      className={`mt-3 text-center ${
+                        status.contact.includes("Failed")
+                          ? "text-danger"
+                          : "text-success"
+                      }`}
+                    >
+                      {status.contact}
+                    </div>
+                  )}
                 </form>
               </div>
             </div>
@@ -133,7 +223,7 @@ const CombinedSection = () => {
                 <h3 className="text-white fw-bold h4 mb-4">
                   <span className="text-success me-2">⬤</span> Book Your Session
                 </h3>
-                <form>
+                <form onSubmit={handleBookingSubmit}>
                   <div className="mb-3">
                     <label
                       htmlFor="bookingName"
@@ -145,7 +235,9 @@ const CombinedSection = () => {
                       type="text"
                       className="form-control bg-dark bg-opacity-75 border-light border-opacity-25 text-white py-3"
                       id="bookingName"
+                      name="from_name"
                       placeholder="Enter your full name"
+                      required
                     />
                   </div>
                   <div className="mb-3">
@@ -159,7 +251,9 @@ const CombinedSection = () => {
                       type="email"
                       className="form-control bg-dark bg-opacity-75 border-light border-opacity-25 text-white py-3"
                       id="bookingEmail"
+                      name="from_email"
                       placeholder="Enter your email"
+                      required
                     />
                   </div>
                   <div className="mb-3">
@@ -172,12 +266,14 @@ const CombinedSection = () => {
                     <select
                       className="form-select bg-dark bg-opacity-75 border-light border-opacity-25 text-white py-3"
                       id="bookingService"
+                      name="service_type"
+                      required
                     >
                       <option value="">Select a service</option>
                       <option value="consultation">Music Consultation</option>
                       <option value="coaching">Private Coaching</option>
-                      <option value="coaching">Recording Services</option>
-                      <option value="coaching">Video Recording</option>
+                      <option value="recording">Recording Services</option>
+                      <option value="video">Video Recording</option>
                       <option value="custom">Custom Session</option>
                     </select>
                   </div>
@@ -192,11 +288,28 @@ const CombinedSection = () => {
                       type="date"
                       className="form-control bg-dark bg-opacity-75 border-light border-opacity-25 text-white py-3"
                       id="bookingDate"
+                      name="booking_date"
+                      required
                     />
                   </div>
-                  <button className="btn btn-success btn-lg w-100">
-                    Book Session
+                  <button
+                    className="btn btn-success btn-lg w-100"
+                    type="submit"
+                    disabled={loading.booking}
+                  >
+                    {loading.booking ? "Sending..." : "Book Session"}
                   </button>
+                  {status.booking && (
+                    <div
+                      className={`mt-3 text-center ${
+                        status.booking.includes("Failed")
+                          ? "text-danger"
+                          : "text-success"
+                      }`}
+                    >
+                      {status.booking}
+                    </div>
+                  )}
                 </form>
               </div>
             </div>

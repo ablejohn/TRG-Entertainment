@@ -24,16 +24,20 @@ const Footer = () => {
   };
 
   return (
-    <footer className="position-relative" style={{ backgroundColor: "#0A0F1C" }}>
+    <footer
+      className="position-relative"
+      style={{ backgroundColor: "#0A0F1C" }}
+    >
       {/* Diagonal Top Border */}
-      <div 
-        className="position-absolute w-100" 
-        style={{ 
+      <div
+        className="position-absolute w-100"
+        style={{
           height: "4px",
-          background: "linear-gradient(90deg, transparent 0%, #ff0048 50%, transparent 100%)",
+          background:
+            "linear-gradient(90deg, transparent 0%, #ff0048 50%, transparent 100%)",
           top: 0,
-          opacity: 0.7
-        }} 
+          opacity: 0.7,
+        }}
       />
 
       <div className="container-fluid px-4 px-lg-5 pt-5">
@@ -46,13 +50,13 @@ const Footer = () => {
                 <img
                   src={logo}
                   alt="TRG Logo"
-                  style={{ 
-                    width: "50px", 
+                  style={{
+                    width: "50px",
                     height: "50px",
-                    filter: "drop-shadow(0 0 10px rgba(255, 0, 72, 0.3))"
+                    filter: "drop-shadow(0 0 10px rgba(255, 0, 72, 0.3))",
                   }}
                 />
-                <div 
+                <div
                   className="position-absolute"
                   style={{
                     top: -5,
@@ -61,39 +65,54 @@ const Footer = () => {
                     bottom: -5,
                     border: "2px solid #ff0048",
                     borderRadius: "50%",
-                    animation: "pulse 2s infinite"
+                    animation: "pulse 2s infinite",
                   }}
                 />
               </div>
-              <h2 className="h3 fw-bold mb-0" style={{ 
-                color: "#ffffff",
-                textShadow: "0 0 15px rgba(255, 255, 255, 0.3)"
-              }}>
+              <h2
+                className="h3 fw-bold mb-0"
+                style={{
+                  color: "#ffffff",
+                  textShadow: "0 0 15px rgba(255, 255, 255, 0.3)",
+                }}
+              >
                 TRG-<span style={{ color: "#ff0048" }}>ENT</span>
               </h2>
             </div>
-            <p className="text-secondary mb-4 lead">Where Entertainment Connects</p>
+            <p className="text-secondary mb-4 lead">
+              Where Entertainment Connects
+            </p>
             <div className="d-flex flex-column gap-3">
-              <a href="https://maps.google.com" className="text-decoration-none text-secondary contact-link d-flex align-items-center gap-3 p-2 rounded transition-all">
+              <a
+                href="https://maps.google.com"
+                className="text-decoration-none text-secondary contact-link d-flex align-items-center gap-3 p-2 rounded transition-all"
+              >
                 <div className="icon-wrapper">
                   <FontAwesomeIcon icon={faMapMarkerAlt} />
                 </div>
                 <div>
-                  123 Entertainment Ave<br />
-                  Los Angeles, CA 90028
+                  11 Baoku Cl,
+                  <br />
+                  Eti-Osa, Lagos,Nigeria.
                 </div>
               </a>
-              <a href="tel:+15551234567" className="text-decoration-none text-secondary contact-link d-flex align-items-center gap-3 p-2 rounded transition-all">
+              <a
+                href="tel:+15551234567"
+                className="text-decoration-none text-secondary contact-link d-flex align-items-center gap-3 p-2 rounded transition-all"
+              >
                 <div className="icon-wrapper">
                   <FontAwesomeIcon icon={faPhone} />
                 </div>
-                <span>+1 (555) 123-4567</span>
+                <span>+234 703 087 1668</span>
               </a>
-              <a href="mailto:info@trg-ent.com" className="text-decoration-none text-secondary contact-link d-flex align-items-center gap-3 p-2 rounded transition-all">
+              <a
+                href="mailto:info@trg-ent.com"
+                className="text-decoration-none text-secondary contact-link d-flex align-items-center gap-3 p-2 rounded transition-all"
+              >
                 <div className="icon-wrapper">
                   <FontAwesomeIcon icon={faEnvelope} />
                 </div>
-                <span>info@trg-ent.com</span>
+                <span>contact@trg-entertainment.com</span>
               </a>
             </div>
           </div>
@@ -103,31 +122,56 @@ const Footer = () => {
             <div className="row">
               {/* Company */}
               <div className="col-sm-4">
-                <h5 className="fw-bold mb-4 text-uppercase" style={{ color: "#ff0048" }}>
+                <h5
+                  className="fw-bold mb-4 text-uppercase"
+                  style={{ color: "#ff0048" }}
+                >
                   Company
                 </h5>
                 <ul className="list-unstyled footer-links">
-                  {["About", "Projects", "Team", "Contact"].map((item) => (
-                    <li key={item} className="mb-2">
-                      <a href="#" className="text-secondary text-decoration-none d-flex align-items-center gap-2 py-1 link-hover">
-                        <FontAwesomeIcon icon={faChevronRight} className="font-sm transition-all" />
-                        <span>{item}</span>
-                      </a>
-                    </li>
-                  ))}
+                  {["About", "Our Vision", "What We Do", "Contact"].map(
+                    (item) => (
+                      <li key={item} className="mb-2">
+                        <a
+                          href="/about-us"
+                          className="text-secondary text-decoration-none d-flex align-items-center gap-2 py-1 link-hover"
+                        >
+                          <FontAwesomeIcon
+                            icon={faChevronRight}
+                            className="font-sm transition-all"
+                          />
+                          <span>{item}</span>
+                        </a>
+                      </li>
+                    )
+                  )}
                 </ul>
               </div>
 
               {/* Services */}
               <div className="col-sm-4">
-                <h5 className="fw-bold mb-4 text-uppercase" style={{ color: "#ff0048" }}>
+                <h5
+                  className="fw-bold mb-4 text-uppercase"
+                  style={{ color: "#ff0048" }}
+                >
                   Services
                 </h5>
                 <ul className="list-unstyled footer-links">
-                  {["Music Production", "Video Production", "Event Planning", "Marketing"].map((item) => (
+                  {[
+                    "Music Production",
+                    "Video Production",
+                    "Event Planning",
+                    "Marketing",
+                  ].map((item) => (
                     <li key={item} className="mb-2">
-                      <a href="#" className="text-secondary text-decoration-none d-flex align-items-center gap-2 py-1 link-hover">
-                        <FontAwesomeIcon icon={faChevronRight} className="font-sm transition-all" />
+                      <a
+                        href="/services"
+                        className="text-secondary text-decoration-none d-flex align-items-center gap-2 py-1 link-hover"
+                      >
+                        <FontAwesomeIcon
+                          icon={faChevronRight}
+                          className="font-sm transition-all"
+                        />
                         <span>{item}</span>
                       </a>
                     </li>
@@ -137,14 +181,23 @@ const Footer = () => {
 
               {/* Talent */}
               <div className="col-sm-4">
-                <h5 className="fw-bold mb-4 text-uppercase" style={{ color: "#ff0048" }}>
+                <h5
+                  className="fw-bold mb-4 text-uppercase"
+                  style={{ color: "#ff0048" }}
+                >
                   Talent
                 </h5>
                 <ul className="list-unstyled footer-links">
                   {["Artists", "Sports"].map((item) => (
                     <li key={item} className="mb-2">
-                      <a href="#" className="text-secondary text-decoration-none d-flex align-items-center gap-2 py-1 link-hover">
-                        <FontAwesomeIcon icon={faChevronRight} className="font-sm transition-all" />
+                      <a
+                        href="/talents"
+                        className="text-secondary text-decoration-none d-flex align-items-center gap-2 py-1 link-hover"
+                      >
+                        <FontAwesomeIcon
+                          icon={faChevronRight}
+                          className="font-sm transition-all"
+                        />
                         <span>{item}</span>
                       </a>
                     </li>
@@ -156,7 +209,10 @@ const Footer = () => {
 
           {/* Newsletter */}
           <div className="col-lg-3 col-md-6">
-            <h5 className="fw-bold mb-4 text-uppercase" style={{ color: "#ff0048" }}>
+            <h5
+              className="fw-bold mb-4 text-uppercase"
+              style={{ color: "#ff0048" }}
+            >
               Newsletter
             </h5>
             <p className="text-secondary mb-4">
@@ -177,7 +233,7 @@ const Footer = () => {
                   }}
                   required
                 />
-                <button 
+                <button
                   className="btn position-absolute end-0 top-50 translate-middle-y me-2"
                   type="submit"
                   style={{
@@ -194,19 +250,30 @@ const Footer = () => {
 
             {/* Social Media */}
             <div className="mt-5">
-              <h6 className="fw-bold mb-4 text-uppercase" style={{ color: "#ff0048" }}>
+              <h6
+                className="fw-bold mb-4 text-uppercase"
+                style={{ color: "#ff0048" }}
+              >
                 Follow Us
               </h6>
               <div className="d-flex gap-3">
                 {[
                   { icon: faFacebookF, link: "#" },
-                  { icon: faTwitter, link: "#" },
-                  { icon: faInstagram, link: "#" },
-                  { icon: faYoutube, link: "#" },
+                  { icon: faTwitter, link: "https://x.com/topreeferent?s=21" },
+                  {
+                    icon: faInstagram,
+                    link: "https://www.instagram.com/topreeferent?igsh=MThrM2FodGFxaW53ZQ==",
+                  },
+                  {
+                    icon: faYoutube,
+                    link: "https://www.youtube.com/@trgmusicdaily",
+                  },
                 ].map((social, index) => (
                   <a
                     key={index}
                     href={social.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="social-link"
                     style={{
                       width: "40px",
@@ -229,7 +296,10 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-top py-4" style={{ borderColor: "rgba(255, 255, 255, 0.1) !important" }}>
+        <div
+          className="border-top py-4"
+          style={{ borderColor: "rgba(255, 255, 255, 0.1) !important" }}
+        >
           <div className="row align-items-center">
             <div className="col-md-6 text-center text-md-start">
               <p className="mb-0 text-secondary">
@@ -237,8 +307,12 @@ const Footer = () => {
               </p>
             </div>
             <div className="col-md-6 text-center text-md-end">
-              <a href="#" className="text-secondary text-decoration-none me-3">Privacy Policy</a>
-              <a href="#" className="text-secondary text-decoration-none">Terms of Service</a>
+              <a href="#" className="text-secondary text-decoration-none me-3">
+                Privacy Policy
+              </a>
+              <a href="#" className="text-secondary text-decoration-none">
+                Terms of Service
+              </a>
             </div>
           </div>
         </div>
