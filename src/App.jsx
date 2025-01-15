@@ -1,5 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useLocation,
+} from "react-router-dom";
 import Navbar from "./components/Navbar2";
 import Home from "./pages/Home";
 import Aboutus from "./pages/Aboutus";
@@ -10,6 +15,17 @@ import TrgProductions from "./pages/TrgProductions";
 import News from "./pages/News";
 import TrgAgency from "./pages/TrgAgency";
 import Footer from "./components/Footer";
+
+// ScrollToTop component to handle scroll reset
+const ScrollToTop = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0); // Scroll to the top on route change
+  }, [location]);
+
+  return null;
+};
 
 const App = () => {
   const [showArrow, setShowArrow] = useState(false);
@@ -43,6 +59,8 @@ const App = () => {
     <Router>
       <div className="Poppins,sans-serif">
         <Navbar />
+        {/* ScrollToTop component will reset the scroll position */}
+        <ScrollToTop />
         {/* Define routes for the app */}
         <Routes>
           {/* Home Page */}
