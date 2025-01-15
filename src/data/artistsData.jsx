@@ -12,6 +12,15 @@ export const artistsData = {
     twitter: "wizkidayo",
     facebook: "wizkidofficial",
   },
+  1: {
+    id: 1,
+    name: "Wizkid",
+    image: Wizkid,
+    bio: "Ayodeji Ibrahim Balogun, known professionally as Wizkid, is a Nigerian singer and songwriter. He began recording music at the age of 11 and rose to prominence after releasing 'Holla at Your Boy', the lead single from his debut studio album Superstar (2011). A multiple award-winning artist, Wizkid has collaborated with global stars and achieved international recognition with hits like 'Essence' and 'Brown Skin Girl'.",
+    instagram: "wizkidayo",
+    twitter: "wizkidayo",
+    facebook: "wizkidofficial",
+  },
   9: {
     id: 9,
     name: "Davido",
@@ -29,5 +38,5 @@ export const artistsData = {
     instagram: "iamkingpromise",
     twitter: "iamkingpromise",
     facebook: "kingpromiseofficial",
-  }
+  },
 };

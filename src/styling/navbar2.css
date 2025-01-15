@@ -239,4 +239,13 @@
       margin: 0;
     }
   }
-  
+  /* Add these styles to highlight active page */
+.nav-link.active .nav-link-line {
+  width: 100%;
+  background-color: #ff69b4; /* Your pink color - adjust if needed */
+  opacity: 1;
+}
+
+.nav-link.active .nav-link-text {
+  color: #ff69b4; /* Your pink color - adjust if needed */
+}

@@ -66,7 +66,13 @@ const Navbar = () => {
         <div className={`collapse navbar-collapse ${isOpen ? "show" : ""}`}>
           <ul className="navbar-nav mx-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <Link className="nav-link" to="/" onClick={() => setIsOpen(false)}>
+              <Link
+                className={`nav-link ${
+                  location.pathname === "/" ? "active" : ""
+                }`}
+                to="/"
+                onClick={() => setIsOpen(false)}
+              >
                 <span className="nav-link-content">
                   <span className="nav-link-text">Home</span>
                   <span className="nav-link-line"></span>
@@ -74,7 +80,13 @@ const Navbar = () => {
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/about-us" onClick={() => setIsOpen(false)}>
+              <Link
+                className={`nav-link ${
+                  location.pathname === "/about-us" ? "active" : ""
+                }`}
+                to="/about-us"
+                onClick={() => setIsOpen(false)}
+              >
                 <span className="nav-link-content">
                   <span className="nav-link-text">About</span>
                   <span className="nav-link-line"></span>
@@ -82,7 +94,13 @@ const Navbar = () => {
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/talents" onClick={() => setIsOpen(false)}>
+              <Link
+                className={`nav-link ${
+                  location.pathname === "/talents" ? "active" : ""
+                }`}
+                to="/talents"
+                onClick={() => setIsOpen(false)}
+              >
                 <span className="nav-link-content">
                   <span className="nav-link-text">Talents</span>
                   <span className="nav-link-line"></span>
@@ -90,7 +108,13 @@ const Navbar = () => {
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/services" onClick={() => setIsOpen(false)}>
+              <Link
+                className={`nav-link ${
+                  location.pathname === "/services" ? "active" : ""
+                }`}
+                to="/services"
+                onClick={() => setIsOpen(false)}
+              >
                 <span className="nav-link-content">
                   <span className="nav-link-text">Services</span>
                   <span className="nav-link-line"></span>
@@ -98,7 +122,13 @@ const Navbar = () => {
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/news" onClick={() => setIsOpen(false)}>
+              <Link
+                className={`nav-link ${
+                  location.pathname === "/news" ? "active" : ""
+                }`}
+                to="/news"
+                onClick={() => setIsOpen(false)}
+              >
                 <span className="nav-link-content">
                   <span className="nav-link-text">News</span>
                   <span className="nav-link-line"></span>
