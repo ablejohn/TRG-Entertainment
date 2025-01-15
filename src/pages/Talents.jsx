@@ -12,6 +12,7 @@ import Banky from "../assets/Banky.jpeg";
 import Bella from "../assets/Bella.jpeg";
 import Davido from "../assets/davido.jpeg";
 import Victony from "../assets/Victony.jpeg";
+import "../styling/talent.css";
 
 const TalentShowcase = () => {
   const [activeIndex, setActiveIndex] = useState(0);

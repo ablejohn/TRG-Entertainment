@@ -1,0 +1,11 @@
+.btn-warning:hover {
+    background-color: white !important;
+    border-color: white !important;
+    color: black !important; /* Keep the text visible */
+  }
+  
+  .btn-outline-light:hover {
+    background-color: white !important;
+    border-color: white !important;
+    color: black !important; /* Keep the text visible in black */
+  }
