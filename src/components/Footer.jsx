@@ -1,18 +1,19 @@
 import React, { useState } from "react";
 import logo from "../assets/logo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faPhone,
-  faEnvelope,
-  faMapMarkerAlt,
-  faArrowRight,
+import { 
+  faPhone, 
+  faEnvelope, 
+  faMapMarkerAlt, 
   faChevronRight,
+  faStore,
+  faMobileScreen
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faFacebookF,
   faTwitter,
   faInstagram,
-  faYoutube,
+  faYoutube
 } from "@fortawesome/free-brands-svg-icons";
 
 const Footer = () => {
@@ -21,6 +22,10 @@ const Footer = () => {
   const handleNewsletterSubmit = (e) => {
     e.preventDefault();
     setEmail("");
+  };
+
+  const handleAppDownload = (platform) => {
+    alert("Collab Tunes app coming soon to " + platform + "!");
   };
 
   return (
@@ -207,7 +212,7 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Newsletter */}
+          {/* Newsletter and App Download */}
           <div className="col-lg-3 col-md-6">
             <h5
               className="fw-bold mb-4 text-uppercase"
@@ -247,6 +252,44 @@ const Footer = () => {
                 </button>
               </div>
             </form>
+
+            {/* App Download Section */}
+            <div className="mt-4">
+              <h6
+                className="fw-bold mb-3 text-uppercase"
+                style={{ color: "#ff0048" }}
+              >
+                Download Collab Tunes
+              </h6>
+              <div className="d-flex gap-3">
+                <button
+                  onClick={() => handleAppDownload("App Store")}
+                  className="btn text-white app-store-btn"
+                  style={{
+                    backgroundColor: "rgba(255, 0, 72, 0.1)",
+                    border: "1px solid rgba(255, 0, 72, 0.3)",
+                    borderRadius: "8px",
+                    padding: "8px 16px",
+                  }}
+                >
+                  <FontAwesomeIcon icon={faStore} className="me-2" />
+                  App Store
+                </button>
+                <button
+                  onClick={() => handleAppDownload("Google Play")}
+                  className="btn text-white app-store-btn"
+                  style={{
+                    backgroundColor: "rgba(255, 0, 72, 0.1)",
+                    border: "1px solid rgba(255, 0, 72, 0.3)",
+                    borderRadius: "8px",
+                    padding: "8px 16px",
+                  }}
+                >
+                  <FontAwesomeIcon icon={faMobileScreen} className="me-2" />
+                  Play Store
+                </button>
+              </div>
+            </div>
 
             {/* Social Media */}
             <div className="mt-5">
@@ -317,70 +360,79 @@ const Footer = () => {
           </div>
         </div>
       </div>
+
+      <style>{`
+        @keyframes pulse {
+          0% {
+            transform: scale(1);
+            opacity: 0.5;
+          }
+          50% {
+            transform: scale(1.1);
+            opacity: 0.3;
+          }
+          100% {
+            transform: scale(1);
+            opacity: 0.5;
+          }
+        }
+
+        .contact-link {
+          transition: all 0.3s ease;
+        }
+
+        .contact-link:hover {
+          background-color: rgba(255, 0, 72, 0.1);
+          color: white !important;
+        }
+
+        .icon-wrapper {
+          width: 35px;
+          height: 35px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: rgba(255, 0, 72, 0.1);
+          border-radius: 50%;
+          color: #ff0048;
+        }
+
+        .footer-links .link-hover:hover {
+          color: white !important;
+          transform: translateX(5px);
+        }
+
+        .footer-links .link-hover:hover .font-sm {
+          color: #ff0048;
+        }
+
+        .social-link:hover {
+          background-color: #ff0048 !important;
+          color: white !important;
+          transform: translateY(-3px);
+        }
+
+        .newsletter-form input:focus {
+          box-shadow: 0 0 15px rgba(255, 0, 72, 0.2);
+          border-color: #ff0048 !important;
+        }
+
+        .app-store-btn {
+          transition: all 0.3s ease;
+        }
+
+        .app-store-btn:hover {
+          background-color: #ff0048 !important;
+          border-color: #ff0048 !important;
+          transform: translateY(-2px);
+        }
+
+        .transition-all {
+          transition: all 0.3s ease;
+        }
+      `}</style>
     </footer>
   );
 };
 
 export default Footer;
-
-// Add this CSS to your stylesheet
-const styles = `
-@keyframes pulse {
-  0% {
-    transform: scale(1);
-    opacity: 0.5;
-  }
-  50% {
-    transform: scale(1.1);
-    opacity: 0.3;
-  }
-  100% {
-    transform: scale(1);
-    opacity: 0.5;
-  }
-}
-
-.contact-link {
-  transition: all 0.3s ease;
-}
-
-.contact-link:hover {
-  background-color: rgba(255, 0, 72, 0.1);
-  color: white !important;
-}
-
-.icon-wrapper {
-  width: 35px;
-  height: 35px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: rgba(255, 0, 72, 0.1);
-  border-radius: 50%;
-  color: #ff0048;
-}
-
-.footer-links .link-hover:hover {
-  color: white !important;
-  transform: translateX(5px);
-}
-
-.footer-links .link-hover:hover .font-sm {
-  color: #ff0048;
-}
-
-.social-link:hover {
-  background-color: #ff0048 !important;
-  color: white !important;
-  transform: translateY(-3px);
-}
-
-.newsletter-form input:focus {
-  box-shadow: 0 0 15px rgba(255, 0, 72, 0.2);
-  border-color: #ff0048 !important;
-}
-
-.transition-all {
-  transition: all 0.3s ease;
-}
-`;
