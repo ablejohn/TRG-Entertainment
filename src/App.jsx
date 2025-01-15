@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar2";
 import Home from "./pages/Home";
@@ -12,6 +12,33 @@ import TrgAgency from "./pages/TrgAgency";
 import Footer from "./components/Footer";
 
 const App = () => {
+  const [showArrow, setShowArrow] = useState(false);
+
+  // Show the arrow when scrolled down
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 200) {
+        setShowArrow(true);
+      } else {
+        setShowArrow(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  // Scroll to the top of the page
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth", // Smooth scrolling
+    });
+  };
+
   return (
     <Router>
       <div className="Poppins,sans-serif">
@@ -22,7 +49,7 @@ const App = () => {
           <Route path="/" element={<Home />} />
           {/* About Page */}
           <Route path="/about-us" element={<Aboutus />} />
-          {/* services Page */}
+          {/* Services Page */}
           <Route path="/services" element={<Services />} />
           {/* Talent Page */}
           <Route path="/talents" element={<Talents />} />
@@ -32,6 +59,16 @@ const App = () => {
           <Route path="/artist/:id" element={<ArtistProfile />} />
         </Routes>
         <Footer /> {/* Add the Footer component here */}
+        {/* Back to Top Button */}
+        {showArrow && (
+          <div
+            className="back-to-top"
+            onClick={scrollToTop}
+            title="Back to Top"
+          >
+            <i className="bi bi-caret-up-fill"></i>
+          </div>
+        )}
       </div>
     </Router>
   );
