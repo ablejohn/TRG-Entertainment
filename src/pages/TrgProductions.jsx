@@ -14,7 +14,9 @@ import { Typewriter } from "react-simple-typewriter";
 
 const HeroText = () => (
   <div className="position-absolute top-50 start-50 translate-middle text-center">
-    <h1 className="display-1 fw-bold text-white mb-4">TRG Productions</h1>
+    <h1 className="display-1 fw-bold text-white mb-4">
+      TRG <span style={{ color: "#ff0055" }}>Productions</span>{" "}
+    </h1>
     <div
       className="mx-auto mb-4"
       style={{
