@@ -1,5 +1,0 @@
----
-deployment:
-  tasks:
-    - export DEPLOYPATH=/home/trgenter/public_html
-    - /bin/cp -r build/* $DEPLOYPATH/
