@@ -9,7 +9,7 @@ const Hero = () => {
 
   const texts = [
     "Where <span class='script'>Entertainment</span> Connects",
-    "The Gatewaysss to <span class='script'>Music</span> & <span class='script'>Talent</span>",
+    "The Gateway to <span class='script'>Music</span> & <span class='script'>Talent</span>",
     "Bringing <span class='script'>Artists</span> & <span class='script'>Audiences</span> Together",
   ];
 
