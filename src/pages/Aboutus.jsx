@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import {
   ArrowRight,
@@ -10,9 +10,24 @@ import {
   Star,
 } from "lucide-react";
 import WWD from "../components/WWD";
+import CombinedSection from "../components/Combinedsection";
 import StatsSection from "../components/StatsSection";
 
 const AboutUs = () => {
+  // Create refs for WWD and Combined sections
+  const wdSectionRef = useRef(null);
+  const combinedSectionRef = useRef(null);
+
+  // Function to scroll to WWD section
+  const scrollToWWDSection = () => {
+    wdSectionRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  // Function to scroll to Combined section
+  const scrollToCombinedSection = () => {
+    combinedSectionRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <div>
       {/* Hero Section - New Design */}
@@ -29,7 +44,7 @@ const AboutUs = () => {
                 }}
               >
                 <span
-                  className="badge px-4 py-3 mb-3 fs-6" // Increased badge size
+                  className="badge px-4 py-3 mb-3 fs-6"
                   style={{ backgroundColor: "#ff0055" }}
                 >
                   About Us
@@ -45,17 +60,21 @@ const AboutUs = () => {
                   <button
                     className="btn btn-lg px-4 py-2"
                     style={{ backgroundColor: "#ff0055", color: "white" }}
+                    onClick={scrollToWWDSection}
                   >
                     Our Services
                   </button>
-                  <button className="btn btn-lg btn-outline-light px-4 py-2">
+                  <button
+                    className="btn btn-lg btn-outline-light px-4 py-2"
+                    onClick={scrollToWWDSection}
+                  >
                     Learn More
                   </button>
                 </div>
               </div>
             </div>
 
-            {/* Global Reach Section */}
+            {/* Global Reach Section - Unchanged */}
             <div className="col-lg-6 order-1 order-md-2 mb-5 mb-lg-0">
               <div className="text-center text-lg-end mt-5 mt-lg-0">
                 <div className="d-inline-flex gap-4 mb-4">
@@ -93,10 +112,12 @@ const AboutUs = () => {
         <StatsSection />
       </div>
 
-      {/* Services Section */}
-      <WWD />
+      {/* Services Section - Added ref */}
+      <div ref={wdSectionRef}>
+        <WWD />
+      </div>
 
-      {/* Side by Side Vision & CTA Section */}
+      {/* Vision & CTA Section - Unchanged */}
       <div className="bg-black text-white py-5 mt-5">
         <div className="container py-5">
           <div className="row align-items-center">
@@ -104,7 +125,7 @@ const AboutUs = () => {
             <div className="col-lg-6 pe-lg-5">
               <div className="mb-4 mb-lg-0">
                 <span
-                  className="badge px-4 py-3 mb-3 fs-6" // Increased badge size
+                  className="badge px-4 py-3 mb-3 fs-6"
                   style={{
                     backgroundColor: "#ff0055",
                     fontWeight: "bold",
@@ -137,6 +158,7 @@ const AboutUs = () => {
                     e.target.style.backgroundColor = "transparent";
                     e.target.style.borderColor = "white";
                   }}
+                  onClick={scrollToWWDSection}
                 >
                   Learn More
                 </button>
@@ -176,6 +198,7 @@ const AboutUs = () => {
                   onMouseLeave={(e) => {
                     e.target.style.opacity = "1";
                   }}
+                  onClick={scrollToCombinedSection}
                 >
                   Contact Us Today
                   <ArrowRight className="ms-2" size={20} />
@@ -184,6 +207,11 @@ const AboutUs = () => {
             </div>
           </div>
         </div>
+      </div>
+
+      {/* Added ref to Combined Section */}
+      <div ref={combinedSectionRef}>
+        <CombinedSection />
       </div>
     </div>
   );

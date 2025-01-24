@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import {
   Film,
   Music2,
@@ -11,14 +11,14 @@ import {
 } from "lucide-react";
 import { Typewriter } from "react-simple-typewriter";
 import video from "../assets/video.mp4";
+import CombinedSection from "../components/Combinedsection";
 
-const HeroText = () => {
+const HeroText = ({ scrollToCombinedSection }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
     <div className="position-absolute top-50 start-50 translate-middle text-center w-100">
       <div className="container px-4">
-        {/* Main Heading */}
         <h1
           className="display-1 fw-bold text-white mb-4"
           style={{ fontSize: "calc(2.5rem + 3.5vw)" }}
@@ -35,7 +35,6 @@ const HeroText = () => {
           </span>
         </h1>
 
-        {/* Animated underline */}
         <div className="position-relative">
           <div
             className="mx-auto mb-4"
@@ -48,7 +47,6 @@ const HeroText = () => {
           />
         </div>
 
-        {/* Typewriter text */}
         <p className="display-6 text-white-50 mb-5">
           <Typewriter
             words={["Bringing Your Vision To Life", "Unleashing Creativity"]}
@@ -61,11 +59,11 @@ const HeroText = () => {
           />
         </p>
 
-        {/* Modern button */}
         <div className="d-inline-block">
           <button
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
+            onClick={scrollToCombinedSection}
             className="btn btn-lg rounded-pill d-inline-flex align-items-center gap-2 px-4 py-3"
             style={{
               backgroundColor: "#ff0055",
@@ -137,6 +135,11 @@ const ServiceCard = ({ title, icon: Icon, description, isActive, onClick }) => (
 
 const TRGProductionsPage = () => {
   const [activeService, setActiveService] = useState(null);
+  const combinedSectionRef = useRef(null);
+
+  const scrollToCombinedSection = () => {
+    combinedSectionRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
 
   const services = [
     {
@@ -232,7 +235,7 @@ const TRGProductionsPage = () => {
           />
         </div>
 
-        <HeroText />
+        <HeroText scrollToCombinedSection={scrollToCombinedSection} />
       </div>
 
       {/* Services Section */}
@@ -278,6 +281,7 @@ const TRGProductionsPage = () => {
             color: "#fff",
             transition: "all 0.3s ease",
           }}
+          onClick={scrollToCombinedSection}
           onMouseEnter={(e) => {
             e.currentTarget.style.transform = "scale(1.05)";
             e.currentTarget.style.boxShadow = "0 0 20px rgba(255, 0, 85, 0.5)";
@@ -290,6 +294,11 @@ const TRGProductionsPage = () => {
           <span>Get Started</span>
           <ArrowRight size={24} />
         </button>
+      </div>
+
+      {/* Combined Section with Ref */}
+      <div ref={combinedSectionRef}>
+        <CombinedSection />
       </div>
     </div>
   );

@@ -12,7 +12,6 @@ const CombinedSection = () => {
     booking: "",
   });
 
-  // Define the gradient overlay style
   const gradientOverlay = {
     position: "absolute",
     top: 0,
@@ -31,11 +30,11 @@ const CombinedSection = () => {
 
     try {
       const result = await emailjs.sendForm(
-        "service_2zt8y7o", // EmailJS service ID
-        "template_4u9r2ig", // Contact Form EmailJS template ID
+        "service_2zt8y7o",
+        "template_4u9r2ig",
         e.target,
-        "fCQlkppx01UJzEfkY" // EmailJS public key
-      ); //For Contact Form
+        "fCQlkppx01UJzEfkY"
+      );
 
       if (result.text === "OK") {
         setStatus((prev) => ({
@@ -61,11 +60,11 @@ const CombinedSection = () => {
 
     try {
       const result = await emailjs.sendForm(
-        "service_2zt8y7o", // EmailJS service ID
-        "template_kk7vjwu", //  Booking Session EmailJS template ID
+        "service_2zt8y7o",
+        "template_kk7vjwu",
         e.target,
-        "fCQlkppx01UJzEfkY" // EmailJS public key
-      ); //For BOoking Session
+        "fCQlkppx01UJzEfkY"
+      );
 
       if (result.text === "OK") {
         setStatus((prev) => ({
@@ -95,7 +94,6 @@ const CombinedSection = () => {
       }}
     >
       <div className="container py-5">
-        {/* Header Section */}
         <div className="row mb-5 text-center">
           <div className="col-lg-8 mx-auto">
             <h2
@@ -112,7 +110,6 @@ const CombinedSection = () => {
         </div>
 
         <div className="row g-4">
-          {/* Playlist Card */}
           <div className="col-lg-4">
             <div className="card h-100 bg-transparent border-0 shadow-lg position-relative">
               <div style={gradientOverlay}></div>
@@ -134,7 +131,6 @@ const CombinedSection = () => {
             </div>
           </div>
 
-          {/* Contact Form Card */}
           <div className="col-lg-4">
             <div className="card h-100 bg-transparent border-0 shadow-lg position-relative">
               <div style={gradientOverlay}></div>
@@ -155,7 +151,7 @@ const CombinedSection = () => {
                       className="form-control bg-dark bg-opacity-75 border-light border-opacity-25 text-white py-3"
                       id="contactName"
                       name="from_name"
-                      placeholder="Enter your name"
+                      placeholder="e.g., John Doe"
                       required
                     />
                   </div>
@@ -171,7 +167,7 @@ const CombinedSection = () => {
                       className="form-control bg-dark bg-opacity-75 border-light border-opacity-25 text-white py-3"
                       id="contactEmail"
                       name="from_email"
-                      placeholder="Enter your email"
+                      placeholder="e.g., john.doe@example.com"
                       required
                     />
                   </div>
@@ -186,7 +182,7 @@ const CombinedSection = () => {
                       className="form-control bg-dark bg-opacity-75 border-light border-opacity-25 text-white py-3"
                       id="contactMessage"
                       name="message"
-                      placeholder="Write your message"
+                      placeholder="Write your message here..."
                       rows="4"
                       required
                     ></textarea>
@@ -215,7 +211,6 @@ const CombinedSection = () => {
             </div>
           </div>
 
-          {/* Booking Card */}
           <div className="col-lg-4" id="booking">
             <div className="card h-100 bg-transparent border-0 shadow-lg position-relative">
               <div style={gradientOverlay}></div>
@@ -236,7 +231,7 @@ const CombinedSection = () => {
                       className="form-control bg-dark bg-opacity-75 border-light border-opacity-25 text-white py-3"
                       id="bookingName"
                       name="from_name"
-                      placeholder="Enter your full name"
+                      placeholder="e.g., Jane Smith"
                       required
                     />
                   </div>
@@ -252,7 +247,7 @@ const CombinedSection = () => {
                       className="form-control bg-dark bg-opacity-75 border-light border-opacity-25 text-white py-3"
                       id="bookingEmail"
                       name="from_email"
-                      placeholder="Enter your email"
+                      placeholder="e.g., jane.smith@example.com"
                       required
                     />
                   </div>
@@ -316,7 +311,6 @@ const CombinedSection = () => {
           </div>
         </div>
 
-        {/* Footer Note */}
         <div className="row mt-5">
           <div className="col text-center">
             <p className="text-white-50 small mb-0">
