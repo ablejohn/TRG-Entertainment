@@ -5,7 +5,7 @@ import CombinedSection from "../components/Combinedsection";
 import Raebel from "../assets/Raebel.jpeg";
 import KingPromise from "../assets/King Promise.jpeg";
 import SmallztheDj from "../assets/Smallz.jpeg";
-import Wizkid from "../assets/Wizkid.jpeg";
+import OssyBleu from "../assets/OssyBleu.jpg";
 import LogosOlori from "../assets/Logos Olori.jpeg";
 import Boj from "../assets/BOj.jpeg";
 import Banky from "../assets/Banky.jpeg";
@@ -41,8 +41,8 @@ const TalentShowcase = () => {
     },
     {
       id: 4,
-      name: "Wizkid",
-      image: Wizkid,
+      name: "OssyBleu",
+      image: OssyBleu,
       bgColor: "rgb(0, 32, 76)",
     },
     {

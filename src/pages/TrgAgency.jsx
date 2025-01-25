@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import {
   MoveRight,
   Briefcase,
@@ -14,9 +14,22 @@ import {
 } from "lucide-react";
 import agencyImage from "../assets/agency.jpeg";
 import "bootstrap/dist/css/bootstrap.min.css";
-
+import CombinedSection from "../components/Combinedsection";
 
 const TRGAgencyLanding = () => {
+  // Refs for scrolling
+  const expertiseRef = useRef(null);
+  const combinedSectionRef = useRef(null);
+
+  // Scroll handler functions
+  const scrollToExpertise = () => {
+    expertiseRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const scrollToCombinedSection = () => {
+    combinedSectionRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
   const capabilities = [
     {
       icon: <Target size={32} />,
@@ -55,6 +68,7 @@ const TRGAgencyLanding = () => {
         "Delivering end-to-end management solutions to maximize brand achievement.",
     },
   ];
+
   const services = [
     {
       title: "Sports Marketing",
@@ -240,9 +254,11 @@ const TRGAgencyLanding = () => {
                   </span>
                 </h1>
                 <p className="lead mb-4">
-                  A cutting-edge management and marketing firm delivering excellence through groundbreaking strategies.
+                  A cutting-edge management and marketing firm delivering
+                  excellence through groundbreaking strategies.
                 </p>
                 <button
+                  onClick={scrollToExpertise}
                   className="btn btn-lg d-inline-flex align-items-center gap-2"
                   style={{ background: "#ff0055", color: "white" }}
                 >
@@ -274,7 +290,9 @@ const TRGAgencyLanding = () => {
                   Our Journey
                 </h2>
                 <p className="lead text-muted mb-5">
-                  From modest origins to market leadership, our evolution has been guided by one core principle: fostering authentic connections through impactful storytelling.
+                  From modest origins to market leadership, our evolution has
+                  been guided by one core principle: fostering authentic
+                  connections through impactful storytelling.
                 </p>
               </div>
             </div>
@@ -285,7 +303,10 @@ const TRGAgencyLanding = () => {
                   <div className="story-year mb-3">2001</div>
                   <h3 className="h4 mb-3">The Beginning</h3>
                   <p className="text-muted">
-                    Brian Stretch established TRG Agency with an innovative mission: crafting brand identities through genuine storytelling and meaningful relationships. A small startup evolved into an industry powerhouse.
+                    Brian Stretch established TRG Agency with an innovative
+                    mission: crafting brand identities through genuine
+                    storytelling and meaningful relationships. A small startup
+                    evolved into an industry powerhouse.
                   </p>
                 </div>
               </div>
@@ -294,7 +315,11 @@ const TRGAgencyLanding = () => {
                 <div className="story-card p-4 h-100">
                   <h3 className="h4 mb-3">The Vision Master</h3>
                   <p className="text-muted">
-                    Distinguished for our distinctive methodology, Mr. Stretch earned recognition as the "Vision Master" behind numerous business transformations. Our philosophy centers on capturing each brand's essence and transforming it into captivating stories that connect with audiences.
+                    Distinguished for our distinctive methodology, Mr. Stretch
+                    earned recognition as the "Vision Master" behind numerous
+                    business transformations. Our philosophy centers on
+                    capturing each brand's essence and transforming it into
+                    captivating stories that connect with audiences.
                   </p>
                 </div>
               </div>
@@ -303,7 +328,12 @@ const TRGAgencyLanding = () => {
                 <div className="story-card p-4">
                   <h3 className="h4 mb-3">Our Philosophy</h3>
                   <p className="text-muted mb-0">
-                    In the present day, we continue to challenge conventions through our extensive resource network and collaborative team strategy. We embrace unconventional paths, believing they lead to the most authentic narratives. Our dedication to innovation and genuine storytelling has established us as the preferred partner for brands seeking enduring impact.
+                    In the present day, we continue to challenge conventions
+                    through our extensive resource network and collaborative
+                    team strategy. We embrace unconventional paths, believing
+                    they lead to the most authentic narratives. Our dedication
+                    to innovation and genuine storytelling has established us as
+                    the preferred partner for brands seeking enduring impact.
                   </p>
                 </div>
               </div>
@@ -311,8 +341,8 @@ const TRGAgencyLanding = () => {
           </div>
         </section>
 
-        {/* Services Grid */}
-        <section className="py-5 bg-light">
+        {/* Services Grid with ref */}
+        <section ref={expertiseRef} className="py-5 bg-light">
           <div className="container py-5">
             <h2
               className="display-5 fw-bold text-center mb-5"
@@ -353,7 +383,8 @@ const TRGAgencyLanding = () => {
                   Core Strengths
                 </h2>
                 <p className="lead mb-4 text-light">
-                  We excel at identifying untapped potential and transforming it into measurable success.
+                  We excel at identifying untapped potential and transforming it
+                  into measurable success.
                 </p>
               </div>
             </div>
@@ -412,12 +443,22 @@ const TRGAgencyLanding = () => {
               Ready to Make Your Mark?
             </h2>
             <p className="lead text-black mb-4">
-              Experience exceptional outcomes through our integrated team approach.
+              Experience exceptional outcomes through our integrated team
+              approach.
             </p>
-            <button className="btn btn-dark btn-lg d-inline-flex align-items-center gap-2">
+            <button
+              onClick={scrollToCombinedSection}
+              className="btn btn-dark btn-lg d-inline-flex align-items-center gap-2"
+            >
               Get in Touch <MoveRight />
             </button>
           </div>
+        </section>
+      </div>
+      <div>
+        {/* Combined Section */}
+        <section ref={combinedSectionRef}>
+          <CombinedSection />
         </section>
       </div>
     </>

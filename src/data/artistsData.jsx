@@ -1,25 +1,27 @@
-import Wizkid from "../assets/Wizkid.jpeg";
+import OssyBleu from "../assets/OssyBleu.jpg";
 import Davido from "../assets/davido.jpeg";
 import KingPromise from "../assets/King Promise.jpeg";
 
 export const artistsData = {
   4: {
     id: 4,
-    name: "Wizkid",
-    image: Wizkid,
-    bio: "Ayodeji Ibrahim Balogun, known professionally as Wizkid, is a Nigerian singer and songwriter. He began recording music at the age of 11 and rose to prominence after releasing 'Holla at Your Boy', the lead single from his debut studio album Superstar (2011). A multiple award-winning artist, Wizkid has collaborated with global stars and achieved international recognition with hits like 'Essence' and 'Brown Skin Girl'.",
-    instagram: "wizkidayo",
-    twitter: "wizkidayo",
-    facebook: "wizkidofficial",
+    name: "Ossy Bleu",
+    image: OssyBleu,
+    bio: "Ossy Bleu, born Osinakachukwu Agbalama, is a Nigerian artist known for his unique blend of hip-hop, afro and soulful melodies. With a passion for storytelling and a knack for capturing raw emotions, Ossy Bleu continues to make waves in the music industry as a rapper, songwriter, composer. With a charismatic stage presence Ossy Bleu captivates audiences with his heartfelt performances, infectious energy, scintillating sounds, top-notch lyrics and of course his striking looks. Ossy Bleu, a standout musical artist from Lagos, Nigeria, has truly mastered his own sound, seamlessly blending elements of rap, afro soul and high life genre.What sets Ossy Bleu apart is his ability to create music that feels both familiar and unique. His style can be described as a hip-hop infused in afro, one that Ossy Bleu has mastered, Ossy Bleu has a song for every mood throughout his debut album titled 'The AUTOPILOT'. One of his many strategies includes frequent posts that not only showcase his latest records and stage performances but also he incorporates trending memes and interactive features native to each platform, making Ossy Bleu and his content likeable, relatable and shareable.",
+    instagram: "ossybleu",
+    twitter: "ossybleu",
+    facebook: "ossybleu",
+    youtube: "@OSSYBLEU",
+    music: "https://t.co/jlUQdDgfBU"
   },
   1: {
     id: 1,
-    name: "Wizkid",
-    image: Wizkid,
-    bio: "Ayodeji Ibrahim Balogun, known professionally as Wizkid, is a Nigerian singer and songwriter. He began recording music at the age of 11 and rose to prominence after releasing 'Holla at Your Boy', the lead single from his debut studio album Superstar (2011). A multiple award-winning artist, Wizkid has collaborated with global stars and achieved international recognition with hits like 'Essence' and 'Brown Skin Girl'.",
-    instagram: "wizkidayo",
-    twitter: "wizkidayo",
-    facebook: "wizkidofficial",
+    name: "Ossy Bleu",
+    image: OssyBleu,
+    bio: "Ossy Bleu, born Osinakachukwu Agbalama, is a Nigerian artist known for his unique blend of hip-hop, afro and soulful melodies. With a passion for storytelling and a knack for capturing raw emotions, Ossy Bleu continues to make waves in the music industry as a rapper, songwriter, composer. With a charismatic stage presence Ossy Bleu captivates audiences with his heartfelt performances, infectious energy, scintillating sounds, top-notch lyrics and of course his striking looks.",
+    instagram: "ossybleu",
+    twitter: "ossybleu",
+    facebook: "ossybleu",
   },
   9: {
     id: 9,

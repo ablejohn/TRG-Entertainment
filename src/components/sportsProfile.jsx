@@ -1,22 +1,15 @@
 import React from "react";
 import { useParams, Link } from "react-router-dom";
-import {
-  Instagram,
-  Twitter,
-  Facebook,
-  ArrowLeft,
-  Youtube,
-  Music,
-} from "lucide-react";
-import { artistsData } from "../data/artistsData";
+import { Instagram, Twitter, Facebook, ArrowLeft } from "lucide-react";
+import { sportsData } from "../data/sportsData";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-const ArtistProfile = () => {
+const SportsProfile = () => {
   const { id } = useParams();
-  const artist = artistsData[id];
+  const sportsperson = sportsData[id];
 
-  if (!artist) {
-    return <div>Artist not found</div>;
+  if (!sportsperson) {
+    return <div>Sportsperson not found</div>;
   }
 
   return (
@@ -25,7 +18,7 @@ const ArtistProfile = () => {
       <div
         className="position-relative vh-50 d-flex align-items-end"
         style={{
-          backgroundImage: `url(${artist.image})`,
+          backgroundImage: `url(${sportsperson.image})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           height: "400px",
@@ -53,7 +46,7 @@ const ArtistProfile = () => {
               className="breadcrumb-item active text-white"
               aria-current="page"
             >
-              {artist.name}
+              {sportsperson.name}
             </li>
           </ol>
         </nav>
@@ -67,8 +60,8 @@ const ArtistProfile = () => {
           {/* Profile Image */}
           <div className="col-md-3">
             <img
-              src={artist.image}
-              alt={artist.name}
+              src={sportsperson.image}
+              alt={sportsperson.name}
               className="img-fluid rounded-circle border border-4 border-warning shadow-lg"
               style={{ width: "200px", height: "200px", objectFit: "cover" }}
             />
@@ -77,8 +70,8 @@ const ArtistProfile = () => {
           {/* Content */}
           <div className="col-md-9">
             <div className="bg-dark bg-opacity-75 p-4 rounded-3 shadow-lg">
-              <h1 className="display-4 fw-bold mb-4">{artist.name}</h1>
-              <p className="lead mb-5">{artist.bio}</p>
+              <h1 className="display-4 fw-bold mb-4">{sportsperson.name}</h1>
+              <p className="lead mb-5">{sportsperson.bio}</p>
 
               {/* Highlights */}
               <div className="mb-5">
@@ -95,7 +88,7 @@ const ArtistProfile = () => {
                 <div className="card bg-dark bg-opacity-50 border-0">
                   <div className="card-body">
                     <ul className="list-unstyled mb-0">
-                      {artist.highlights?.map((highlight, index) => (
+                      {sportsperson.highlights?.map((highlight, index) => (
                         <li
                           key={index}
                           className="mb-3 d-flex align-items-center"
@@ -117,17 +110,16 @@ const ArtistProfile = () => {
                 {[
                   {
                     icon: Instagram,
-                    link: `https://instagram.com/${artist.instagram}`,
+                    link: `https://instagram.com/${sportsperson.instagram}`,
                   },
                   {
                     icon: Twitter,
-                    link: `https://twitter.com/${artist.twitter}`,
+                    link: `https://twitter.com/${sportsperson.twitter}`,
                   },
                   {
-                    icon: Youtube,
-                    link: `https://youtube.com/${artist.youtube}`,
+                    icon: Facebook,
+                    link: `https://facebook.com/${sportsperson.facebook}`,
                   },
-                  { icon: Music, link: `${artist.music}` },
                 ].map((social, index) => (
                   <a
                     key={index}
@@ -162,4 +154,4 @@ const ArtistProfile = () => {
   );
 };
 
-export default ArtistProfile;
+export default SportsProfile;

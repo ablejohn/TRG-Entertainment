@@ -11,6 +11,7 @@ import Aboutus from "./pages/Aboutus";
 import Services from "./pages/Services";
 import Talents from "./pages/Talents";
 import ArtistProfile from "./components/artistProfile";
+import SportsProfile from "./components/sportsProfile";
 import TrgProductions from "./pages/TrgProductions";
 import News from "./pages/News";
 import TrgAgency from "./pages/TrgAgency";
@@ -75,6 +76,7 @@ const App = () => {
           <Route path="/trg-agency" element={<TrgAgency />} />
           <Route path="/news" element={<News />} />
           <Route path="/artist/:id" element={<ArtistProfile />} />
+          <Route path="/sport/:id" element={<SportsProfile />} />
         </Routes>
         <Footer /> {/* Add the Footer component here */}
         {/* Back to Top Button */}

@@ -1,8 +1,9 @@
 import React, { useState, useRef, useEffect } from "react";
-import Henry from "../assets/Henry.png";
-import Asisat from "../assets/Asisat.jpg";
-import Tobi  from "../assets/Tobi.jpg";
-import Uche from "../assets/Uche.jpeg";
+import { Link } from "react-router-dom";
+import AbdulMumin from "../assets/AbdulMumin.jpeg";
+import ChristopherWooh from "../assets/ChristopherWooh.jpeg";
+import IssahKabore from "../assets/IssahKabore.png";
+import AliYousefAlMusrati from "../assets/Ali Yousef AlMusrati.jpeg";
 
 const SportsShowcase = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -13,26 +14,26 @@ const SportsShowcase = () => {
   const athletes = [
     {
       id: 1,
-      name: "Henry Onyekuru",
-      image: Henry,
+      name: "Abdul Mumin",
+      image: AbdulMumin,
       bgColor: "rgb(255, 87, 34)", // Orange background
     },
     {
       id: 2,
-      name: "Asisat Oshoala",
-      image: Asisat,
+      name: "Christopher Wooh",
+      image: ChristopherWooh,
       bgColor: "rgb(33, 33, 33)", // Dark background
     },
     {
       id: 3,
-      name: "Tobi Amusan",
-      image: Tobi,
+      name: "Issah Kabore",
+      image: IssahKabore,
       bgColor: "rgb(46, 125, 50)", // Green background
     },
     {
       id: 4,
-      name: "Uchenna Kanu",
-      image: Uche,
+      name: "Moatasem Al-Musrati",
+      image: AliYousefAlMusrati,
       bgColor: "rgb(13, 71, 161)", // Blue background
     },
   ];
@@ -94,7 +95,10 @@ const SportsShowcase = () => {
       <div className="container">
         {/* Header */}
         <div className="d-flex align-items-center mb-4">
-          <div className="rounded-circle p-2 me-3" style ={{background:"#ff0055", color:"white"}}>
+          <div
+            className="rounded-circle p-2 me-3"
+            style={{ background: "#ff0055", color: "white" }}
+          >
             <svg
               width="24"
               height="24"
@@ -125,7 +129,8 @@ const SportsShowcase = () => {
             style={{ scrollBehavior: "smooth" }}
           >
             {athletes.map((athlete, index) => (
-              <div
+              <Link
+                to={`/sport/${athlete.id}`}
                 key={athlete.id}
                 className="flex-shrink-0"
                 style={{
@@ -163,7 +168,7 @@ const SportsShowcase = () => {
                     <h3 className="text-white h4 mb-0">{athlete.name}</h3>
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
 
