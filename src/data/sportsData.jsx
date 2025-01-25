@@ -36,7 +36,7 @@ export const sportsData = {
     id: 4,
     name: "Moatasem Al-Musrati",
     image: AliYousefAlMusrati,
-    bio: "Moatasem Al-Musrati (born 6 April 1996) is a Libyan professional footballer who plays as a defensive midfielder for Süper Lig club Beşiktaş JK[_{{{CITATION{{{_1{Al-Musrati - Wikipedia](https://en.wikipedia.org/wiki/Al-Musrati). He has previously played for clubs like Braga and Vitória de Guimarães[_{{{CITATION{{{_1{Al-Musrati - Wikipedia](https://en.wikipedia.org/wiki/Al-Musrati).",
+    bio: "Moatasem Al-Musrati (born 6 April 1996) is a Libyan professional footballer who plays as a defensive midfielder for Süper Lig club Beşiktaş JK. He has previously played for clubs like Braga and Vitória de Guimarães.",
     instagram: "moatasemalmusrati",
     twitter: "MoatasemAlMusrati",
     facebook: "MoatasemAlMusratiOfficial",

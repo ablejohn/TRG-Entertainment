@@ -2,16 +2,13 @@ import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Sport from "../components/Sports";
 import CombinedSection from "../components/Combinedsection";
-import Raebel from "../assets/Raebel.jpeg";
-import KingPromise from "../assets/King Promise.jpeg";
-import SmallztheDj from "../assets/Smallz.jpeg";
+import Katheryn from "../assets/Katheryn.jpg";
+import Miwasus from "../assets/Miwasus.jpg";
+import QueenWinifred from "../assets/Queen Winifred.jpg";
+import RemiChester from "../assets/Remi Chester Alade.jpg";
+import TosinOyeneye from "../assets/TosinOyeneye.jpg";
+import VictorNdigwe from "../assets/Victor Ndigwe.jpg";
 import OssyBleu from "../assets/OssyBleu.jpg";
-import LogosOlori from "../assets/Logos Olori.jpeg";
-import Boj from "../assets/BOj.jpeg";
-import Banky from "../assets/Banky.jpeg";
-import Bella from "../assets/Bella.jpeg";
-import Davido from "../assets/davido.jpeg";
-import Victony from "../assets/Victony.jpeg";
 import "../styling/talent.css";
 
 const TalentShowcase = () => {
@@ -23,20 +20,20 @@ const TalentShowcase = () => {
   const talents = [
     {
       id: 1,
-      name: "Raebel",
-      image: Raebel,
+      name: "Katheryn",
+      image: Katheryn,
       bgColor: "rgb(0, 32, 76)",
     },
     {
       id: 2,
-      name: "King Promise",
-      image: KingPromise,
+      name: "Miwa_sus",
+      image: Miwasus,
       bgColor: "rgb(255, 98, 41)",
     },
     {
       id: 3,
-      name: "SmallztheDj",
-      image: SmallztheDj,
+      name: "Queen Winifred",
+      image: QueenWinifred,
       bgColor: "rgb(237, 222, 197)",
     },
     {
@@ -47,38 +44,20 @@ const TalentShowcase = () => {
     },
     {
       id: 5,
-      name: "Lagos Olori",
-      image: LogosOlori,
+      name: "Remi Chester Alade",
+      image: RemiChester,
       bgColor: "rgb(255, 98, 41)",
     },
     {
       id: 6,
-      name: "Boj",
-      image: Boj,
+      name: "Tosin Oyeneye",
+      image: TosinOyeneye,
       bgColor: "rgb(237, 222, 197)",
     },
     {
       id: 7,
-      name: "Banky",
-      image: Banky,
-      bgColor: "rgb(0, 32, 76)",
-    },
-    {
-      id: 8,
-      name: "Bella Shmurda",
-      image: Bella,
-      bgColor: "rgb(255, 98, 41)",
-    },
-    {
-      id: 9,
-      name: "Davido",
-      image: Davido,
-      bgColor: "rgb(237, 222, 197)",
-    },
-    {
-      id: 10,
-      name: "Victony",
-      image: Victony,
+      name: "Victor Ndigwe",
+      image: VictorNdigwe,
       bgColor: "rgb(0, 32, 76)",
     },
   ];
@@ -159,7 +138,7 @@ const TalentShowcase = () => {
               <circle cx="18" cy="16" r="3" />
             </svg>
           </div>
-          <h1 className="text-white h3 mb-0">MUSIC</h1>
+          <h1 className="text-white h3 mb-0">TALENTS</h1>
         </div>
 
         <h2 className="text-white display-5 fw-bold mb-5">
