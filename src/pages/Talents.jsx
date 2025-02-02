@@ -9,6 +9,9 @@ import RemiChester from "../assets/Remi Chester Alade.jpg";
 import TosinOyeneye from "../assets/TosinOyeneye.jpg";
 import VictorNdigwe from "../assets/Victor Ndigwe.jpg";
 import OssyBleu from "../assets/OssyBleu.jpg";
+import Samurai from "../assets/Samurai.jpg";
+import Spvce from "../assets/Spvce.jpg";
+import Muse from "../assets/Muse.jpg";
 import "../styling/talent.css";
 
 const TalentShowcase = () => {
@@ -20,21 +23,21 @@ const TalentShowcase = () => {
   const talents = [
     {
       id: 1,
-      name: "Katheryn",
-      image: Katheryn,
-      bgColor: "rgb(0, 32, 76)",
-    },
-    {
-      id: 2,
-      name: "Miwa_sus",
-      image: Miwasus,
+      name: "Samurai Chi",
+      image: Samurai,
       bgColor: "rgb(255, 98, 41)",
     },
     {
-      id: 3,
-      name: "Queen Winifred",
-      image: QueenWinifred,
+      id: 2,
+      name: "Spvce Boii",
+      image: Spvce,
       bgColor: "rgb(237, 222, 197)",
+    },
+    {
+      id: 3,
+      name: "Muse",
+      image: Muse,
+      bgColor: "rgb(0, 32, 76)",
     },
     {
       id: 4,
@@ -59,6 +62,25 @@ const TalentShowcase = () => {
       name: "Victor Ndigwe",
       image: VictorNdigwe,
       bgColor: "rgb(0, 32, 76)",
+    },
+
+    {
+      id: 8,
+      name: "Katheryn",
+      image: Katheryn,
+      bgColor: "rgb(0, 32, 76)",
+    },
+    {
+      id: 9,
+      name: "Miwa_sus",
+      image: Miwasus,
+      bgColor: "rgb(255, 98, 41)",
+    },
+    {
+      id: 10,
+      name: "Queen Winifred",
+      image: QueenWinifred,
+      bgColor: "rgb(237, 222, 197)",
     },
   ];
 

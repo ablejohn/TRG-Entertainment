@@ -8,13 +8,11 @@ import {
   Eye,
   Calendar,
 } from "lucide-react";
-import Banky from "../assets/Banky.jpeg"
+
 import Ajebutter from "../assets/Ajebutter.jpeg";
 import Israel from "../assets/isreal.jpg";
 import Alozie from "../assets/alozie.jpeg";
 import Davido from "../assets/davido.jpeg";
-import Tiwa from "../assets/Tiwa.jpeg";
-
 
 const BlogSection = () => {
   const [hoveredId, setHoveredId] = useState(null);
@@ -33,7 +31,7 @@ const BlogSection = () => {
     },
     {
       id: 2,
-      image: Israel ,
+      image: Israel,
       title:
         "Plug Sports Partners With Chosen Advisory And Attain Peace Sports For Israel Adesanya In Africa",
       date: "November 3, 2023",
@@ -70,8 +68,14 @@ const BlogSection = () => {
         {/* Header Section */}
         <div className="d-flex justify-content-between align-items-center mb-4">
           <div className="d-flex align-items-center">
-            <TrendingUp className="me-2" size={24} style ={{color:"#ff0055"}} />
-            <h2 className="h3 mb-0 " style ={{color:"#ff0055"}}>Latest Updates</h2>
+            <TrendingUp
+              className="me-2"
+              size={24}
+              style={{ color: "#ff0055" }}
+            />
+            <h2 className="h3 mb-0 " style={{ color: "#ff0055" }}>
+              Latest Updates
+            </h2>
           </div>
           <button className="btn btn-link text-warning text-decoration-none d-flex align-items-center">
             View All <ChevronRight size={16} className="ms-1" />

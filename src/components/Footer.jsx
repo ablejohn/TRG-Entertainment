@@ -1,19 +1,20 @@
 import React, { useState } from "react";
 import logo from "../assets/logo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { 
-  faPhone, 
-  faEnvelope, 
-  faMapMarkerAlt, 
+import { Link } from "react-router-dom";
+import {
+  faPhone,
+  faEnvelope,
+  faMapMarkerAlt,
   faChevronRight,
   faStore,
-  faMobileScreen
+  faMobileScreen,
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faFacebookF,
   faTwitter,
   faInstagram,
-  faYoutube
+  faYoutube,
 } from "@fortawesome/free-brands-svg-icons";
 
 const Footer = () => {
@@ -137,8 +138,8 @@ const Footer = () => {
                   {["About", "Our Vision", "What We Do", "Contact"].map(
                     (item) => (
                       <li key={item} className="mb-2">
-                        <a
-                          href="/about-us"
+                        <Link
+                          to="/about-us"
                           className="text-secondary text-decoration-none d-flex align-items-center gap-2 py-1 link-hover"
                         >
                           <FontAwesomeIcon
@@ -146,7 +147,7 @@ const Footer = () => {
                             className="font-sm transition-all"
                           />
                           <span>{item}</span>
-                        </a>
+                        </Link>
                       </li>
                     )
                   )}
@@ -169,8 +170,8 @@ const Footer = () => {
                     "Marketing",
                   ].map((item) => (
                     <li key={item} className="mb-2">
-                      <a
-                        href="/services"
+                      <Link
+                        to="/services"
                         className="text-secondary text-decoration-none d-flex align-items-center gap-2 py-1 link-hover"
                       >
                         <FontAwesomeIcon
@@ -178,7 +179,7 @@ const Footer = () => {
                           className="font-sm transition-all"
                         />
                         <span>{item}</span>
-                      </a>
+                      </Link>
                     </li>
                   ))}
                 </ul>
@@ -195,8 +196,8 @@ const Footer = () => {
                 <ul className="list-unstyled footer-links">
                   {["Artists", "Sports"].map((item) => (
                     <li key={item} className="mb-2">
-                      <a
-                        href="/talents"
+                      <Link
+                        to="/talents"
                         className="text-secondary text-decoration-none d-flex align-items-center gap-2 py-1 link-hover"
                       >
                         <FontAwesomeIcon
@@ -204,7 +205,7 @@ const Footer = () => {
                           className="font-sm transition-all"
                         />
                         <span>{item}</span>
-                      </a>
+                      </Link>
                     </li>
                   ))}
                 </ul>

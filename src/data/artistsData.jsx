@@ -5,35 +5,40 @@ import QueenWinifred from "../assets/Queen Winifred.jpg";
 import RemiChester from "../assets/Remi Chester Alade.jpg";
 import TosinOyeneye from "../assets/TosinOyeneye.jpg";
 import VictorNdigwe from "../assets/Victor Ndigwe.jpg";
+import Samurai from "../assets/Samurai.jpg";
+import Spvce from "../assets/Spvce.jpg";
+import Muse from "../assets/Muse.jpg";
 
 export const artistsData = {
   1: {
     id: 1,
-    name: "Katheryn",
-    image: Katheryn,
-    bio: "Katheryn is a fashion and commercial model based in Nigeria, specializing in beauty and brand influence with a focus on promotional collaborations.",
-    instagram: "katheryn_model",
-    twitter: "katheryn_model",
-    facebook: "katherynmodel",
+    name: "Samurai Chi",
+    image: Samurai,
+    bio: "Samurai Chi Born in Lagos Nigeria chigozie Samuel is an afro fusion singer and songwriter. To me music isn't just a sound, it's a journey, a story, a force that connects souls across cultures. crafting a sonic experience that transcends borders. Inspired by life’s raw energy, every beat is a battle, every lyric a philosophy, and every performance a ritual.Welcome to the movement. Welcome to the sound of Samurai Chi",
+    instagram: "@samiwize15",
+    twitter: "@samiwize15",
   },
+
   2: {
     id: 2,
-    name: "Miwa_sus",
-    image: Miwasus,
-    bio: "Tomiwa Okelola, better known as Miwa_sus, is a Nigerian-based model renowned for her captivating presence and dynamic versatility in the fashion industry. She has graced numerous runways and featured in various high-profile campaigns.",
-    instagram: "miwa_sus",
-    twitter: "miwa_sus",
-    facebook: "miwa_sus",
+    name: "Spvce Boii",
+    image: Spvce,
+    bio: "Spvceboii is an emerging recording artist and producer whose unique sound is a dynamic fusion of hip-hop, afrobeats, and pop.Born in the vibrant city of Lagos, Nigeria, Spvceboii grew up surrounded by a music-loving family, where various genres and rhythms constantly filled his home. This early exposure to diverse sounds laid the foundation for his musical journey and helped shape his eclectic style. His ability to seamlessly blend the rhythmic pulse of afrobeats with the energy of hip-hop and the catchy melodies of pop has earned him a growing fanbase.Deeply inspired by the rich culture of Lagos and the global sounds he absorbed, Spvceboii began creating music that reflects his background while pushing the boundaries of modern genres. His versatile production style and smooth vocals make each track fresh and engaging, captivating listeners from all walks of life.As he prepares to release his highly anticipated upcoming project, Spvceboii continues to push his creative limits. Fans of his music are eagerly awaiting this new body of work, which promises to be a bold step forward in his career. In the meantime, listeners are encouraged to dive into his catalog and experience the infectious energy and originality of his tracks already available. Stay tuned for what's next from this rising talent.",
+    instagram: "@spvceboiitrg",
+    twitter: "@spvceboiitrg",
+    music: "https://on.soundcloud.com/bzWca79Bovs2og8A6",
   },
+
   3: {
     id: 3,
-    name: "Queen Winifred",
-    image: QueenWinifred,
-    bio: "Winifred Uduimoh is a Nigerian beauty queen, award-winning model, CEO of Winnie Event Planning, and actor, focused on beauty and event planning content.",
-    instagram: "queen_winifred",
-    twitter: "queen_winifred",
-    facebook: "queenwinifredofficial",
+    name: "Muse",
+    image: Muse,
+    bio: "Muse is a music producer, recording artist, with a signature sound that feels both timeless and innovative, Muse masterfully intertwines lush melodies, deep grooves, and haunting harmonies. His music is a bridge between eras, a place where the past and future meet in perfect harmony. —he’s a storyteller, painting emotions through sound. A full-time lover of art, his craft is a delicate fusion of nostalgia and soul, blending vintage warmth with modern expression. Each track he creates is a time capsule, evoking memories, feelings, and unspoken dreams.  For those who crave music that moves the soul and awakens nostalgia, Muse is the artist who turns sound into emotion.",
+    instagram: "Yungmusetrg",
+    twitter: "Yungmusetrg",
+    youtube: "yungmusetrg",
   },
+
   4: {
     id: 4,
     name: "Ossy Bleu",
@@ -71,5 +76,33 @@ export const artistsData = {
     instagram: "victor_ndigwe",
     twitter: "victor_ndigwe",
     facebook: "victorndigweofficial",
+  },
+
+  8: {
+    id: 1,
+    name: "Katheryn",
+    image: Katheryn,
+    bio: "Katheryn is a fashion and commercial model based in Nigeria, specializing in beauty and brand influence with a focus on promotional collaborations.",
+    instagram: "katheryn_model",
+    twitter: "katheryn_model",
+    facebook: "katherynmodel",
+  },
+  9: {
+    id: 2,
+    name: "Miwa_sus",
+    image: Miwasus,
+    bio: "Tomiwa Okelola, better known as Miwa_sus, is a Nigerian-based model renowned for her captivating presence and dynamic versatility in the fashion industry. She has graced numerous runways and featured in various high-profile campaigns.",
+    instagram: "miwa_sus",
+    twitter: "miwa_sus",
+    facebook: "miwa_sus",
+  },
+  10: {
+    id: 3,
+    name: "Queen Winifred",
+    image: QueenWinifred,
+    bio: "Winifred Uduimoh is a Nigerian beauty queen, award-winning model, CEO of Winnie Event Planning, and actor, focused on beauty and event planning content.",
+    instagram: "queen_winifred",
+    twitter: "queen_winifred",
+    facebook: "queenwinifredofficial",
   },
 };
