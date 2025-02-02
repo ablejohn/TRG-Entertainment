@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Clock,
   TrendingUp,
@@ -8,59 +8,27 @@ import {
   Eye,
   Calendar,
 } from "lucide-react";
+import axios from "axios";
 
-import Ajebutter from "../assets/Ajebutter.jpeg";
-import Israel from "../assets/isreal.jpg";
-import Alozie from "../assets/alozie.jpeg";
-import Davido from "../assets/davido.jpeg";
+const API_KEY = "b957442e-6254-4f4a-9581-a76ed5b85d7f";
+const API_URL = `https://content.guardianapis.com/search?q=Nigeria music&section=music&show-fields=thumbnail,trailText&api-key=${API_KEY}`;
 
 const BlogSection = () => {
+  const [newsItems, setNewsItems] = useState([]);
   const [hoveredId, setHoveredId] = useState(null);
 
-  const newsItems = [
-    {
-      id: 1,
-      image: Davido,
-      title:
-        "Davido And Adekunle Gold To Headline Africa's Biggest Youth Festival, The Blockparty",
-      date: "December 13, 2023",
-      category: "Entertainment",
-      readTime: "5 min read",
-      trending: true,
-      views: "2.4k",
-    },
-    {
-      id: 2,
-      image: Israel,
-      title:
-        "Plug Sports Partners With Chosen Advisory And Attain Peace Sports For Israel Adesanya In Africa",
-      date: "November 3, 2023",
-      category: "Sports, Talent",
-      readTime: "4 min read",
-      trending: true,
-      views: "1.8k",
-    },
-    {
-      id: 3,
-      image: Alozie,
-      title:
-        "Plug Sports Adds Super Falcons Star, Michelle Alozie To Star-Studded Talent Roster",
-      date: "October 16, 2023",
-      category: "Sports",
-      readTime: "3 min read",
-      views: "1.2k",
-    },
-    {
-      id: 4,
-      image: Ajebutter,
-      title:
-        "Alte Giants Ajebutter22 And Boj Return With Fresh Hit Single 'Rora'",
-      date: "October 14, 2023",
-      category: "Music",
-      readTime: "6 min read",
-      views: "3.1k",
-    },
-  ];
+  useEffect(() => {
+    const fetchNews = async () => {
+      try {
+        const response = await axios.get(API_URL);
+        setNewsItems(response.data.response.results);
+      } catch (error) {
+        console.error("Error fetching news:", error);
+      }
+    };
+
+    fetchNews();
+  }, []);
 
   return (
     <div style={{ backgroundColor: "#000000" }} className="py-5">
@@ -74,7 +42,7 @@ const BlogSection = () => {
               style={{ color: "#ff0055" }}
             />
             <h2 className="h3 mb-0 " style={{ color: "#ff0055" }}>
-              Latest Updates
+              Latest Entertainment News
             </h2>
           </div>
           <button className="btn btn-link text-warning text-decoration-none d-flex align-items-center">
@@ -84,52 +52,50 @@ const BlogSection = () => {
 
         {/* News Grid */}
         <div className="row g-4">
-          {newsItems.map((item) => (
-            <div key={item.id} className="col-md-6">
+          {newsItems.map((item, index) => (
+            <div key={index} className="col-md-6">
               <div
                 className="card h-100 border-0 bg-white shadow-sm position-relative"
-                onMouseEnter={() => setHoveredId(item.id)}
+                onMouseEnter={() => setHoveredId(index)}
                 onMouseLeave={() => setHoveredId(null)}
                 style={{ transition: "all 0.3s ease" }}
               >
                 <div className="position-relative">
                   <img
-                    src={item.image}
-                    alt={item.title}
+                    src={
+                      item.fields?.thumbnail ||
+                      "https://via.placeholder.com/400"
+                    }
+                    alt={item.webTitle}
                     className="card-img-top"
                     style={{ height: "240px", objectFit: "cover" }}
                   />
-                  {item.trending && (
-                    <div className="position-absolute top-0 start-0 m-3">
-                      <span className="badge bg-warning d-flex align-items-center">
-                        <TrendingUp size={14} className="me-1" />
-                        Trending
-                      </span>
-                    </div>
-                  )}
                 </div>
 
                 <div className="card-body">
                   <div className="d-flex flex-wrap gap-3 mb-3">
                     <small className="text-muted d-flex align-items-center">
                       <Calendar size={14} className="me-1" />
-                      {item.date}
+                      {new Date(item.webPublicationDate).toLocaleDateString()}
                     </small>
                     <small className="text-muted d-flex align-items-center">
-                      <Clock size={14} className="me-1" />
-                      {item.readTime}
+                      <Clock size={14} className="me-1" />2 min read
                     </small>
                     <small className="text-muted d-flex align-items-center">
                       <Eye size={14} className="me-1" />
-                      {item.views}
+                      N/A
                     </small>
                   </div>
 
-                  <h3 className="h5 card-title mb-3 text-dark">{item.title}</h3>
+                  <h3 className="h5 card-title mb-3 text-dark">
+                    {item.webTitle}
+                  </h3>
+
+                  <p className="text-muted">{item.fields?.trailText || ""}</p>
 
                   <div className="d-flex justify-content-between align-items-center mt-3">
                     <span className="badge bg-warning bg-opacity-10 text-warning">
-                      {item.category}
+                      The Guardian
                     </span>
                     <div className="d-flex gap-2">
                       <button className="btn btn-light btn-sm rounded-circle">
@@ -147,12 +113,15 @@ const BlogSection = () => {
                   className="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center"
                   style={{
                     background: "rgba(0,0,0,0.4)",
-                    opacity: hoveredId === item.id ? 1 : 0,
+                    opacity: hoveredId === index ? 1 : 0,
                     transition: "opacity 0.3s ease",
-                    pointerEvents: hoveredId === item.id ? "auto" : "none",
+                    pointerEvents: hoveredId === index ? "auto" : "none",
                   }}
                 >
-                  <button className="btn btn-warning rounded-pill px-4">
+                  <button
+                    className="btn btn-warning rounded-pill px-4"
+                    onClick={() => window.open(item.webUrl, "_blank")}
+                  >
                     Read More
                   </button>
                 </div>
