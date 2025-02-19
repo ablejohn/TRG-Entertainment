@@ -300,12 +300,13 @@ const TRGAgencyLanding = () => {
             <div className="row g-4">
               <div className="col-md-6">
                 <div className="story-card p-4 h-100">
-                  <div className="story-year mb-3">2001</div>
+                  <div className="story-year mb-3">2020</div>
                   <h3 className="h4 mb-3">The Beginning</h3>
                   <p className="text-muted">
-                    Brian Stretch established TRG Agency with an innovative
-                    mission: crafting brand identities through genuine
-                    storytelling and meaningful relationships. A small startup
+                    Yungmusterg, a young visionary from Lagos, established his
+                    company with an innovative mission: crafting brand
+                    identities through genuine storytelling and meaningful
+                    relationships. What started as a small startup quickly
                     evolved into an industry powerhouse.
                   </p>
                 </div>
@@ -315,11 +316,11 @@ const TRGAgencyLanding = () => {
                 <div className="story-card p-4 h-100">
                   <h3 className="h4 mb-3">The Vision Master</h3>
                   <p className="text-muted">
-                    Distinguished for our distinctive methodology, Mr. Stretch
-                    earned recognition as the "Vision Master" behind numerous
-                    business transformations. Our philosophy centers on
-                    capturing each brand's essence and transforming it into
-                    captivating stories that connect with audiences.
+                    Distinguished for his unique methodology, Yungmusterg earned
+                    recognition as the "Vision Master" behind numerous business
+                    transformations. His philosophy centers on capturing each
+                    brand's essence and transforming it into captivating stories
+                    that connect with audiences.
                   </p>
                 </div>
               </div>

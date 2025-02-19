@@ -310,7 +310,7 @@ const Footer = () => {
                   },
                   {
                     icon: faYoutube,
-                    link: "https://www.youtube.com/@trgmusicdaily",
+                    link: "https://www.youtube.com/@topreeferent",
                   },
                 ].map((social, index) => (
                   <a
