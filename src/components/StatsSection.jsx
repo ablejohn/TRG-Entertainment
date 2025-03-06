@@ -67,28 +67,28 @@ const StatsSection = () => {
           <div className="col-6 col-md-3 border-end">
             <Users className="text-muted mb-2" size={24} />
             <h4 className="fw-bold mb-0" style={{ color: "#ff0055" }}>
-              {animate && <CountUp end={500} />}
+              {animate && <CountUp end={10} />}
             </h4>
             <small className="text-muted">Artists Managed</small>
           </div>
           <div className="col-6 col-md-3 border-end">
             <Music className="text-muted mb-2" size={24} />
             <h4 className="fw-bold mb-0" style={{ color: "#ff0055" }}>
-              {animate && <CountUp end={1000000} />}
+              {animate && <CountUp end={25} />}
             </h4>
             <small className="text-muted">Songs Published</small>
           </div>
           <div className="col-6 col-md-3 border-end">
             <Award className="text-muted mb-2" size={24} />
             <h4 className="fw-bold mb-0" style={{ color: "#ff0055" }}>
-              {animate && <CountUp end={10} />}
+              {animate && <CountUp end={7} />}
             </h4>
             <small className="text-muted">Years Experience</small>
           </div>
           <div className="col-6 col-md-3">
             <Star className="text-muted mb-2" size={24} />
             <h4 className="fw-bold mb-0" style={{ color: "#ff0055" }}>
-              {animate && <CountUp end={50} />}
+              {animate && <CountUp end={8} />}
             </h4>
             <small className="text-muted">Countries Reached</small>
           </div>

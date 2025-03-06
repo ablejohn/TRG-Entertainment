@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Routes,
   Route,
   useLocation,
@@ -16,6 +16,10 @@ import TrgProductions from "./pages/TrgProductions";
 import News from "./pages/News";
 import TrgAgency from "./pages/TrgAgency";
 import Footer from "./components/Footer";
+import AdminLogin from "./components/adminLogin";
+import AdminDashboard from "./components/adminDashboard";
+import SportDashboard from "./components/sportDashboard";
+import TalentDashboard from "./components/talentDashboard";
 
 // ScrollToTop component to handle scroll reset
 const ScrollToTop = () => {
@@ -29,7 +33,25 @@ const ScrollToTop = () => {
 };
 
 const App = () => {
+  return (
+    <Router>
+      <div className="Poppins,sans-serif">
+        <Routes>
+          <Route path="*" element={<MainApp />} />
+        </Routes>
+      </div>
+    </Router>
+  );
+};
+
+const MainApp = () => {
   const [showArrow, setShowArrow] = useState(false);
+  const location = useLocation();
+  const isDashboard =
+    location.pathname === "/sportadmin" ||
+    location.pathname === "/talentadmin" ||
+    location.pathname === "/admin" ||
+    location.pathname === "/adminlogin";
 
   // Show the arrow when scrolled down
   useEffect(() => {
@@ -57,40 +79,31 @@ const App = () => {
   };
 
   return (
-    <Router>
-      <div className="Poppins,sans-serif">
-        <Navbar />
-        {/* ScrollToTop component will reset the scroll position */}
-        <ScrollToTop />
-        {/* Define routes for the app */}
-        <Routes>
-          {/* Home Page */}
-          <Route path="/" element={<Home />} />
-          {/* About Page */}
-          <Route path="/about-us" element={<Aboutus />} />
-          {/* Services Page */}
-          <Route path="/services" element={<Services />} />
-          {/* Talent Page */}
-          <Route path="/talents" element={<Talents />} />
-          <Route path="/trg-productions" element={<TrgProductions />} />
-          <Route path="/trg-agency" element={<TrgAgency />} />
-          <Route path="/news" element={<News />} />
-          <Route path="/artist/:id" element={<ArtistProfile />} />
-          <Route path="/sport/:id" element={<SportsProfile />} />
-        </Routes>
-        <Footer /> {/* Add the Footer component here */}
-        {/* Back to Top Button */}
-        {showArrow && (
-          <div
-            className="back-to-top"
-            onClick={scrollToTop}
-            title="Back to Top"
-          >
-            <i className="bi bi-caret-up-fill"></i>
-          </div>
-        )}
-      </div>
-    </Router>
+    <>
+      {!isDashboard && <Navbar />}
+      <ScrollToTop />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about-us" element={<Aboutus />} />
+        <Route path="/services" element={<Services />} />
+        <Route path="/talents" element={<Talents />} />
+        <Route path="/trg-productions" element={<TrgProductions />} />
+        <Route path="/trg-agency" element={<TrgAgency />} />
+        <Route path="/news" element={<News />} />
+        <Route path="/artist/:id" element={<ArtistProfile />} />
+        <Route path="/sport/:id" element={<SportsProfile />} />
+        <Route path="/adminlogin" element={<AdminLogin />} />
+        <Route path="/admin" element={<AdminDashboard />} />
+        <Route path="/sportadmin" element={<SportDashboard />} />
+        <Route path="/talentadmin" element={<TalentDashboard />} />
+      </Routes>
+      {!isDashboard && <Footer />}
+      {showArrow && (
+        <div className="back-to-top" onClick={scrollToTop} title="Back to Top">
+          <i className="bi bi-caret-up-fill"></i>
+        </div>
+      )}
+    </>
   );
 };
 
