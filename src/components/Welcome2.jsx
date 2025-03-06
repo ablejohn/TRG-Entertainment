@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRightCircle, Bold } from "lucide-react";
+import { ArrowRightCircle, Mic, Globe, Star } from "lucide-react";
 
 const Welcome = () => {
   const sectionRef = useRef(null);
@@ -53,7 +53,7 @@ const Welcome = () => {
             left: "-10%",
             width: "400px",
             height: "400px",
-            background: "linear-gradient(135deg, #ff0055, #ff0055",
+            background: "linear-gradient(135deg, #ff0055, #ff0055)",
             borderRadius: "50%",
             filter: "blur(100px)",
             opacity: "0.5",
@@ -84,15 +84,20 @@ const Welcome = () => {
               <div
                 className="d-flex align-items-center pulsing"
                 style={{
-                  background: "#ff0055",
-                  padding: "12px 24px",
-                  borderRadius: "30px",
+                  background: "rgba(255, 0, 85, 0.2)",
+                  padding: "14px 28px",
+                  borderRadius: "40px",
+                  backdropFilter: "blur(5px)",
+                  boxShadow: "0 0 15px rgba(255, 0, 85, 0.5)",
                 }}
               >
-                <span className="text-uppercase fw-bold me-2">
+                <span
+                  className="text-uppercase fw-bold me-2"
+                  style={{ letterSpacing: "1.5px" }}
+                >
                   Welcome to TRG-ENTERTAINMENT
                 </span>
-                <ArrowRightCircle size={24} />
+                <ArrowRightCircle size={28} strokeWidth={2} />
               </div>
             </div>
 
@@ -106,74 +111,46 @@ const Welcome = () => {
                   <h1
                     className="mb-5 title-animate"
                     style={{
-                      fontSize: "3.5rem",
-                      fontWeight: "bold",
+                      fontSize: "3.8rem",
+                      fontWeight: "800",
                       background:
-                        "linear-gradient(to right, #ff0055, #ff5733, #ff0055)",
-                      backgroundSize: "200% 100%",
+                        "linear-gradient(to right, #ff0055, #ff5733, #ffcc00)",
+                      backgroundSize: "300% 100%",
                       WebkitBackgroundClip: "text",
                       WebkitTextFillColor: "transparent",
+                      lineHeight: "1.1",
                     }}
                   >
-                    Where Entertainment Connects.
+                    Where Entertainment <br /> Connects.
                   </h1>
 
                   <p
                     className="mb-5 text-animate"
                     style={{
-                      fontSize: "1.3rem",
+                      fontSize: "1.4rem",
                       lineHeight: "1.8",
-                      color: "rgba(255, 255, 255, 0.8)",
+                      color: "rgba(255, 255, 255, 0.9)",
+                      maxWidth: "650px",
                     }}
                   >
                     We specialize in Music Publishing, Licensing, Recording,
                     Distribution, & Comprehensive Entertainment Management.
                   </p>
 
-                  {/* Services Icons */}
+                  {/* Services Icons - Horizontal Pill Format */}
                   <div className="services-grid mb-5 services-animate">
-                    <div className="row g-4">
-                      <div className="col-4 text-center service-item">
-                        <div className="d-flex flex-column align-items-center">
-                          <i
-                            className="bi bi-music-note"
-                            style={{
-                              fontSize: "2.5rem",
-                              color: "#ff0055",
-                              marginBottom: "1rem",
-                              fontWeight: "bold",
-                            }}
-                          ></i>
-                          <span style={{ color: "#fff" }}>PUBLISHING</span>
-                        </div>
+                    <div className="d-flex gap-3 justify-content-center">
+                      <div className="service-item">
+                        <Mic size={24} className="me-2" />
+                        <span className="service-text">Publishing</span>
                       </div>
-                      <div className="col-4 text-center service-item">
-                        <div className="d-flex flex-column align-items-center">
-                          <i
-                            className="bi bi-globe"
-                            style={{
-                              fontSize: "2.5rem",
-                              color: "#ff0055",
-                              marginBottom: "1rem",
-                              fontWeight: "bold",
-                            }}
-                          ></i>
-                          <span style={{ color: "#fff" }}>DISTRIBUTION</span>
-                        </div>
+                      <div className="service-item">
+                        <Globe size={24} className="me-2" />
+                        <span className="service-text">Distribution</span>
                       </div>
-                      <div className="col-4 text-center service-item">
-                        <div className="d-flex flex-column align-items-center">
-                          <i
-                            className="bi bi-star"
-                            style={{
-                              fontSize: "2.5rem",
-                              color: "#ff0055",
-                              marginBottom: "1rem",
-                              fontWeight: "bold",
-                            }}
-                          ></i>
-                          <span style={{ color: "#fff" }}>MANAGEMENT</span>
-                        </div>
+                      <div className="service-item">
+                        <Star size={24} className="me-2" />
+                        <span className="service-text">Management</span>
                       </div>
                     </div>
                   </div>
@@ -181,22 +158,27 @@ const Welcome = () => {
                   {/* Read More Button */}
                   <div className="text-start button-animate">
                     <Link
-                      to="/about-us" 
+                      to="/about-us"
                       className="btn hover-effect"
                       style={{
-                        background: "#ff0055",
+                        background: "linear-gradient(45deg, #ff0055, #ff5733)",
                         color: "white",
-                        padding: "12px 30px",
-                        borderRadius: "30px",
-                        fontSize: "1rem",
+                        padding: "14px 35px",
+                        borderRadius: "40px",
+                        fontSize: "1.1rem",
                         fontWeight: "600",
-                        transition: "all 0.3s ease",
+                        textTransform: "uppercase",
+                        letterSpacing: "1px",
                         textDecoration: "none",
-                        display: "inline-block",
+                        display: "inline-flex",
+                        alignItems: "center",
+                        gap: "0.5rem",
+                        boxShadow: "0 0 10px rgba(255, 0, 85, 0.5)",
+                        transition: "all 0.3s ease",
                       }}
                     >
-                      Read More
-                      <i className="bi bi-arrow-right ms-2"></i>
+                      <span>Discover More</span>
+                      <i className="bi bi-arrow-right"></i>
                     </Link>
                   </div>
                 </div>
@@ -218,21 +200,21 @@ const Welcome = () => {
           }
 
           .title-animate {
-            transform: translateY(30px);
+            transform: translateY(40px);
             opacity: 0;
-            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.9s cubic-bezier(0.25, 0.8, 0.25, 1);
           }
 
           .in-view .title-animate {
             transform: translateY(0);
             opacity: 1;
-            animation: gradientFlow 8s linear infinite;
+            animation: gradientFlow 6s ease infinite;
           }
 
           .text-animate {
-            transform: translateY(30px);
+            transform: translateY(40px);
             opacity: 0;
-            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.2s;
+            transition: all 0.9s cubic-bezier(0.25, 0.8, 0.25, 1) 0.2s;
           }
 
           .in-view .text-animate {
@@ -242,7 +224,7 @@ const Welcome = () => {
 
           .services-animate {
             opacity: 0;
-            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.4s;
+            transition: all 0.9s cubic-bezier(0.25, 0.8, 0.25, 1) 0.4s;
           }
 
           .in-view .services-animate {
@@ -250,9 +232,21 @@ const Welcome = () => {
           }
 
           .service-item {
-            transform: translateY(30px);
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 0, 85, 0.3);
+            padding: 12px 20px;
+            border-radius: 50px;
+            transform: translateY(40px);
             opacity: 0;
-            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.5s ease;
+          }
+
+          .service-item:hover {
+            background: rgba(255, 0, 85, 0.15);
+            transform: translateY(0) scale(1.05);
+            border-color: #ff0055;
           }
 
           .in-view .service-item:nth-child(1) {
@@ -273,10 +267,18 @@ const Welcome = () => {
             opacity: 1;
           }
 
+          .service-text {
+            color: white;
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+          }
+
           .button-animate {
-            transform: translateY(30px);
+            transform: translateY(40px);
             opacity: 0;
-            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.8s;
+            transition: all 0.9s cubic-bezier(0.25, 0.8, 0.25, 1) 0.8s;
           }
 
           .in-view .button-animate {
@@ -284,39 +286,18 @@ const Welcome = () => {
             opacity: 1;
           }
 
-          .hover-effect {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-          }
-
           .hover-effect:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(255, 0, 85, 0.3);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(255, 0, 85, 0.4);
           }
 
-          /* Original animations */
-          @keyframes fadeInDown {
-            from {
-              opacity: 0;
-              transform: translateY(-20px);
-            }
-            to {
-              opacity: 1;
-              transform: translateY(0);
-            }
-          }
-
-          @keyframes fadeIn {
-            from {
-              opacity: 0;
-            }
-            to {
-              opacity: 1;
-            }
-          }
-
+          /* Enhanced Animations */
           @keyframes floatShape {
             0% {
               transform: translate(0, 0) scale(1) rotate(0deg);
+            }
+            50% {
+              transform: translate(40px, 20px) scale(1.05) rotate(90deg);
             }
             100% {
               transform: translate(50px, 25px) scale(1.1) rotate(180deg);
@@ -328,13 +309,13 @@ const Welcome = () => {
               transform: scale(1);
             }
             50% {
-              transform: scale(1.05);
+              transform: scale(1.03);
             }
           }
 
           @keyframes popOut {
             0% {
-              transform: scale(0.8);
+              transform: scale(0.7);
               opacity: 0;
             }
             100% {
@@ -356,11 +337,11 @@ const Welcome = () => {
           }
 
           .pulsing {
-            animation: pulsing 1.5s infinite;
+            animation: pulsing 2s infinite ease-in-out;
           }
 
           .pop-out {
-            animation: popOut 1s ease-out;
+            animation: popOut 0.8s ease-out;
           }
 
           /* Media Queries */
@@ -379,12 +360,12 @@ const Welcome = () => {
             }
 
             h1 {
-              font-size: 2rem !important;
+              font-size: 2.5rem !important;
               margin-bottom: 2rem !important;
             }
 
             p {
-              font-size: 1rem !important;
+              font-size: 1.1rem !important;
               margin-bottom: 3rem !important;
             }
 
@@ -392,19 +373,18 @@ const Welcome = () => {
               margin-bottom: 3rem !important;
             }
 
-            .services-grid i {
-              font-size: 1.8rem !important;
-              margin-bottom: 0.5rem !important;
+            .service-item {
+              padding: 10px 15px;
+              /* Removed flex: 1 1 100% to keep horizontal */
             }
 
-            .services-grid span {
-              font-size: 0.8rem;
+            .service-text {
+              font-size: 0.9rem;
             }
 
             .btn {
-              width: auto;
-              padding: 10px 25px !important;
-              font-size: 0.9rem !important;
+              padding: 12px 30px !important;
+              font-size: 1rem !important;
             }
 
             .col-12 {
@@ -428,7 +408,15 @@ const Welcome = () => {
 
           @media screen and (max-width: 480px) {
             h1 {
-              font-size: 1.9rem !important;
+              font-size: 2rem !important;
+            }
+
+            .service-text {
+              font-size: 0.85rem;
+            }
+
+            .service-item {
+              padding: 8px 12px;
             }
           }
         `}

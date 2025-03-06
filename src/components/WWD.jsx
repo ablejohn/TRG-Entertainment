@@ -1,96 +1,164 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
+import {
+  Users,
+  BookOpenText,
+  Scale,
+  Mic,
+  Video,
+  Globe,
+  ArrowUpRight,
+  Zap,
+} from "lucide-react";
+import { motion } from "framer-motion";
 import "../styling/wwd.css";
 
-const ServiceCard = ({ service, description, icon, index }) => {
+const ServiceCard = ({ title, description, icon, index }) => {
   const [isHovered, setIsHovered] = useState(false);
+  const cardRef = useRef(null);
 
   return (
-    <div
-      className="col-md-4 mb-4 service-card-wrapper"
-      style={{ animationDelay: `${index * 0.1}s` }}
+    <motion.div
+      ref={cardRef}
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{
+        duration: 0.6,
+        delay: index * 0.15,
+        type: "spring",
+        stiffness: 100,
+      }}
+      className="service-card-wrapper"
+      whileHover={{ y: -10 }}
     >
+      {/* Opening service-card-wrapper div */}
       <div
         className={`service-card ${isHovered ? "hovered" : ""}`}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
+        {/* Opening service-card div */}
         <div className="service-card-content">
-          <div className="service-icon">
-            {icon}
-            <div className="icon-backdrop"></div>
+          {/* Opening service-card-content div */}
+          <div className="service-icon-wrapper">
+            {/* Opening service-icon-wrapper div */}
+            {React.cloneElement(icon, { className: "service-icon" })}
+            <div className="icon-glow"></div>
           </div>
-          <h3 className="service-title">{service}</h3>
-          <p className="service-description">{description}</p>
-          <div className="service-hover-content">
-            <span className="learn-more">Learn More →</span>
+          {/* Closing service-icon-wrapper div */}
+
+          <div className="service-card-body">
+            {/* Opening service-card-body div */}
+            <h3 className="service-title">{title}</h3>
+            <p className="service-description">{description}</p>
           </div>
+          {/* Closing service-card-body div */}
+
+          <motion.div
+            className="service-card-footer"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: isHovered ? 1 : 0, y: isHovered ? 0 : 10 }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
+          >
+            {/* Opening service-card-footer div */}
+            <motion.button
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+              className="service-explore-btn"
+            >
+              <span>Explore Service</span>
+              <ArrowUpRight size={20} strokeWidth={2} />
+            </motion.button>
+          </motion.div>
+          {/* Closing service-card-footer div */}
         </div>
+        {/* Closing service-card-content div */}
       </div>
-    </div>
+      {/* Closing service-card div */}
+    </motion.div>
+    /* Closing service-card-wrapper div */
   );
 };
 
 const WWD = () => {
   const services = [
     {
-      title: "Management",
+      title: "Artist Development",
       description:
-        "Expert artist management services to guide and develop your career in the music industry.",
-      icon: "🤝",
+        "Tailored career strategies, brand positioning, and industry networking to transform emerging talents into global icons.",
+      icon: <Users />,
     },
     {
       title: "Music Publishing",
       description:
-        "Comprehensive publishing services to protect and monetize your musical works.",
-      icon: "📝",
+        "Comprehensive intellectual property management, global royalty tracking, and strategic musical asset development.",
+      icon: <BookOpenText />,
     },
     {
       title: "Music Licensing",
       description:
-        "Strategic licensing solutions to maximize your music's commercial potential.",
-      icon: "⚖️",
+        "Strategic placement and negotiation of musical works across film, TV, advertising, and emerging digital platforms.",
+      icon: <Scale />,
     },
     {
-      title: "Recording Services",
+      title: "Recording Production",
       description:
-        "State-of-the-art recording facilities and professional audio production.",
-      icon: "🎙️",
+        "State-of-the-art studio recording, advanced mixing techniques, and world-class mastering for pristine audio quality.",
+      icon: <Mic />,
     },
     {
-      title: "Video Recording",
+      title: "Visual Production",
       description:
-        "High-quality video production services for music videos and visual content.",
-      icon: "🎥",
+        "Cinematic music video production, creative storytelling, and cutting-edge visual content creation for artists.",
+      icon: <Video />,
     },
     {
-      title: "Music Distribution",
+      title: "Global Distribution",
       description:
-        "Global digital and physical distribution to reach your audience worldwide.",
-      icon: "🌐",
+        "Advanced digital distribution strategies, multi-platform streaming optimization, and international market expansion.",
+      icon: <Globe />,
     },
   ];
 
   return (
     <section className="wwd-section">
+      {/* Opening wwd-section section */}
+      <div className="background-gradient"></div>
+      {/* Standalone background-gradient div */}
       <div className="container">
-        <div className="section-header">
-          <h2 className="section-title">What We Do</h2>
-          <div className="title-underline"></div>
-        </div>
+        {/* Opening container div */}
+        <motion.div
+          initial={{ opacity: 0, y: -30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="section-header"
+        >
+          {/* Opening section-header div */}
+          <span className="section-eyebrow">What We Offer</span>
+          <h2 className="section-title">Innovative Music Services</h2>
+          <motion.div
+            className="title-underline"
+            initial={{ width: 0 }}
+            animate={{ width: "100px" }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          ></motion.div>
+          {/* Standalone title-underline div */}
+          <p className="section-subtitle">
+            Empowering Artists, Transforming Music Careers
+          </p>
+        </motion.div>
+        {/* Closing section-header div */}
 
-        <div className="row services-grid">
+        <div className="services-grid">
+          {/* Opening services-grid div */}
           {services.map((service, index) => (
-            <ServiceCard
-              key={service.title}
-              service={service.title}
-              description={service.description}
-              icon={service.icon}
-              index={index}
-            />
+            <ServiceCard key={service.title} {...service} index={index} />
           ))}
         </div>
+        {/* Closing services-grid div */}
       </div>
+      {/* Closing container div */}
     </section>
+    /* Closing wwd-section section */
   );
 };
 

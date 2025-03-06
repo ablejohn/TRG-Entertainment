@@ -289,7 +289,7 @@ const TRGAgencyLanding = () => {
                 >
                   Our Journey
                 </h2>
-                <p className="lead text-muted mb-5">
+                <p className="lead text-black mb-5">
                   From modest origins to market leadership, our evolution has
                   been guided by one core principle: fostering authentic
                   connections through impactful storytelling.
@@ -301,7 +301,7 @@ const TRGAgencyLanding = () => {
               <div className="col-md-6">
                 <div className="story-card p-4 h-100">
                   <div className="story-year mb-3">2020</div>
-                  <h3 className="h4 mb-3">The Beginning</h3>
+                  <h3 className="h4 mb-3 text-black">The Beginning</h3>
                   <p className="text-muted">
                     Yungmusterg, a young visionary from Lagos, established his
                     company with an innovative mission: crafting brand
@@ -314,7 +314,7 @@ const TRGAgencyLanding = () => {
 
               <div className="col-md-6">
                 <div className="story-card p-4 h-100">
-                  <h3 className="h4 mb-3">The Vision Master</h3>
+                  <h3 className="h4 mb-3 text-black">The Vision Master</h3>
                   <p className="text-muted">
                     Distinguished for his unique methodology, Yungmusterg earned
                     recognition as the "Vision Master" behind numerous business
@@ -327,7 +327,7 @@ const TRGAgencyLanding = () => {
 
               <div className="col-12">
                 <div className="story-card p-4">
-                  <h3 className="h4 mb-3">Our Philosophy</h3>
+                  <h3 className="h4 mb-3 text-black">Our Philosophy</h3>
                   <p className="text-muted mb-0">
                     In the present day, we continue to challenge conventions
                     through our extensive resource network and collaborative
@@ -356,12 +356,17 @@ const TRGAgencyLanding = () => {
                 <div key={index} className="col-md-6 col-lg-3">
                   <div className="card service-card h-100 border-0 p-4">
                     <div className="card-body text-center">
-                      <div className="pink-text">{service.icon}</div>
-                      <h3 className="h4 mb-3" style={{ color: "black" }}>
+                      <div className="text" style={{ color: "#ff0055" }}>
+                        {service.icon}
+                      </div>
+                      <h3 className="h4 mb-3" style={{ color: "#ff0055" }}>
                         {service.title}
                       </h3>
-                      <p className="text-muted">{service.description}</p>
-                      <button className="btn btn-link text-decoration-none pink-text d-inline-flex align-items-center gap-2">
+                      <p className="text-white">{service.description}</p>
+                      <button
+                        className="btn btn-link text-decoration-none  d-inline-flex align-items-center gap-2"
+                        style={{ color: "#ff0055" }}
+                      >
                         Discover More <ArrowRight size={16} />
                       </button>
                     </div>
@@ -410,25 +415,25 @@ const TRGAgencyLanding = () => {
               <div className="row text-center g-4">
                 <div className="col-md-3 stat-item">
                   <h3 className="h2 mb-2" style={{ color: "#ff0055" }}>
-                    20+
+                    5+
                   </h3>
                   <p className="mb-0">Years of Excellence</p>
                 </div>
                 <div className="col-md-3 stat-item">
                   <h3 className="h2 mb-2" style={{ color: "#ff0055" }}>
-                    500+
+                    20+
                   </h3>
                   <p className="mb-0">Successful Ventures</p>
                 </div>
                 <div className="col-md-3 stat-item">
                   <h3 className="h2 mb-2" style={{ color: "#ff0055" }}>
-                    300+
+                    30+
                   </h3>
                   <p className="mb-0">Satisfied Partners</p>
                 </div>
                 <div className="col-md-3 stat-item">
                   <h3 className="h2 mb-2" style={{ color: "#ff0055" }}>
-                    50+
+                    15+
                   </h3>
                   <p className="mb-0">Expert Professionals</p>
                 </div>
