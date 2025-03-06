@@ -77,7 +77,7 @@ const Welcome = () => {
       </div>
 
       <div className="container position-relative h-100" style={{ zIndex: 2 }}>
-        <div className="row h-100">
+        <div className="row h-100 align-items-center">
           <div className="col-12">
             {/* Welcome Title with Arrow */}
             <div className="welcome-header d-flex align-items-center mt-5 mb-4 pop-out">
@@ -102,7 +102,7 @@ const Welcome = () => {
             </div>
 
             {/* Main Content */}
-            <div className="row justify-content-end">
+            <div className="row justify-content-center">
               <div className="col-12 col-md-8">
                 <div
                   ref={contentRef}
@@ -137,9 +137,9 @@ const Welcome = () => {
                     Distribution, & Comprehensive Entertainment Management.
                   </p>
 
-                  {/* Services Icons - Horizontal Pill Format */}
+                  {/* Services Icons - Horizontal on Desktop, Vertical on Mobile */}
                   <div className="services-grid mb-5 services-animate">
-                    <div className="d-flex gap-3 justify-content-center">
+                    <div className="services-container d-flex gap-3 justify-content-center">
                       <div className="service-item">
                         <Mic size={24} className="me-2" />
                         <span className="service-text">Publishing</span>
@@ -156,7 +156,7 @@ const Welcome = () => {
                   </div>
 
                   {/* Read More Button */}
-                  <div className="text-start button-animate">
+                  <div className="text-center button-animate">
                     <Link
                       to="/about-us"
                       className="btn hover-effect"
@@ -241,6 +241,7 @@ const Welcome = () => {
             transform: translateY(40px);
             opacity: 0;
             transition: all 0.5s ease;
+            white-space: nowrap;
           }
 
           .service-item:hover {
@@ -347,8 +348,9 @@ const Welcome = () => {
           /* Media Queries */
           @media (max-width: 768px) {
             .welcome-header {
-              margin-top: 1rem !important;
+              margin-top: 2rem !important;
               margin-bottom: 2rem !important;
+              
             }
             
             .welcome-header span {
@@ -357,25 +359,47 @@ const Welcome = () => {
 
             .mobile-content {
               padding: 0 1rem;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
             }
 
             h1 {
               font-size: 2.5rem !important;
-              margin-bottom: 2rem !important;
+              margin-bottom: 1.5rem !important;
             }
 
             p {
               font-size: 1.1rem !important;
-              margin-bottom: 3rem !important;
+              margin-bottom: 1.5rem !important;
+              max-width: 100%;
             }
 
             .services-grid {
-              margin-bottom: 3rem !important;
+              margin-bottom: 2rem !important;
+            }
+
+            .services-container {
+              flex-direction: column;
+              gap: 1rem;
+              width: 100%;
+              max-width: 300px;
+              margin: 0 auto;
             }
 
             .service-item {
-              padding: 10px 15px;
-              /* Removed flex: 1 1 100% to keep horizontal */
+              padding: 10px 20px;
+              background: rgba(255, 0, 85, 0.1);
+              border: 1px solid rgba(255, 0, 85, 0.5);
+              box-shadow: 0 0 10px rgba(255, 0, 85, 0.3);
+              justify-content: center;
+              transition: all 0.3s ease;
+            }
+
+            .service-item:hover {
+              background: rgba(255, 0, 85, 0.2);
+              transform: scale(1.05);
+              border-color: #ff0055;
             }
 
             .service-text {
@@ -416,7 +440,11 @@ const Welcome = () => {
             }
 
             .service-item {
-              padding: 8px 12px;
+              padding: 8px 16px;
+            }
+
+            .services-container {
+              gap: 0.75rem;
             }
           }
         `}

@@ -100,7 +100,7 @@ const CombinedSection = () => {
               className="display-6 fw-bolder mb-4"
               style={{ color: "#ff0055" }}
             >
-              Elevate Your Music Career
+              Elevate Your Musical Career
             </h2>
             <div className="title-underline"></div>
             <p className="lead text-white-50">

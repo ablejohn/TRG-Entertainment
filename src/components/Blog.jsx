@@ -100,7 +100,7 @@ const BlogCarousel = () => {
             className="text-white m-0"
             style={{ fontSize: "1.25rem", fontWeight: "500" }}
           >
-            ANNOUNCEMENTS
+            BLOGS
           </h2>
         </div>
 
@@ -160,7 +160,7 @@ const BlogCarousel = () => {
                           {post.title}
                         </h3>
                         <p
-                          className="mb-3 text-muted"
+                          className="mb-3 text-white"
                           style={{
                             display: "-webkit-box",
                             WebkitLineClamp: "3",
