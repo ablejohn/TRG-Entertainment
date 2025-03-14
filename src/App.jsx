@@ -16,10 +16,11 @@ import TrgProductions from "./pages/TrgProductions";
 import News from "./pages/News";
 import TrgAgency from "./pages/TrgAgency";
 import Footer from "./components/Footer";
-import AdminLogin from "./components/adminLogin";
-import AdminDashboard from "./components/adminDashboard";
-import SportDashboard from "./components/sportDashboard";
+import AdminLogin from "./admin/adminLogin";
+import AdminDashboard from "./admin/adminDashboard";
+import SportDashboard from "./admin/sportDashboard";
 import TalentDashboard from "./components/talentDashboard";
+import AdminDashboard2 from "./components/adminDashboard";
 
 // ScrollToTop component to handle scroll reset
 const ScrollToTop = () => {
@@ -96,6 +97,7 @@ const MainApp = () => {
         <Route path="/admin" element={<AdminDashboard />} />
         <Route path="/sportadmin" element={<SportDashboard />} />
         <Route path="/talentadmin" element={<TalentDashboard />} />
+        <Route path="/admindashboard" element={<AdminDashboard2 />} />
       </Routes>
       {!isDashboard && <Footer />}
       {showArrow && (

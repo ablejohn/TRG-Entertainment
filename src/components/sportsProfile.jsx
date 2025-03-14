@@ -1,15 +1,50 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { Instagram, Twitter, Facebook, ArrowLeft } from "lucide-react";
-import { sportsData } from "../data/sportsData";
+import { db } from "../firebase"; // Adjust the import path to your firebase.js
+import { doc, getDoc } from "firebase/firestore";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const SportsProfile = () => {
   const { id } = useParams();
-  const sportsperson = sportsData[id];
+  const [sportsperson, setSportsperson] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchSportsperson = async () => {
+      try {
+        // Fetch the specific athlete document from Firestore using the id
+        const docRef = doc(db, "athletes", id);
+        const docSnap = await getDoc(docRef);
+
+        if (docSnap.exists()) {
+          setSportsperson({
+            id: docSnap.id,
+            ...docSnap.data(),
+          });
+        } else {
+          console.error("No such athlete found!");
+        }
+      } catch (error) {
+        console.error("Error fetching athlete:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchSportsperson();
+  }, [id]); // Re-run if id changes
+
+  if (loading) {
+    return <div className="min-vh-100 bg-dark text-white">Loading...</div>;
+  }
 
   if (!sportsperson) {
-    return <div>Sportsperson not found</div>;
+    return (
+      <div className="min-vh-100 bg-dark text-white">
+        Sportsperson not found
+      </div>
+    );
   }
 
   return (
@@ -74,51 +109,59 @@ const SportsProfile = () => {
               <p className="lead mb-5">{sportsperson.bio}</p>
 
               {/* Highlights */}
-              <div className="mb-5">
-                <div className="d-flex align-items-center gap-3 mb-4">
-                  <div
-                    className="bg-warning rounded-circle p-3 d-flex align-items-center justify-content-center"
-                    style={{ width: "45px", height: "45px" }}
-                  >
-                    <span className="fw-bold fs-5">★</span>
+              {sportsperson.highlights && (
+                <div className="mb-5">
+                  <div className="d-flex align-items-center gap-3 mb-4">
+                    <div
+                      className="bg-warning rounded-circle p-3 d-flex align-items-center justify-content-center"
+                      style={{ width: "45px", height: "45px" }}
+                    >
+                      <span className="fw-bold fs-5">★</span>
+                    </div>
+                    <h2 className="h3 mb-0">Highlights</h2>
                   </div>
-                  <h2 className="h3 mb-0">Highlights</h2>
-                </div>
 
-                <div className="card bg-dark bg-opacity-50 border-0">
-                  <div className="card-body">
-                    <ul className="list-unstyled mb-0">
-                      {sportsperson.highlights?.map((highlight, index) => (
-                        <li
-                          key={index}
-                          className="mb-3 d-flex align-items-center"
-                        >
-                          <span
-                            className="bg-warning rounded-circle me-3"
-                            style={{ width: "8px", height: "8px" }}
-                          ></span>
-                          {highlight}
-                        </li>
-                      ))}
-                    </ul>
+                  <div className="card bg-dark bg-opacity-50 border-0">
+                    <div className="card-body">
+                      <ul className="list-unstyled mb-0">
+                        {sportsperson.highlights.map((highlight, index) => (
+                          <li
+                            key={index}
+                            className="mb-3 d-flex align-items-center"
+                          >
+                            <span
+                              className="bg-warning rounded-circle me-3"
+                              style={{ width: "8px", height: "8px" }}
+                            ></span>
+                            {highlight}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
                 </div>
-              </div>
+              )}
 
               {/* Social Links */}
               <div className="d-flex gap-4 mb-5">
                 {[
                   {
                     icon: Instagram,
-                    link: `https://instagram.com/${sportsperson.instagram}`,
+                    link: sportsperson.instagram
+                      ? `https://instagram.com/${sportsperson.instagram}`
+                      : "#",
                   },
                   {
                     icon: Twitter,
-                    link: `https://twitter.com/${sportsperson.twitter}`,
+                    link: sportsperson.twitter
+                      ? `https://twitter.com/${sportsperson.twitter}`
+                      : "#",
                   },
                   {
                     icon: Facebook,
-                    link: `https://facebook.com/${sportsperson.facebook}`,
+                    link: sportsperson.facebook
+                      ? `https://facebook.com/${sportsperson.facebook}`
+                      : "#",
                   },
                 ].map((social, index) => (
                   <a

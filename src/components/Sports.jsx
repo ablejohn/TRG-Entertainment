@@ -1,44 +1,39 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
-import AbdulMumin from "../assets/AbdulMumin.jpeg";
-import ChristopherWooh from "../assets/ChristopherWooh.jpeg";
-import IssahKabore from "../assets/IssahKabore.png";
-import AliYousefAlMusrati from "../assets/Ali Yousef AlMusrati.jpeg";
+import { db } from "../firebase"; // Adjust the import path to your firebase.js
+import { collection, getDocs } from "firebase/firestore";
 
 const SportsShowcase = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  const [athletes, setAthletes] = useState([]);
   const scrollContainerRef = useRef(null);
   const autoScrollRef = useRef(null);
 
-  const athletes = [
-    {
-      id: 1,
-      name: "Abdul Mumin",
-      image: AbdulMumin,
-      bgColor: "rgb(255, 87, 34)", // Orange background
-    },
-    {
-      id: 2,
-      name: "Christopher Wooh",
-      image: ChristopherWooh,
-      bgColor: "rgb(33, 33, 33)", // Dark background
-    },
-    {
-      id: 3,
-      name: "Issah Kabore",
-      image: IssahKabore,
-      bgColor: "rgb(46, 125, 50)", // Green background
-    },
-    {
-      id: 4,
-      name: "Moatasem Al-Musrati",
-      image: AliYousefAlMusrati,
-      bgColor: "rgb(13, 71, 161)", // Blue background
-    },
-  ];
-
   useEffect(() => {
+    // Fetch athletes from Firestore
+    const fetchAthletes = async () => {
+      try {
+        const querySnapshot = await getDocs(collection(db, "athletes"));
+        const athletesData = querySnapshot.docs.map((doc, index) => ({
+          id: doc.id, // Use Firestore document ID
+          ...doc.data(),
+          bgColor: [
+            "rgb(255, 87, 34)", // Orange
+            "rgb(33, 33, 33)", // Dark
+            "rgb(46, 125, 50)", // Green
+            "rgb(13, 71, 161)", // Blue
+          ][index % 4], // Cycle through colors
+        }));
+        setAthletes(athletesData);
+      } catch (error) {
+        console.error("Error fetching athletes:", error);
+      }
+    };
+
+    fetchAthletes();
+
+    // Handle resize
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768);
     };
@@ -77,7 +72,7 @@ const SportsShowcase = () => {
   useEffect(() => {
     startAutoScroll();
     return () => stopAutoScroll();
-  }, []);
+  }, [athletes]); // Add athletes as dependency to restart scroll when data loads
 
   const handleScroll = (direction) => {
     stopAutoScroll();

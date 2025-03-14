@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import {
   Instagram,
@@ -8,15 +8,48 @@ import {
   Youtube,
   Music,
 } from "lucide-react";
-import { artistsData } from "../data/artistsData";
+import { db } from "../firebase"; // Adjust the import path to your firebase.js
+import { doc, getDoc } from "firebase/firestore";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const ArtistProfile = () => {
   const { id } = useParams();
-  const artist = artistsData[id];
+  const [artist, setArtist] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchArtist = async () => {
+      try {
+        // Fetch the specific artist document from Firestore using the id
+        const docRef = doc(db, "artists", id);
+        const docSnap = await getDoc(docRef);
+
+        if (docSnap.exists()) {
+          setArtist({
+            id: docSnap.id,
+            ...docSnap.data(),
+          });
+        } else {
+          console.error("No such artist found!");
+        }
+      } catch (error) {
+        console.error("Error fetching artist:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchArtist();
+  }, [id]); // Re-run if id changes
+
+  if (loading) {
+    return <div className="min-vh-100 bg-dark text-white">Loading...</div>;
+  }
 
   if (!artist) {
-    return <div>Artist not found</div>;
+    return (
+      <div className="min-vh-100 bg-dark text-white">Artist not found</div>
+    );
   }
 
   return (
@@ -81,53 +114,64 @@ const ArtistProfile = () => {
               <p className="lead mb-5">{artist.bio}</p>
 
               {/* Highlights */}
-              <div className="mb-5">
-                <div className="d-flex align-items-center gap-3 mb-4">
-                  <div
-                    className="bg-warning rounded-circle p-3 d-flex align-items-center justify-content-center"
-                    style={{ width: "45px", height: "45px" }}
-                  >
-                    <span className="fw-bold fs-5">★</span>
+              {artist.highlights && (
+                <div className="mb-5">
+                  <div className="d-flex align-items-center gap-3 mb-4">
+                    <div
+                      className="bg-warning rounded-circle p-3 d-flex align-items-center justify-content-center"
+                      style={{ width: "45px", height: "45px" }}
+                    >
+                      <span className="fw-bold fs-5">★</span>
+                    </div>
+                    <h2 className="h3 mb-0">Highlights</h2>
                   </div>
-                  <h2 className="h3 mb-0">Highlights</h2>
-                </div>
 
-                <div className="card bg-dark bg-opacity-50 border-0">
-                  <div className="card-body">
-                    <ul className="list-unstyled mb-0">
-                      {artist.highlights?.map((highlight, index) => (
-                        <li
-                          key={index}
-                          className="mb-3 d-flex align-items-center"
-                        >
-                          <span
-                            className="bg-warning rounded-circle me-3"
-                            style={{ width: "8px", height: "8px" }}
-                          ></span>
-                          {highlight}
-                        </li>
-                      ))}
-                    </ul>
+                  <div className="card bg-dark bg-opacity-50 border-0">
+                    <div className="card-body">
+                      <ul className="list-unstyled mb-0">
+                        {artist.highlights.map((highlight, index) => (
+                          <li
+                            key={index}
+                            className="mb-3 d-flex align-items-center"
+                          >
+                            <span
+                              className="bg-warning rounded-circle me-3"
+                              style={{ width: "8px", height: "8px" }}
+                            ></span>
+                            {highlight}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
                 </div>
-              </div>
+              )}
 
               {/* Social Links */}
               <div className="d-flex gap-4 mb-5">
                 {[
                   {
                     icon: Instagram,
-                    link: `https://instagram.com/${artist.instagram}`,
+                    link: artist.instagram
+                      ? `https://instagram.com/${artist.instagram}`
+                      : "#",
                   },
                   {
                     icon: Twitter,
-                    link: `https://twitter.com/${artist.twitter}`,
+                    link: artist.twitter
+                      ? `https://twitter.com/${artist.twitter}`
+                      : "#",
                   },
                   {
                     icon: Youtube,
-                    link: `https://youtube.com/${artist.youtube}`,
+                    link: artist.youtube
+                      ? `https://youtube.com/${artist.youtube}`
+                      : "#",
                   },
-                  { icon: Music, link: `${artist.music}` },
+                  {
+                    icon: Music,
+                    link: artist.music ? artist.music : "#",
+                  },
                 ].map((social, index) => (
                   <a
                     key={index}

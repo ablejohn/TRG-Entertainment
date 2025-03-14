@@ -2,93 +2,43 @@ import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Sport from "../components/Sports";
 import CombinedSection from "../components/Combinedsection";
-import Katheryn from "../assets/Katheryn.jpg";
-import Miwasus from "../assets/Miwasus.jpg";
-import QueenWinifred from "../assets/Queen Winifred.jpg";
-import RemiChester from "../assets/Remi Chester Alade.jpg";
-import TosinOyeneye from "../assets/TosinOyeneye.jpg";
-import VictorNdigwe from "../assets/Victor Ndigwe.jpg";
-import OssyBleu from "../assets/OssyBleu.jpg";
-import Samurai from "../assets/Samurai.jpg";
-import Spvce from "../assets/Spvce.jpg";
-import Muse from "../assets/Muse.jpg";
-import "../styling/talent.css";
+import { db } from "../firebase"; // Adjust the import path to your firebase.js
+import { collection, getDocs } from "firebase/firestore";
 
 const TalentShowcase = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  const [talents, setTalents] = useState([]);
   const scrollContainerRef = useRef(null);
   const autoScrollRef = useRef(null);
 
-  const talents = [
-    {
-      id: 1,
-      name: "Samurai Chi",
-      image: Samurai,
-      bgColor: "rgb(255, 98, 41)",
-    },
-    {
-      id: 2,
-      name: "Spvce Boii",
-      image: Spvce,
-      bgColor: "rgb(237, 222, 197)",
-    },
-    {
-      id: 3,
-      name: "Muse",
-      image: Muse,
-      bgColor: "rgb(0, 32, 76)",
-    },
-    {
-      id: 4,
-      name: "OssyBleu",
-      image: OssyBleu,
-      bgColor: "rgb(0, 32, 76)",
-    },
-    {
-      id: 5,
-      name: "Remi Chester Alade",
-      image: RemiChester,
-      bgColor: "rgb(255, 98, 41)",
-    },
-    {
-      id: 6,
-      name: "Tosin Oyeneye",
-      image: TosinOyeneye,
-      bgColor: "rgb(237, 222, 197)",
-    },
-    {
-      id: 7,
-      name: "Victor Ndigwe",
-      image: VictorNdigwe,
-      bgColor: "rgb(0, 32, 76)",
-    },
-
-    {
-      id: 8,
-      name: "Katheryn",
-      image: Katheryn,
-      bgColor: "rgb(0, 32, 76)",
-    },
-    {
-      id: 9,
-      name: "Miwa_sus",
-      image: Miwasus,
-      bgColor: "rgb(255, 98, 41)",
-    },
-    {
-      id: 10,
-      name: "Queen Winifred",
-      image: QueenWinifred,
-      bgColor: "rgb(237, 222, 197)",
-    },
-  ];
-
   useEffect(() => {
+    // Fetch artists from Firestore
+    const fetchTalents = async () => {
+      try {
+        const querySnapshot = await getDocs(collection(db, "artists"));
+        const talentsData = querySnapshot.docs.map((doc, index) => ({
+          id: doc.id, // Use Firestore document ID
+          ...doc.data(),
+          bgColor: [
+            "rgb(255, 87, 34)", // Orange
+            "rgb(237, 222, 197)", // Beige
+            "rgb(0, 32, 76)", // Dark Blue
+            "rgb(255, 98, 41)", // Red-Orange
+          ][index % 4], // Cycle through your original colors
+        }));
+        setTalents(talentsData);
+      } catch (error) {
+        console.error("Error fetching talents:", error);
+      }
+    };
+
+    fetchTalents();
+
+    // Handle resize
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768);
     };
-
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
@@ -125,7 +75,7 @@ const TalentShowcase = () => {
   useEffect(() => {
     startAutoScroll();
     return () => stopAutoScroll();
-  }, []);
+  }, [talents]); // Add talents as dependency to restart scroll when data loads
 
   const handleScroll = (direction) => {
     stopAutoScroll();
