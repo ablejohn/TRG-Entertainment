@@ -4,7 +4,11 @@ import {
   Routes,
   Route,
   useLocation,
+  Navigate,
 } from "react-router-dom";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { doc, getDoc } from "firebase/firestore";
+import { auth, db } from "./firebase"; // Adjust path if needed
 import Navbar from "./components/Navbar2";
 import Home from "./pages/Home";
 import Aboutus from "./pages/Aboutus";
@@ -17,20 +21,53 @@ import News from "./pages/News";
 import TrgAgency from "./pages/TrgAgency";
 import Footer from "./components/Footer";
 import AdminLogin from "./admin/adminLogin";
-import AdminDashboard from "./admin/adminDashboard";
-import SportDashboard from "./admin/sportDashboard";
-import TalentDashboard from "./components/talentDashboard";
-import AdminDashboard2 from "./components/adminDashboard";
+import AdminDashboard2 from "./admin/adminDashboard";
 
-// ScrollToTop component to handle scroll reset
+// ScrollToTop component
 const ScrollToTop = () => {
   const location = useLocation();
 
   useEffect(() => {
-    window.scrollTo(0, 0); // Scroll to the top on route change
+    window.scrollTo(0, 0);
   }, [location]);
 
   return null;
+};
+
+// ProtectedRoute component with state management
+const ProtectedRoute = ({ children }) => {
+  const [user, loading] = useAuthState(auth);
+  const [isAdmin, setIsAdmin] = useState(null); // null means "checking"
+
+  useEffect(() => {
+    const checkAdmin = async () => {
+      if (user) {
+        try {
+          const userDoc = await getDoc(doc(db, "users", user.uid));
+          setIsAdmin(userDoc.exists() && userDoc.data().role === "admin");
+        } catch (error) {
+          console.error("Error checking admin status:", error);
+          setIsAdmin(false); // Default to non-admin on error
+        }
+      } else {
+        setIsAdmin(false); // Not logged in
+      }
+    };
+
+    if (!loading) {
+      checkAdmin();
+    }
+  }, [user, loading]);
+
+  if (loading || isAdmin === null) {
+    return <div>Loading...</div>; // Show loading while checking auth or admin status
+  }
+
+  if (!user || !isAdmin) {
+    return <Navigate to="/adminlogin" replace />;
+  }
+
+  return children; // Render the protected component if authorized
 };
 
 const App = () => {
@@ -49,34 +86,20 @@ const MainApp = () => {
   const [showArrow, setShowArrow] = useState(false);
   const location = useLocation();
   const isDashboard =
-    location.pathname === "/sportadmin" ||
-    location.pathname === "/talentadmin" ||
-    location.pathname === "/admin" ||
-    location.pathname === "/adminlogin";
+    location.pathname === "/adminlogin" ||
+    location.pathname === "/admindashboard";
 
-  // Show the arrow when scrolled down
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 200) {
-        setShowArrow(true);
-      } else {
-        setShowArrow(false);
-      }
+      setShowArrow(window.scrollY > 200);
     };
 
     window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Scroll to the top of the page
   const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth", // Smooth scrolling
-    });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
@@ -94,10 +117,14 @@ const MainApp = () => {
         <Route path="/artist/:id" element={<ArtistProfile />} />
         <Route path="/sport/:id" element={<SportsProfile />} />
         <Route path="/adminlogin" element={<AdminLogin />} />
-        <Route path="/admin" element={<AdminDashboard />} />
-        <Route path="/sportadmin" element={<SportDashboard />} />
-        <Route path="/talentadmin" element={<TalentDashboard />} />
-        <Route path="/admindashboard" element={<AdminDashboard2 />} />
+        <Route
+          path="/admindashboard"
+          element={
+            <ProtectedRoute>
+              <AdminDashboard2 />
+            </ProtectedRoute>
+          }
+        />
       </Routes>
       {!isDashboard && <Footer />}
       {showArrow && (
