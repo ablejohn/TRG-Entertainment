@@ -103,7 +103,7 @@ const Footer = () => {
                 </div>
               </a>
               <a
-                href="tel:+15551234567"
+                href="tel:+2347030871668"
                 className="text-decoration-none text-secondary contact-link d-flex align-items-center gap-3 p-2 rounded transition-all"
               >
                 <div className="icon-wrapper">
@@ -112,13 +112,13 @@ const Footer = () => {
                 <span>+234 703 087 1668</span>
               </a>
               <a
-                href="mailto:info@trg-ent.com"
+                href="mailto:contact@trgentertainment.com"
                 className="text-decoration-none text-secondary contact-link d-flex align-items-center gap-3 p-2 rounded transition-all"
               >
                 <div className="icon-wrapper">
                   <FontAwesomeIcon icon={faEnvelope} />
                 </div>
-                <span>contact@trg-entertainment.com</span>
+                <span>contact@trgentertainment.com</span>
               </a>
             </div>
           </div>

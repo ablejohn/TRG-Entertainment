@@ -138,11 +138,14 @@ const Navbar = () => {
           </ul>
 
           <div className="nav-actions d-flex align-items-center">
-            <a href="tel:+1234567890" className="contact-link">
+            <a href="tel:+2347030871668" className="contact-link">
               <FontAwesomeIcon icon={faPhone} className="me-2" />
               <span className="d-none d-xl-inline ms-2">+234 703 087 1668</span>
             </a>
-            <a href="mailto:contact@rhythmlab.com" className="contact-link">
+            <a
+              href="mailto:contact@trgentertainment.com"
+              className="contact-link"
+            >
               <FontAwesomeIcon icon={faEnvelope} className="me-2" />
               <span className="d-none d-xl-inline ms-2">
                 contact@trgentertainment.com
