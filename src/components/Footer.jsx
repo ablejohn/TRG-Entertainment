@@ -97,19 +97,19 @@ const Footer = () => {
                   <FontAwesomeIcon icon={faMapMarkerAlt} />
                 </div>
                 <div>
-                  11 Baoku Cl,
+                  2882, Canyon Drive
                   <br />
-                  Eti-Osa, Lagos,Nigeria.
+                  Orlando FL 32822-3828
                 </div>
               </a>
               <a
-                href="tel:+2347030871668"
+                href="tel:+18573132118"
                 className="text-decoration-none text-secondary contact-link d-flex align-items-center gap-3 p-2 rounded transition-all"
               >
                 <div className="icon-wrapper">
                   <FontAwesomeIcon icon={faPhone} />
                 </div>
-                <span>+234 703 087 1668</span>
+                <span>+1 857 3132 118</span>
               </a>
               <a
                 href="mailto:contact@trgentertainment.com"

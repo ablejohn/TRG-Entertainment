@@ -140,7 +140,7 @@ const Navbar = () => {
           <div className="nav-actions d-flex align-items-center">
             <a href="tel:+2347030871668" className="contact-link">
               <FontAwesomeIcon icon={faPhone} className="me-2" />
-              <span className="d-none d-xl-inline ms-2">+234 703 087 1668</span>
+              <span className="d-none d-xl-inline ms-2">+1 857 3132 118</span>
             </a>
             <a
               href="mailto:contact@trgentertainment.com"
