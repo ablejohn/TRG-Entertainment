@@ -1,7 +1,6 @@
 // src/components/Loader.jsx
 import React from "react";
-import "../styling/Loader.css"; // We'll create this file
-
+import "../styling/loader.css";
 const Loader = () => {
   return (
     <div className="loader-container">
