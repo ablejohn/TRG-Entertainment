@@ -22,6 +22,7 @@ import TrgAgency from "./pages/TrgAgency";
 import Footer from "./components/Footer";
 import AdminLogin from "./admin/adminLogin";
 import AdminDashboard2 from "./admin/adminDashboard";
+import Loader from "./components/loader"; // Import the new Loader component
 
 // ScrollToTop component
 const ScrollToTop = () => {
@@ -60,7 +61,7 @@ const ProtectedRoute = ({ children }) => {
   }, [user, loading]);
 
   if (loading || isAdmin === null) {
-    return <div>Loading...</div>; // Show loading while checking auth or admin status
+    return <Loader />; // Use our custom loader
   }
 
   if (!user || !isAdmin) {
@@ -84,10 +85,21 @@ const App = () => {
 
 const MainApp = () => {
   const [showArrow, setShowArrow] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const location = useLocation();
   const isDashboard =
     location.pathname === "/adminlogin" ||
     location.pathname === "/admindashboard";
+
+  // Loading effect when route changes
+  useEffect(() => {
+    setIsLoading(true);
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 3000); // Show loader for 1.5 seconds
+
+    return () => clearTimeout(timer);
+  }, [location]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -104,6 +116,7 @@ const MainApp = () => {
 
   return (
     <>
+      {isLoading && <Loader />}
       {!isDashboard && <Navbar />}
       <ScrollToTop />
       <Routes>
