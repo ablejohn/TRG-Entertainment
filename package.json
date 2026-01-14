@@ -21,7 +21,7 @@
     "bootstrap-icons": "^1.11.3",
     "dotenv": "^16.4.7",
     "expo": "^52.0.23",
-    "firebase": "^11.4.0",
+    "firebase": "^11.7.0",
     "framer-motion": "^12.4.10",
     "latest": "^0.2.0",
     "lucide": "^0.473.0",
