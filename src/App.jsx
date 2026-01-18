@@ -23,6 +23,7 @@ import Footer from "./components/Footer";
 import AdminLogin from "./admin/adminLogin";
 import AdminDashboard2 from "./admin/adminDashboard";
 import Loader from "./components/loader"; // Import the new Loader component
+import HomepageTemp from "./pages/HomepageTemp"; // Temporary expiration page
 
 // ScrollToTop component
 const ScrollToTop = () => {
@@ -87,12 +88,20 @@ const MainApp = () => {
   const [showArrow, setShowArrow] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const location = useLocation();
+  // TEMPORARY: Added "/" to hide navbar/footer on expiration page
+  // Remove "/" from this check when restoring original homepage
   const isDashboard =
+    location.pathname === "/" ||
     location.pathname === "/adminlogin" ||
     location.pathname === "/admindashboard";
 
   // Loading effect when route changes
+  // TEMPORARY: Skip loader on homepage (expiration page)
   useEffect(() => {
+    if (location.pathname === "/") {
+      setIsLoading(false);
+      return;
+    }
     setIsLoading(true);
     const timer = setTimeout(() => {
       setIsLoading(false);
@@ -120,7 +129,11 @@ const MainApp = () => {
       {!isDashboard && <Navbar />}
       <ScrollToTop />
       <Routes>
+        {/* TEMPORARY: To restore original homepage, change HomepageTemp back to Home */}
+        <Route path="/" element={<HomepageTemp />} />
+        {/* Original homepage route (commented out):
         <Route path="/" element={<Home />} />
+        */}
         <Route path="/about-us" element={<Aboutus />} />
         <Route path="/services" element={<Services />} />
         <Route path="/talents" element={<Talents />} />
@@ -140,7 +153,7 @@ const MainApp = () => {
         />
       </Routes>
       {!isDashboard && <Footer />}
-      {showArrow && (
+      {showArrow && !isDashboard && (
         <div className="back-to-top" onClick={scrollToTop} title="Back to Top">
           <i className="bi bi-caret-up-fill"></i>
         </div>

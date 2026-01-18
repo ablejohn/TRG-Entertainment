@@ -1,0 +1,301 @@
+/* Domain/Hosting Expiration Page Styles */
+
+.expiration-page {
+  min-height: 100vh;
+  background: #f5f5f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.expiration-container {
+  max-width: 650px;
+  width: 100%;
+  background: #fff;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.expiration-header {
+  background: #cc0000;
+  padding: 25px 20px;
+  text-align: center;
+  color: white;
+  border-bottom: 3px solid #990000;
+}
+
+.warning-icon {
+  width: 50px;
+  height: 50px;
+  background: rgba(255,255,255,0.15);
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.warning-icon svg {
+  width: 28px;
+  height: 28px;
+  color: white;
+}
+
+.expiration-header h1 {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.expiration-content {
+  padding: 25px 20px;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 5px 12px;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.status-badge.suspended {
+  background: #ffeeee;
+  color: #cc0000;
+  border: 1px solid #cc0000;
+}
+
+.status-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #cc0000;
+  margin-right: 6px;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.expiration-details {
+  margin-bottom: 20px;
+}
+
+.detail-card {
+  display: flex;
+  align-items: center;
+  padding: 10px 12px;
+  background: #fafafa;
+  border: 1px solid #e0e0e0;
+  margin-bottom: 8px;
+}
+
+.detail-icon {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #e8e8e8;
+  margin-right: 12px;
+}
+
+.detail-icon svg {
+  width: 18px;
+  height: 18px;
+  color: #555;
+}
+
+.detail-icon.warning svg {
+  color: #e67700;
+}
+
+.detail-icon.danger svg {
+  color: #cc0000;
+}
+
+.detail-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.detail-label {
+  font-size: 11px;
+  color: #888;
+  text-transform: uppercase;
+}
+
+.detail-value {
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+}
+
+.detail-value.expired {
+  color: #e67700;
+}
+
+.detail-value.overdue {
+  color: #cc0000;
+}
+
+.message-box {
+  background: #fffbe6;
+  border: 1px solid #e6d600;
+  padding: 15px;
+  margin-bottom: 20px;
+}
+
+.message-box h3 {
+  font-size: 14px;
+  font-weight: bold;
+  color: #666600;
+  margin: 0 0 8px 0;
+}
+
+.message-box p {
+  font-size: 13px;
+  color: #555;
+  line-height: 1.5;
+  margin: 0 0 8px 0;
+}
+
+.message-box p:last-child {
+  margin-bottom: 0;
+}
+
+.action-section {
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  padding: 15px;
+  margin-bottom: 15px;
+}
+
+.action-section h3 {
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+  margin: 0 0 5px 0;
+}
+
+.action-section > p {
+  font-size: 12px;
+  color: #666;
+  margin: 0 0 12px 0;
+}
+
+.contact-methods {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.contact-card {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background: #fff;
+  border: 1px solid #ccc;
+}
+
+.contact-icon {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #336699;
+  margin-right: 10px;
+}
+
+.contact-icon svg {
+  width: 16px;
+  height: 16px;
+  color: white;
+}
+
+.contact-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-label {
+  font-size: 10px;
+  color: #888;
+  text-transform: uppercase;
+}
+
+.contact-value {
+  font-size: 13px;
+  color: #333;
+}
+
+.warning-footer {
+  display: flex;
+  align-items: flex-start;
+  padding: 12px;
+  background: #fff0f0;
+  border: 1px solid #ffcccc;
+}
+
+.warning-footer svg {
+  width: 18px;
+  height: 18px;
+  color: #cc0000;
+  margin-right: 10px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.warning-footer p {
+  font-size: 12px;
+  color: #660000;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.expiration-footer {
+  background: #eee;
+  padding: 12px 20px;
+  text-align: center;
+  border-top: 1px solid #ddd;
+}
+
+.expiration-footer p {
+  font-size: 11px;
+  color: #888;
+  margin: 0;
+}
+
+.expiration-footer .provider-info {
+  margin-top: 3px;
+  color: #aaa;
+}
+
+@media (max-width: 500px) {
+  .expiration-page {
+    padding: 10px;
+  }
+
+  .expiration-header {
+    padding: 20px 15px;
+  }
+
+  .expiration-header h1 {
+    font-size: 17px;
+  }
+
+  .expiration-content {
+    padding: 15px;
+  }
+
+  .detail-card {
+    padding: 8px 10px;
+  }
+}
