@@ -25,9 +25,20 @@ const Footer = () => {
     setEmail("");
   };
 
-  const handleAppDownload = (platform) => {
-    alert("Collab Tunes app coming soon to " + platform + "!");
-  };
+ const handleAppDownload = (platform) => {
+  if (platform === "ios") {
+    window.open(
+      "https://apps.apple.com/ng/app/collabtunes-pro/id6753007739",
+      "_blank"
+    );
+  }
+
+  if (platform === "android") {
+    alert("CollabTunes is coming soon to Google Play 🚀");
+  }
+};
+
+ 
 
   return (
     <footer
@@ -263,28 +274,16 @@ const Footer = () => {
                 Download Collab Tunes
               </h6>
               <div className="d-flex gap-3">
-                <button
-                  onClick={() => handleAppDownload("App Store")}
+              <button
+                onClick={() => handleAppDownload("ios")}
+                className="btn text-white app-store-btn"
+              >
+                <FontAwesomeIcon icon={faStore} className="me-2" />
+                App Store
+              </button>
+               <button
+                  onClick={() => handleAppDownload("android")}
                   className="btn text-white app-store-btn"
-                  style={{
-                    backgroundColor: "rgba(255, 0, 72, 0.1)",
-                    border: "1px solid rgba(255, 0, 72, 0.3)",
-                    borderRadius: "8px",
-                    padding: "8px 16px",
-                  }}
-                >
-                  <FontAwesomeIcon icon={faStore} className="me-2" />
-                  App Store
-                </button>
-                <button
-                  onClick={() => handleAppDownload("Google Play")}
-                  className="btn text-white app-store-btn"
-                  style={{
-                    backgroundColor: "rgba(255, 0, 72, 0.1)",
-                    border: "1px solid rgba(255, 0, 72, 0.3)",
-                    borderRadius: "8px",
-                    padding: "8px 16px",
-                  }}
                 >
                   <FontAwesomeIcon icon={faMobileScreen} className="me-2" />
                   Play Store

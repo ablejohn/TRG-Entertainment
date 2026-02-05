@@ -2,8 +2,9 @@ import React, { useState, useEffect, useRef } from "react";
 import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
 import "../styling/blog.css";
 
-const API_KEY = "b957442e-6254-4f4a-9581-a76ed5b85d7f";
-const API_URL = `https://content.guardianapis.com/search?q=Nigeria music&section=music&show-fields=thumbnail,trailText&api-key=${API_KEY}`;
+const API_KEY = import.meta.env.VITE_GUARDIAN_API_KEY;
+const API_URL = `https://content.guardianapis.com/search?q=Nigeria%20music&section=music&show-fields=thumbnail,trailText&api-key=${API_KEY}`;
+
 
 const BlogCarousel = () => {
   const [activeSlide, setActiveSlide] = useState(0);
@@ -44,6 +45,10 @@ const BlogCarousel = () => {
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+  
+  if (!API_KEY) {
+  console.error("Guardian API key missing");
+}
 
   const getMaxShift = () => {
     const visibleSlides = window.innerWidth < 768 ? 1 : 2;

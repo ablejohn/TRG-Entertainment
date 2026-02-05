@@ -10,8 +10,8 @@ import {
 } from "lucide-react";
 import axios from "axios";
 
-const API_KEY = "b957442e-6254-4f4a-9581-a76ed5b85d7f";
-const API_URL = `https://content.guardianapis.com/search?q=Nigeria music&section=music&show-fields=thumbnail,trailText&api-key=${API_KEY}`;
+const API_KEY = import.meta.env.VITE_GUARDIAN_API_KEY;
+const API_URL = `https://content.guardianapis.com/search?q=Nigeria%20music&section=music&show-fields=thumbnail,trailText&api-key=${API_KEY}`;
 
 const BlogSection = () => {
   const [newsItems, setNewsItems] = useState([]);
@@ -29,7 +29,10 @@ const BlogSection = () => {
 
     fetchNews();
   }, []);
-
+  
+if (!API_KEY) {
+  console.error("Guardian API key missing");
+}
   return (
     <div style={{ backgroundColor: "#000000" }} className="py-5">
       <div className="container">

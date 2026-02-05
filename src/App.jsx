@@ -88,10 +88,8 @@ const MainApp = () => {
   const [showArrow, setShowArrow] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const location = useLocation();
-  // TEMPORARY: Added "/" to hide navbar/footer on expiration page
-  // Remove "/" from this check when restoring original homepage
+ 
   const isDashboard =
-    location.pathname === "/" ||
     location.pathname === "/adminlogin" ||
     location.pathname === "/admindashboard";
 
@@ -129,11 +127,10 @@ const MainApp = () => {
       {!isDashboard && <Navbar />}
       <ScrollToTop />
       <Routes>
-        {/* TEMPORARY: To restore original homepage, change HomepageTemp back to Home */}
-        <Route path="/" element={<HomepageTemp />} />
-        {/* Original homepage route (commented out):
+        {/* TEMPORARY: To restore original homepage, change HomepageTemp back to Home 
+        <Route path="/" element={<Home />} />*/}
+       
         <Route path="/" element={<Home />} />
-        */}
         <Route path="/about-us" element={<Aboutus />} />
         <Route path="/services" element={<Services />} />
         <Route path="/talents" element={<Talents />} />
